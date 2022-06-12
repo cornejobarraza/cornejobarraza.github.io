@@ -23,13 +23,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/goodnight.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -59,7 +60,10 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "scripts": [
+                "src/assets/goodnight.js"
+              ]
             }
           },
           "defaultConfiguration": "production"
