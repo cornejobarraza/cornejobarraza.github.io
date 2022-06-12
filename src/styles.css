@@ -154,7 +154,7 @@ main .btn:focus {
 
 .modal-content {
   color: var(--text) !important;
-  background: var(--primary) !important;
+  background: var(--secondary) !important;
   border-radius: 1rem !important;
   margin: 0 auto 0 auto !important;
   padding: 0.25rem !important;
