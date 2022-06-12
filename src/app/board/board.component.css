@@ -1,0 +1,27 @@
+#game {
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #060607;
+  color: #fff;
+}
+
+#ticTac {
+  background: var(--tertiary);
+  border-radius: 1rem;
+}
+
+#mainContent {
+  display: grid;
+  border: 1px solid black;
+  background: black;
+  height: 184px;
+  width: 184px;
+  grid-gap: 1px;
+  grid-template-columns: 60px 60px 60px;
+}
+
+@media screen and (min-width: 1024px) {
+  #ticTac {
+    width: 92%;
+  }
+}

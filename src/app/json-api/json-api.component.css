@@ -1,0 +1,71 @@
+#nextJson,
+#previousJson {
+  border: 0;
+  padding-bottom: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+a {
+  color: var(--headers);
+  text-decoration: none;
+}
+
+.fs-7 {
+  font-size: 0.91rem;
+}
+
+#currentCard {
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #060607;
+  color: #fff;
+}
+
+.card {
+  width: 85%;
+  text-align: center;
+  background: var(--tertiary);
+  border-radius: 1rem;
+}
+
+.card-header {
+  border-radius: 1rem 1rem 0 0 !important;
+}
+
+#content {
+  margin-top: -2px;
+}
+
+.card-footer {
+  border: 0;
+  background: transparent;
+  border-radius: 0 0 1rem 1rem !important;
+}
+
+#cycleJson {
+  border: none !important;
+  background: var(--headers);
+  box-shadow: none !important;
+  border-radius: 0 0 1rem 1rem !important;
+}
+
+#cycleJson:hover {
+  opacity: 0.9;
+}
+
+.fa-arrows-rotate {
+  color: var(--active) !important;
+}
+
+#description a {
+  color: var(--headers);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 80%;
+  }
+}

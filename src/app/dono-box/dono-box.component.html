@@ -1,0 +1,55 @@
+<div class="col-md-7 col-lg-8 mx-auto">
+  <div class="content mx-auto">
+    <div id="goal">
+      <div *ngIf="isInvalid; else valid">
+        <h6 [@fadeInOut] (@fadeInOut.done)="invalidEnd($event)">Please enter a valid amount</h6>
+      </div>
+      <ng-template #valid>
+        <div *ngIf="!hasDonated && remaining > 0; else confirmation">
+          <h6>
+            <span class="fw-bold">${{ remaining }}</span> still needed for this project
+          </h6>
+        </div>
+        <ng-template #confirmation>
+          <div *ngIf="donated === goal; else surpassed">
+            <h6 @fadeIn>We did it! Thank you so much</h6>
+          </div>
+          <ng-template #surpassed>
+            <div *ngIf="donated > goal && !hasDonated; else thanks">
+              <h6>
+                We have now raised <span class="fw-bold">${{ plus }}</span> over our goal
+              </h6>
+            </div>
+          </ng-template>
+          <ng-template #thanks>
+            <h6 [@fadeInOut] (@fadeInOut.done)="donationEnd($event)">Thanks for your contribution ❤</h6>
+          </ng-template>
+        </ng-template>
+      </ng-template>
+      <span class="arrow"><wbr /></span>
+    </div>
+
+    <div id="box">
+      <app-dono-bar [progress]="progress"></app-dono-bar>
+      <div id="inner-box">
+        <p>Only 1 month left to fund this project.</p>
+        <p>Join the other donors who have already supported us. Every dollar helps!</p>
+        <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+          <div class="input-container">
+            <i>$</i>
+            <input type="number" formControlName="amount" min="1" /><button
+              type="submit"
+              class="btn btn-sm btn-success"
+            >
+              Give now
+            </button>
+          </div>
+        </form>
+        <a href="javascript:;">
+          <span>Why give $50?</span>
+          <span class="why">You become a beta tester automatically!</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

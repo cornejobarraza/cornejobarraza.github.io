@@ -1,0 +1,59 @@
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+#disclaimer {
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #060607;
+  color: #fff;
+}
+
+.card {
+  width: 85%;
+  text-align: center;
+  background: var(--tertiary);
+  border-radius: 1rem;
+}
+
+.card-header {
+  border-radius: 1rem 1rem 0 0 !important;
+}
+
+.card-footer {
+  border: 0;
+  background: transparent;
+  border-radius: 0 0 1rem 1rem !important;
+}
+
+span {
+  color: var(--active);
+  background: var(--headers);
+}
+
+#cyclePoke {
+  border: none !important;
+  background: var(--headers);
+  box-shadow: none !important;
+  border-radius: 0 0 1rem 1rem !important;
+}
+
+#cyclePoke:hover {
+  opacity: 0.9;
+}
+
+.fa-arrows-rotate {
+  color: var(--active) !important;
+}
+
+#description a {
+  color: var(--headers);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 80%;
+  }
+}

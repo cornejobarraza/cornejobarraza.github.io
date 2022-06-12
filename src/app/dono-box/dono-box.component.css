@@ -1,0 +1,130 @@
+#donation {
+  background: var(--tertiary);
+  border-radius: 1rem;
+}
+
+.content {
+  width: 19rem;
+}
+
+#goal {
+  text-align: center;
+  border-radius: 0.25rem;
+  color: white;
+  background: black;
+  margin-bottom: 1rem;
+  outline: 1px solid black;
+}
+
+#goal h6 {
+  color: white;
+  font-size: 0.9rem;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 75%;
+  margin-left: 105px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#box {
+  color: black;
+  background: #e3e5e8;
+  outline: 1px solid black;
+}
+
+#inner-box {
+  padding: 1rem;
+  position: relative;
+  text-align: start;
+  font-size: 0.95rem;
+  border-top: 1px solid black;
+}
+
+#inner-box p {
+  margin-top: 0;
+}
+
+#inner-box a {
+  color: black;
+  font-size: 0.85rem;
+  font-style: italic;
+  text-decoration: none;
+}
+
+#inner-box span:first-child {
+  transition: 0.25s ease;
+}
+
+#inner-box a:hover span:first-child {
+  opacity: 0;
+}
+
+#inner-box a:hover .why {
+  opacity: 1;
+}
+
+.why {
+  opacity: 0;
+  left: 1rem;
+  bottom: 1.1rem;
+  position: absolute;
+  transition: 0.25s ease;
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container i {
+  color: black;
+  padding-top: 4px;
+  margin-left: 9px;
+  font-style: normal;
+  font-size: 0.85rem;
+  position: absolute;
+}
+
+input[type="number" i] {
+  width: 75px;
+  font-size: 0.9rem;
+  background: white;
+  padding-left: 20px;
+  margin-right: 0.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+button[type="submit"] {
+  font-size: 0.9rem;
+  border: 0;
+  color: white;
+  box-shadow: none !important;
+  font-weight: bold;
+  background: #198754;
+  border-radius: 0.75rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #157347;
+}
+
+@media screen and (min-width: 1024px) {
+  #donation {
+    width: 92%;
+  }
+}

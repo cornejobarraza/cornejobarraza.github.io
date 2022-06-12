@@ -1,0 +1,94 @@
+<div class="row gap-5 mx-auto">
+  <div class="row justify-content-between justify-content-md-evenly align-items-center text-center mx-auto">
+    <div class="col-lg-3 col-md-8 justify-content-center">
+      <div id="profile-card" class="card mx-auto">
+        <div class="card-body">
+          <img src="res/pfp.jpg" class="mx-auto my-2 img-thumbnail rounded-circle" width="150px" alt="" />
+          <h5 class="card-title fw-bold my-2">David Cornejo</h5>
+          <div class="card-text my-2">
+            <p class="mb-1">Welcome to my page!</p>
+            <p class="mb-3">Check out my profiles</p>
+            <a
+              href="https://github.com/cornejobarraza"
+              target="_blank"
+              style="margin-right: 0.75rem; text-decoration: none"
+            >
+              <i class="fa-brands fa-github fs-5"></i>
+            </a>
+            <a href="https://linkedin.com/in/cornejobarraza" target="_blank">
+              <i class="fa-brands fa-linkedin fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 text-lg-start px-4 mt-5 px-lg-2 mt-lg-0">
+      <h4 class="fw-bold">So what is this?</h4>
+      <p>
+        Good question! I've always been drawn to computers and tech in general. I had the opportunity to study an
+        associate's degree on networking and security, which I had always thought was my dream career path most of my
+        life. Fast forward a couple of years and I'm about to graduate from a career that even though is very
+        profitable, it doesn't make me feel as excited as I thought it would.
+      </p>
+      <p>
+        During this time of questioning my decisions and wondering what the future might have in-store for me, I catched
+        up with a good friend after we lost contact for a couple of years. We talked about life and stuff, but at some
+        point he told me he had become a web developer and for some reason that resonated a lot with me.
+      </p>
+      <p class="mb-0">
+        I have since started a journey to become a developer too, and this website is my way to show myself and other
+        people what I've accomplished so far. I'm pretty sure something changed that day, as a sudden drive for learning
+        new things kicked in again. The page will be in constant change but I'll make sure every part of it is well
+        explained.
+      </p>
+    </div>
+  </div>
+  <div id="problems" class="row gap-5 justify-content-evenly mx-auto text-center">
+    <div class="col-12 col-lg-11 text-center">
+      <div class="card about">
+        <div class="card-body">
+          <h6 class="card-text fw-bold">Here are some JavaScript exercises 👇</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-11">
+      <h5 class="fw-bold mb-1">Code #1</h5>
+      <p class="fs-6">This button alerts "Hello, World!" to the screen</p>
+      <button type="button" class="btn btn-sm" (click)="code1()">Display alert</button>
+    </div>
+    <div class="col-md-5 col-11">
+      <h5 class="fw-bold mb-1">Code #2</h5>
+      <p class="fs-6">This button asks for your name and greets you</p>
+      <button type="button" class="btn btn-sm" (click)="code2()">Enter your name</button>
+    </div>
+    <div class="col-md-5 col-11">
+      <h5 class="fw-bold mb-1">Code #3</h5>
+      <p class="fs-6">This button asks for a number and sums it from 1 to n</p>
+      <button type="button" class="btn btn-sm" (click)="code3()">Enter a number</button>
+    </div>
+    <div class="col-md-5 col-11">
+      <h5 class="fw-bold mb-1">Code #4</h5>
+      <p class="fs-6">This button checks if the user's input is a palindrome or not</p>
+      <button type="button" class="btn btn-sm" (click)="code4()">Enter a word or sentence</button>
+    </div>
+  </div>
+  <div id="apps" class="row gap-5 justify-content-center text-center mx-auto">
+    <div class="col-12 col-lg-11 text-center">
+      <div class="card about">
+        <div class="card-body">
+          <h6 class="card-text fw-bold">These are my Angular projects 🚀</h6>
+        </div>
+      </div>
+    </div>
+    <div id="appSelector" class="col-md-4 d-flex justify-content-center">
+      <button id="nextApp" type="button" class="btn btn-sm" (click)="this.previousApp()">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+      </button>
+      <h5 [@fadeIn]="this.appName" class="fw-bold mx-1 my-0">{{ this.appName }}</h5>
+      <button id="previousApp" type="button" class="btn btn-sm" (click)="this.nextApp()">
+        <i class="fa-solid fa-circle-chevron-right"></i>
+      </button>
+    </div>
+    <router-outlet class="d-none"></router-outlet>
+  </div>
+</div>
