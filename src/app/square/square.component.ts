@@ -23,15 +23,15 @@ import { Component, Input } from "@angular/core";
       }
       .btn-white {
         color: black;
-        background: #e3e5e8;
+        background: #d5d8dd;
       }
       .btn-white:hover {
         color: black;
-        background-color: #e8e6e3;
+        background-color: #dddad5;
       }
       .btn-white:focus {
         opacity: 1;
-        background-color: #e3e5e8;
+        background-color: #d5d8dd;
       }
     `,
   ],

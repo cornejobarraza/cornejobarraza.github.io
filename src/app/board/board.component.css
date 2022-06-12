@@ -5,11 +5,6 @@
   color: #fff;
 }
 
-#ticTac {
-  background: var(--tertiary);
-  border-radius: 1rem;
-}
-
 #mainContent {
   display: grid;
   border: 1px solid black;

@@ -1,7 +1,7 @@
 #profile-card {
-  background: var(--tertiary);
+  background: var(--secondary);
   border-radius: 1.5rem;
-  width: 75%;
+  width: 80%;
 }
 
 .img-thumbnail {
@@ -11,12 +11,12 @@
 }
 
 .about {
-  background: var(--tertiary);
+  background: var(--secondary);
   border-radius: 1rem;
 }
 
-#appSelector {
-  margin-bottom: -20px;
+.break {
+  display: none;
 }
 
 #nextApp,
@@ -29,12 +29,20 @@
 
 @media screen and (min-width: 768px) {
   #profile-card {
-    width: 65%;
+    width: 63%;
+  }
+
+  .break {
+    display: inline;
   }
 }
 
 @media screen and (min-width: 1024px) {
   #profile-card {
-    width: 85%;
+    width: 88%;
+  }
+
+  .break {
+    display: none;
   }
 }

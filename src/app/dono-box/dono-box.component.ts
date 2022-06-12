@@ -12,8 +12,8 @@ import { AnimationEvent } from "@angular/animations";
     trigger("fadeInOut", [
       transition(":enter", [
         style({ opacity: 0 }),
-        animate("0.2s ease", style({ opacity: 1 })),
-        animate("0.2s 1000ms ease", style({ opacity: 0 })),
+        animate("0.5s ease", style({ opacity: 1 })),
+        animate("0.5s 1000ms ease", style({ opacity: 0 })),
       ]),
     ]),
   ],

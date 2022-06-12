@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-7 text-center mx-auto">
   <span id="currentCard" class="badge rounded-pill fw-bold mb-4">{{ this.selectors[this.cardNumber].cardName }}</span>
   <div id="jsonCard" class="card mx-auto">
-    <div class="card-header d-flex justify-content-center">
+    <div class="card-header justify-content-center">
       <h6 class="m-0">{{ this.title }}</h6>
     </div>
     <div class="card-body py-2 fs-7">
@@ -18,7 +18,7 @@
       </button>
     </div>
   </div>
-  <div class="d-inline-flex pt-2">
+  <div class="d-inline-flex mt-4">
     <button id="previousJson" type="button" class="btn" (click)="getData(this.previous)">
       <i class="fa-solid fa-square-caret-left"></i>
     </button>

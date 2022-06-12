@@ -15,14 +15,11 @@ import { formatDate } from "@angular/common";
         background: #060607;
         color: #fff;
       }
-      #toDo {
-        background: var(--tertiary);
-        border-radius: 1rem;
-      }
       #toDoCard {
         width: 19rem;
         border: 1px solid black;
-        background: #e3e5e8;
+        border-radius: 1rem;
+        background: #d5d8dd;
       }
       .form-check-input:focus {
         box-shadow: none;
@@ -60,7 +57,10 @@ import { formatDate } from "@angular/common";
     `,
   ],
   animations: [
-    trigger("fade", [transition(":leave", [style({ opacity: 1 }), animate("0.2s ease", style({ opacity: 0 }))])]),
+    trigger("fade", [
+      transition(":enter", [style({ opacity: 0 }), animate("0.15s ease", style({ opacity: 1 }))]),
+      transition(":leave", [style({ opacity: 1 }), animate("0.15s ease", style({ opacity: 0 }))]),
+    ]),
   ],
 })
 export class ToDoComponent implements OnInit {

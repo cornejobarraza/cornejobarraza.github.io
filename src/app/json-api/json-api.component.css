@@ -1,7 +1,7 @@
 #nextJson,
 #previousJson {
   border: 0;
-  padding-bottom: 0;
+  padding: 0 0.75rem;
   box-shadow: none;
   background-color: transparent;
 }
@@ -25,7 +25,7 @@ a {
 .card {
   width: 85%;
   text-align: center;
-  background: var(--tertiary);
+  background: var(--secondary);
   border-radius: 1rem;
 }
 

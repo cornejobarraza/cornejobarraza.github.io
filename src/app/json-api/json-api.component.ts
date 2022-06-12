@@ -41,6 +41,7 @@ export class JsonApiComponent implements OnInit {
   }
 
   getData(turn: number) {
+    this.title = "";
     this.contents = [];
     this.cardNumber = turn;
 
@@ -58,11 +59,15 @@ export class JsonApiComponent implements OnInit {
 
         if (turn === 0) {
           this.title = `👤 ${data.name}`;
-          this.contents = [`🌐 ${data.website}`, `📧 ${data.email}`, `🏢 ${data.company.name}`];
+          this.contents = [
+            `🌐 ${data.website.toLowerCase()}`,
+            `📧 ${data.email.toLowerCase()}`,
+            `🏢 ${data.company.name}`,
+          ];
         }
 
         if (turn === 1) {
-          this.title = `💻 ${data.email} says:`;
+          this.title = `✉ ${data.email.toLowerCase()} says:`;
           this.contents = [data.body];
         }
 

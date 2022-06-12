@@ -12,7 +12,7 @@
 .card {
   width: 85%;
   text-align: center;
-  background: var(--tertiary);
+  background: var(--secondary);
   border-radius: 1rem;
 }
 
