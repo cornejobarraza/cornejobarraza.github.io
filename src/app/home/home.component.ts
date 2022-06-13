@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   }
 
   code2() {
-    let userName = prompt("Hey! What's your name? 😁");
+    let userName = prompt("Hey! What's your name? 😄");
 
     if (userName === null || userName === "") return;
 
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   }
 
   code3() {
-    const userNum = prompt("Please enter a number 🤔");
+    const userNum = prompt("Please enter a number #️⃣");
 
     if (userNum === null || userNum === "") return;
 
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   code4() {
-    let userInput = prompt("Your text goes here 📃");
+    let userInput = prompt("Your text goes here 📝");
 
     // RegEx to match characters that are not letters or numbers
     let re = /[^A-Za-z0-9\s]/g;
