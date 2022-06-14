@@ -11,7 +11,7 @@ import { Component, Input } from "@angular/core";
     `
       button {
         width: 100%;
-        height: 50px;
+        height: 60px;
         color: white;
         font-weight: bold;
         border-radius: 0;

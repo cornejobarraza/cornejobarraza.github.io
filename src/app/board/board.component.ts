@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Renderer2 } from "@angular/core";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { AnimationEvent } from "@angular/animations";
 
 @Component({
   selector: "app-board",
   templateUrl: "./board.component.html",
   styleUrls: ["./board.component.css"],
   animations: [
-    trigger("fadeIn", [
-      transition(":enter", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))]),
-    ]),
+    trigger("fadeIn", [transition(":enter", [style({ opacity: 0 }), animate("0.2s ease", style({ opacity: 1 }))])]),
+    trigger("fadeOut", [transition(":leave", [style({ opacity: 1 }), animate("0.2s ease", style({ opacity: 0 }))])]),
   ],
 })
 export class BoardComponent implements OnInit {
@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   tie: boolean | null = null;
   saveData!: string[];
 
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
     this.savedGame();
@@ -76,11 +76,7 @@ export class BoardComponent implements OnInit {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (
-        this.squares[a] &&
-        this.squares[a] === this.squares[b] &&
-        this.squares[a] === this.squares[c]
-      ) {
+      if (this.squares[a] && this.squares[a] === this.squares[b] && this.squares[a] === this.squares[c]) {
         return this.squares[a];
       }
     }
@@ -94,6 +90,22 @@ export class BoardComponent implements OnInit {
       return true;
     } else {
       return false;
+    }
+  }
+
+  freezeBoard(event: AnimationEvent) {
+    let squares = document.querySelectorAll("app-square");
+
+    for (let i: number = 0; i < squares.length; i++) {
+      this.renderer.setStyle(squares[i], "pointer-events", "none");
+    }
+  }
+
+  unfreezeBoard(event: AnimationEvent) {
+    let squares = document.querySelectorAll("app-square");
+
+    for (let i: number = 0; i < squares.length; i++) {
+      this.renderer.removeStyle(squares[i], "pointer-events");
     }
   }
 }

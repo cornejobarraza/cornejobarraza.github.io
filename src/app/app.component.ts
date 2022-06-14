@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Renderer2, ElementRef } from "@angular/core";
+import { Component, OnInit, HostListener, Renderer2 } from "@angular/core";
 declare let goodNight: any;
 
 @Component({
@@ -9,13 +9,14 @@ declare let goodNight: any;
 export class AppComponent implements OnInit {
   title = "project-website";
 
-  constructor(private renderer: Renderer2, private element: ElementRef) {}
+  constructor(private renderer: Renderer2) {}
 
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     let maxScroll: number = document.documentElement.offsetHeight - window.innerHeight;
     let currentScroll: number = document.documentElement.scrollTop || document.body.scrollTop;
-    let isAboveFooter: boolean = maxScroll - currentScroll < 40;
+    let positionY: number = maxScroll - currentScroll;
+    let isAboveFooter: boolean = positionY < 40 || positionY === 0;
 
     const toggle = document.getElementById("lightToggle");
 

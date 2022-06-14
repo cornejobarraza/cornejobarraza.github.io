@@ -18,8 +18,18 @@
   </ng-template>
 
   <div id="mainContent" class="mt-4 mx-auto">
+    <button
+      [@fadeIn]
+      [@fadeOut]
+      (@fadeIn.start)="freezeBoard($event)"
+      (@fadeOut.done)="unfreezeBoard($event)"
+      id="newGame"
+      *ngIf="winner || tie"
+      class="btn btn-sm"
+      (click)="newGame()"
+    >
+      Reset game
+    </button>
     <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"> </app-square>
   </div>
-
-  <button @fadeIn *ngIf="winner || tie" class="btn btn-sm mt-4" (click)="newGame()">Reset game</button>
 </div>

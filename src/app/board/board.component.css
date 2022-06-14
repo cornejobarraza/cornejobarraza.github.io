@@ -7,10 +7,20 @@
 }
 
 #mainContent {
+  position: relative;
   display: grid;
   border: 1px solid black;
   background: black;
-  width: 154px;
+  width: 184px;
   grid-gap: 1px;
-  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: 60px 60px 60px;
+}
+
+#newGame {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0.5em 0 #202225;
 }

@@ -136,7 +136,7 @@ nav .container {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  background-color: #2949ee;
+  background-color: #2959ee;
   box-shadow: 0 0 0.25em 0 #202225;
   transition: all 0.15s ease;
 }
@@ -147,7 +147,7 @@ nav .container {
 }
 
 #lightToggle:hover {
-  background-color: #2959ee;
+  background-color: #416bf0;
 }
 
 .active-link {
