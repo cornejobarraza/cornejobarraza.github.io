@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.router.url === "/" || this.router.url === "/game") {
-      this.appName = "Tic-tac-toe game";
+      this.appName = "Tic-tac-toe";
     }
 
     if (this.router.url === "/list") {
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   }
 
   code2() {
-    let userName = prompt("Hey! What's your name? 😄");
+    let userName = prompt("Hey! What's your name? 👀");
 
     if (userName === null || userName === "") return;
 
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   code4() {
-    let userInput = prompt("Your text goes here 📝");
+    let userInput = prompt("Your text goes here 🤓");
 
     // RegEx to match characters that are not letters or numbers
     let re = /[^A-Za-z0-9\s]/g;
@@ -135,33 +135,33 @@ export class HomeComponent implements OnInit {
     }
 
     if (this.router.url === "/placeholder") {
-      this.appName = "To-Do list";
-      this.router.navigate(["/list"]);
-    }
-
-    if (this.router.url === "/list") {
       this.appName = "Donation box";
       this.router.navigate(["/donation"]);
     }
 
     if (this.router.url === "/donation") {
-      this.appName = "Tic-tac-toe game";
+      this.appName = "To-Do list";
+      this.router.navigate(["/list"]);
+    }
+
+    if (this.router.url === "/list") {
+      this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
     }
   }
 
   nextApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
-      this.appName = "Donation box";
-      this.router.navigate(["/donation"]);
-    }
-
-    if (this.router.url === "/donation") {
       this.appName = "To-Do list";
       this.router.navigate(["/list"]);
     }
 
     if (this.router.url === "/list") {
+      this.appName = "Donation box";
+      this.router.navigate(["/donation"]);
+    }
+
+    if (this.router.url === "/donation") {
       this.appName = "Fake API";
       this.router.navigate(["/placeholder"]);
     }
@@ -172,7 +172,7 @@ export class HomeComponent implements OnInit {
     }
 
     if (this.router.url === "/pokemon") {
-      this.appName = "Tic-tac-toe game";
+      this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
     }
   }

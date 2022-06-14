@@ -10,7 +10,7 @@ import { Component, Input } from "@angular/core";
   styles: [
     `
       #progress {
-        height: 20px;
+        height: 1.25rem;
         background: white;
       }
       #progress-bar {

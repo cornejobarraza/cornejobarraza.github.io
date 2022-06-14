@@ -1,12 +1,12 @@
-<div class="col-md-7 col-lg-8 mx-auto">
+<div class="col mx-auto">
   <span id="date" class="badge rounded-pill fw-bold mb-4">{{ this.date }}</span>
-  <div id="toDoCard" class="card text-dark mx-auto">
+  <div id="toDoCard" class="card mx-auto">
     <div class="card-header text-center px-4">
-      <h6 class="fw-bold text-dark m-0">Tasks for today</h6>
+      <h6 class="fw-bold m-0">Tasks for today</h6>
     </div>
     <div class="card-body px-4">
       <div @fade *ngFor="let task of tasks; let i = index">
-        <ul id="list" class="list-unstyled mx-2 mb-2">
+        <ul id="list" class="list-unstyled mx-3 mb-2">
           <li class="d-flex">
             <div>
               <input

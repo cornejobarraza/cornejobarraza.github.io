@@ -17,9 +17,9 @@ import { formatDate } from "@angular/common";
       }
       #toDoCard {
         width: 19rem;
-        border: 1px solid black;
+        color: var(--headers);
         border-radius: 1rem;
-        background: #d5d8dd;
+        background: var(--secondary);
       }
       .form-check-input:focus {
         box-shadow: none;

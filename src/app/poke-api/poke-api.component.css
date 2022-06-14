@@ -1,7 +1,3 @@
-.fs-7 {
-  font-size: 0.85rem;
-}
-
 #disclaimer {
   font-size: 0.9em;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -10,13 +6,14 @@
 }
 
 .card {
-  width: 85%;
+  width: 19rem;
   text-align: center;
   background: var(--secondary);
   border-radius: 1rem;
 }
 
 .card-header {
+  position: relative;
   border-radius: 1rem 1rem 0 0 !important;
 }
 
@@ -46,14 +43,28 @@ span {
   color: var(--active) !important;
 }
 
-#description a {
-  color: var(--headers);
-  font-weight: bold;
-  text-decoration: none;
+#aboutPoke {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  font-size: 0.9rem;
 }
 
-@media screen and (min-width: 768px) {
-  .card {
-    width: 80%;
+#aboutPoke i {
+  color: var(--headers);
+}
+
+a:hover#aboutPoke ~ #description {
+  z-index: 1;
+  opacity: 1;
+}
+
+a#aboutPoke:focus {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 1024px) {
+  a#aboutPoke:focus {
+    pointer-events: auto;
   }
 }

@@ -1,3 +1,6 @@
+<button id="lightToggle" class="btn btn-sm p-0">
+  <i class="fa-solid fa-lightbulb"></i>
+</button>
 <div id="myModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -15,38 +18,30 @@
     </div>
   </div>
 </div>
-<header>
-  <nav id="menu" class="navbar">
-    <div class="container">
-      <div class="col-auto d-flex">
-        <a class="navbar-brand p-0" href="/">
-          <i id="brand-check" class="fa-solid fa-circle-check fs-6"></i>
-          <h6 class="d-inline fw-bold ps-2">Project website</h6>
-        </a>
+<div id="topWrapper">
+  <header>
+    <nav id="menu" class="navbar">
+      <div class="container justify-content-center">
+        <div class="col-auto text-center">
+          <a class="navbar-brand text-light d-flex justify-content-center align-items-center py-1" href="/">
+            <i id="brand-check" class="fa-solid fa-circle-check fs-6"></i>
+            <h6 class="fw-bold my-auto ps-2">Project website</h6>
+          </a>
+        </div>
       </div>
-      <div class="col-auto d-flex">
-        <button id="lightToggle" class="btn btn-sm p-0">
-          <i class="fa-solid fa-lightbulb"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
-</header>
-<main class="container"><router-outlet></router-outlet></main>
+    </nav>
+  </header>
+  <main class="container"><router-outlet></router-outlet></main>
+</div>
 <footer>
   <div class="row-auto">
     <div class="container text-center">
       <ul id="footer-links" class="list-group list-group-horizontal">
-        <li class="list-group-item flex-fill">
-          <a href="https://angular.io/" target="_blank"><i class="fa-brands fa-angular"></i> Angular</a>
-        </li>
-        <li class="list-group-item flex-fill">
-          <a href="https://getbootstrap.com/" target="_blank"><i class="fa-brands fa-bootstrap"></i> Bootstrap</a>
-        </li>
-        <li class="list-group-item flex-fill">
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-            ><i class="fa-brands fa-js-square"></i> JavaScript</a
-          >
+        <li class="list-group-item text-muted flex-fill">
+          <span>Made with </span>
+          <a class="text-muted" href="https://getbootstrap.com/" target="_blank"
+            >Bootstrap <i class="fa-brands fa-bootstrap"></i
+          ></a>
         </li>
       </ul>
     </div>

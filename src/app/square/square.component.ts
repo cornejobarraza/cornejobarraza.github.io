@@ -22,16 +22,27 @@ import { Component, Input } from "@angular/core";
         box-shadow: none;
       }
       .btn-white {
-        color: black;
-        background: #d5d8dd;
+        color: var(--headers);
+        background: var(--secondary);
       }
       .btn-white:hover {
-        color: black;
-        background-color: #dddad5;
+        color: white;
+        background-color: var(--tertiary);
       }
       .btn-white:focus {
+        transition: none;
+        background-color: var(--secondary);
+      }
+      .btn-white:focus:hover {
         opacity: 1;
-        background-color: #d5d8dd;
+        color: var(--headers);
+        background-color: var(--secondary);
+      }
+      @media (pointer: fine) {
+        .btn-white:focus:hover {
+          color: white;
+          background-color: var(--tertiary);
+        }
       }
     `,
   ],

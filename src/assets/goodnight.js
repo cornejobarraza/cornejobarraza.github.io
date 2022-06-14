@@ -33,9 +33,12 @@ let goodNight = () => {
 
       myModal.show();
       document.body.style.paddingRight = "0";
+      lightSwitch.style.opacity = "0";
 
       keepOn.addEventListener("click", () => {
         localStorage.setItem("keepLightMode", "no");
+
+        lightSwitch.style.opacity = "1";
       });
 
       keepOff.addEventListener("click", () => {
@@ -43,6 +46,7 @@ let goodNight = () => {
 
         lightSwitch.removeChild(lightSwitch.firstElementChild);
         lightSwitch.insertAdjacentHTML("afterbegin", moon);
+        lightSwitch.style.opacity = "1";
 
         document.documentElement.classList.remove("dark");
         document.documentElement.classList.add("toggledLight");

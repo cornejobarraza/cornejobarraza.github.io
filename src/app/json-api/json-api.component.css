@@ -11,25 +11,23 @@ a {
   text-decoration: none;
 }
 
-.fs-7 {
-  font-size: 0.91rem;
-}
-
 #currentCard {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
   background: #060607;
   color: #fff;
 }
 
 .card {
-  width: 85%;
+  width: 19rem;
   text-align: center;
   background: var(--secondary);
   border-radius: 1rem;
 }
 
 .card-header {
+  position: relative;
+  min-height: 36px;
   border-radius: 1rem 1rem 0 0 !important;
 }
 
@@ -58,14 +56,28 @@ a {
   color: var(--active) !important;
 }
 
-#description a {
-  color: var(--headers);
-  font-weight: bold;
-  text-decoration: none;
+#aboutJson {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  font-size: 0.9rem;
 }
 
-@media screen and (min-width: 768px) {
-  .card {
-    width: 80%;
+#aboutJson i {
+  color: var(--headers);
+}
+
+a:hover#aboutJson ~ #description {
+  z-index: 1;
+  opacity: 1;
+}
+
+a#aboutJson:focus {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 1024px) {
+  a#aboutJson:focus {
+    pointer-events: auto;
   }
 }

@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-8 text-center mx-auto">
+<div class="col text-center mx-auto">
   <div *ngIf="!winner && !tie; then game; else result"></div>
   <ng-template #game>
     <span id="game" class="badge rounded-pill fw-bold">
@@ -17,9 +17,9 @@
     </ng-template>
   </ng-template>
 
-  <div id="mainContent" class="my-4 mx-auto">
+  <div id="mainContent" class="mt-4 mx-auto">
     <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"> </app-square>
   </div>
 
-  <button class="btn btn-sm" (click)="newGame()">Reset game</button>
+  <button @fadeIn *ngIf="winner || tie" class="btn btn-sm mt-4" (click)="newGame()">Reset game</button>
 </div>
