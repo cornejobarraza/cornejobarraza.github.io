@@ -10,7 +10,7 @@
   display: grid;
   border: 1px solid black;
   background: black;
-  width: 184px;
+  width: 154px;
   grid-gap: 1px;
-  grid-template-columns: 60px 60px 60px;
+  grid-template-columns: 50px 50px 50px;
 }
