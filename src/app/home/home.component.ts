@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { TogglePositionService } from "../toggle-position.service";
 
 @Component({
   selector: "app-home",
@@ -10,10 +11,10 @@ import { trigger, style, animate, transition } from "@angular/animations";
     trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))])]),
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private position: TogglePositionService) {}
 
   ngOnInit(): void {
     if (this.router.url === "/" || this.router.url === "/game") {
@@ -35,6 +36,10 @@ export class HomeComponent implements OnInit {
     if (this.router.url === "/pokemon") {
       this.appName = "PokeAPI";
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.position.footerCheck(true);
   }
 
   code1() {

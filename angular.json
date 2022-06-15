@@ -78,6 +78,10 @@
               "browserTarget": "project-website:build:development"
             }
           },
+          "options": {
+            "host": "0.0.0.0",
+            "allowedHosts": ["192.168.2.34"]
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

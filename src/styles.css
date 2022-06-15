@@ -51,6 +51,15 @@
   --secondary: var(--dark-bg-secondary);
 }
 
+#log {
+  z-index: 1;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
 body,
 html {
   margin: 0;
@@ -58,7 +67,6 @@ html {
 }
 
 app-root {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -189,6 +197,7 @@ main .btn:focus {
   border-radius: 1rem !important;
   margin: 0 auto 0 auto !important;
   padding: 0.25rem !important;
+  border: 1px solid black;
 }
 
 .modal-header {
@@ -254,11 +263,5 @@ footer {
 
   #links {
     display: flex;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  #lightToggle {
-    bottom: 3.5rem;
   }
 }
