@@ -1,10 +1,6 @@
 name: remove old artifacts
 
-on:
-  workflow_run:
-    workflows: ["pages-build-deployment"]
-    types:
-      - completed
+on: [push]
 
 jobs:
   remove-old-artifacts:
