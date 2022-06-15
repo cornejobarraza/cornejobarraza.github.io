@@ -23,7 +23,7 @@
     <nav id="menu" class="navbar">
       <div class="container justify-content-center">
         <div class="col-auto text-center">
-          <a class="navbar-brand text-light d-flex justify-content-center align-items-center py-1" href="/">
+          <a class="navbar-brand text-light d-flex justify-content-center align-items-center" href="/">
             <i id="brand-check" class="fa-solid fa-circle-check fs-6"></i>
             <h6 class="fw-bold my-auto ps-2">Project website</h6>
           </a>
@@ -33,17 +33,15 @@
   </header>
   <main class="container"><router-outlet></router-outlet></main>
 </div>
-<footer>
-  <div class="row-auto">
-    <div class="container text-center">
-      <ul id="footer-links" class="list-group list-group-horizontal">
-        <li class="list-group-item text-muted flex-fill">
-          <span>Made with </span>
-          <a class="text-muted" href="https://getbootstrap.com/" target="_blank"
-            >Bootstrap <i class="fa-brands fa-bootstrap"></i
-          ></a>
-        </li>
-      </ul>
+<footer class="d-flex py-2">
+  <div class="container d-flex justify-content-center">
+    <div class="col-auto">
+      <span class="text-muted"
+        >Made with
+        <a class="text-muted text-decoration-none" href="https://getbootstrap.com/" target="_blank"
+          >Bootstrap <i class="fa-brands fa-bootstrap fs-6"></i>
+        </a>
+      </span>
     </div>
   </div>
 </footer>

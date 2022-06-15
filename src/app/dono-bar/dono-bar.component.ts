@@ -11,12 +11,13 @@ import { Component, Input } from "@angular/core";
     `
       #progress {
         height: 1.25rem;
-        background: white;
+        background: var(--secondary);
       }
       #progress-bar {
         height: inherit;
         background-color: #198754;
         transition: width 0.75s;
+        box-shadow: inset 0 0 0.5em 0 #115c39;
       }
     `,
   ],

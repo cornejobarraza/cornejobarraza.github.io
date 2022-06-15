@@ -4,6 +4,7 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   background: #060607;
   color: #fff;
+  box-shadow: 0 0 0.25em 0 black;
 }
 
 #mainContent {
@@ -14,6 +15,9 @@
   width: 184px;
   grid-gap: 1px;
   grid-template-columns: 60px 60px 60px;
+  box-shadow: 0 0 0.25em 0 black;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 #newGame {

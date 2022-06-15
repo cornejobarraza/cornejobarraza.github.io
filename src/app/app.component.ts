@@ -11,6 +11,18 @@ export class AppComponent implements OnInit {
 
   constructor(private renderer: Renderer2) {}
 
+  get toggle() {
+    return document.querySelector("#lightToggle");
+  }
+
+  get footer() {
+    return document.querySelector("footer");
+  }
+
+  get wrapper() {
+    return document.querySelector("#topWrapper");
+  }
+
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     let maxScroll: number = document.documentElement.offsetHeight - window.innerHeight;
@@ -18,18 +30,36 @@ export class AppComponent implements OnInit {
     let positionY: number = maxScroll - currentScroll;
     let isAboveFooter: boolean = positionY < 40 || positionY === 0;
 
-    const toggle = document.getElementById("lightToggle");
-
     if (isAboveFooter) {
-      this.renderer.setStyle(toggle, "margin-bottom", "40px");
-    }
-
-    if (maxScroll === 0 || !isAboveFooter) {
-      this.renderer.removeStyle(toggle, "margin-bottom");
+      this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+    } else {
+      this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
     }
   }
 
   ngOnInit() {
     goodNight();
+
+    this.footerCheck();
+
+    setInterval(() => {
+      this.bottomCheck();
+    }, 1000);
+  }
+
+  bottomCheck() {
+    if (
+      document.body.style.height === "" &&
+      document.documentElement.scrollTop + window.innerHeight >= document.body.offsetHeight - 0.5
+    ) {
+      this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+    }
+  }
+
+  footerCheck() {
+    if (this.footer?.offsetTop === this.wrapper?.clientHeight && window.innerWidth > 1024) {
+      this.renderer.setStyle(document.documentElement, "height", "100%");
+      this.renderer.setStyle(document.body, "height", "100%");
+    }
   }
 }

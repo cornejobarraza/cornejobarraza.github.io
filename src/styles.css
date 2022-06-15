@@ -24,7 +24,7 @@
   --light-bg-primary: #ffffff;
   --dark-bg-primary: #212529;
 
-  --light-bg-secondary: #e3e5e8;
+  --light-bg-secondary: #d5d8dd;
   --dark-bg-secondary: #42454d;
 
   --dark-bg-tertiary: #171717;
@@ -129,7 +129,8 @@ nav .container {
   position: fixed;
   z-index: 1000;
   right: 1rem;
-  bottom: 1rem;
+  bottom: 0;
+  margin-bottom: 1rem;
   display: flex;
   width: 2.6rem;
   height: 2.6rem;
@@ -216,24 +217,8 @@ main .btn:focus {
   box-shadow: none !important;
 }
 
-#footer-links {
-  padding-left: calc(1.5rem * 0.5);
-  padding-right: calc(1.5rem * 0.5);
-}
-
-#footer-links .list-group-item {
-  height: 40px;
-  background: transparent;
-  border: none;
-  text-decoration: none;
-  padding: 0.5rem 0.5rem;
+footer {
   font-size: 0.95rem;
-  color: var(--headers);
-}
-
-#footer-links .list-group-item a {
-  color: var(--text);
-  text-decoration: none;
 }
 
 #description {
@@ -250,20 +235,6 @@ main .btn:focus {
   transform: translate(-50%, -140%);
   opacity: 0;
   transition: all 0.25s ease;
-}
-
-.arrow {
-  position: absolute;
-}
-
-.arrow::after {
-  content: "";
-  position: absolute;
-  bottom: -10%;
-  margin-left: 105px;
-  border-width: 7px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
 }
 
 #description a {
@@ -287,11 +258,6 @@ main .btn:focus {
 }
 
 @media screen and (min-width: 1024px) {
-  html,
-  body {
-    height: 100%;
-  }
-
   #lightToggle {
     bottom: 3.5rem;
   }

@@ -4,11 +4,12 @@
 
 #goal {
   text-align: center;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   color: white;
   background: black;
   margin-bottom: 1.25rem;
   outline: 1px solid black;
+  box-shadow: 0 0 0.4em 0 black;
 }
 
 #goal h6 {
@@ -21,28 +22,46 @@
   position: absolute;
 }
 
-.arrow::after {
+.arrow::before {
   content: "";
+  transform: rotate(45deg);
   position: absolute;
-  bottom: 75%;
+  bottom: 1.65rem;
   margin-left: 105px;
-  border-width: 7px;
+  border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: black;
+  background-color: black;
+}
+
+.arrow::after {
+  z-index: -1;
+  content: "";
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 1.65rem;
+  margin-left: 105px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: black;
+  box-shadow: 0 0 0.4em 0 black;
 }
 
 #box {
   color: var(--text);
   background: var(--secondary);
   outline: 1px solid black;
+  box-shadow: 0 0 0.25em 0 black;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 #inner-box {
   padding: 1rem;
-  position: relative;
   text-align: start;
   font-size: 0.9rem;
-  border-top: 1px solid black;
+  box-shadow: inset 0 0.25em 0.25em -0.25em black;
 }
 
 #inner-box p {
@@ -50,6 +69,8 @@
 }
 
 #inner-box a {
+  height: 17.5px;
+  position: relative;
   color: var(--text);
   font-size: 0.8rem;
   font-weight: bold;
@@ -67,8 +88,10 @@
 
 .why {
   opacity: 0;
-  left: 1rem;
-  bottom: 1.1rem;
+  left: 0;
+  bottom: 0;
+  height: 17.33px;
+  width: 15.15rem;
   position: absolute;
 }
 

@@ -14,12 +14,15 @@ import { formatDate } from "@angular/common";
         border: 1px solid rgba(0, 0, 0, 0.125);
         background: #060607;
         color: #fff;
+        box-shadow: 0 0 0.25em 0 black;
       }
       #toDoCard {
         width: 19rem;
+        border: 1px solid black;
         color: var(--headers);
         border-radius: 1rem;
         background: var(--secondary);
+        box-shadow: 0 0 0.25em 0 black;
       }
       .form-check-input:focus {
         box-shadow: none;
