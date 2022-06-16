@@ -113,13 +113,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   previousApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
-      this.currentComponent = "app-poke-api";
       this.appName = "PokeAPI";
       this.router.navigate(["/pokemon"]);
     }
 
     if (this.router.url === "/pokemon") {
-      this.currentComponent = "app-json-api";
       this.appName = "Fake API";
       this.router.navigate(["/placeholder"]);
     }
@@ -159,13 +157,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     if (this.router.url === "/donation") {
-      this.currentComponent = "app-json-api";
       this.appName = "Fake API";
       this.router.navigate(["/placeholder"]);
     }
 
     if (this.router.url === "/placeholder") {
-      this.currentComponent = "app-poke-api";
       this.appName = "PokeAPI";
       this.router.navigate(["/pokemon"]);
     }
