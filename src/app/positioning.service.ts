@@ -1,17 +1,22 @@
-import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
+import { Injectable, Renderer2, RendererFactory2, OnInit } from "@angular/core";
 import { timer, fromEvent } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
-export class PositioningService {
+export class PositioningService implements OnInit {
   log!: any;
-  class: string = "d-none";
+  class!: string;
 
   public renderer: Renderer2;
 
   constructor(private _renderer: RendererFactory2) {
     this.renderer = _renderer.createRenderer(null, null);
+  }
+
+  ngOnInit(): void {
+    this.log = "";
+    this.class = "d-none";
   }
 
   get html() {
@@ -70,19 +75,17 @@ export class PositioningService {
     });
   }
 
-  footerCheck(AfterView: boolean) {
-    if (AfterView === true) {
-      if (this.footer?.offsetTop === this.wrapper?.clientHeight && this.screenWidth > 1024) {
-        this.renderer.setStyle(this.html, "height", "100%");
-        this.renderer.setStyle(this.body, "height", "100%");
-        this.renderer.setStyle(this.appRoot, "height", "100%");
-        this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
-      } else {
-        this.renderer.removeStyle(this.html, "height");
-        this.renderer.removeStyle(this.body, "height");
-        this.renderer.removeStyle(this.appRoot, "height");
-        this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
-      }
+  footerCheck() {
+    if (this.footer?.offsetTop === this.wrapper?.clientHeight && this.screenWidth > 1024) {
+      this.renderer.setStyle(this.html, "height", "100%");
+      this.renderer.setStyle(this.body, "height", "100%");
+      this.renderer.setStyle(this.appRoot, "height", "100%");
+      this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+    } else {
+      this.renderer.removeStyle(this.html, "height");
+      this.renderer.removeStyle(this.body, "height");
+      this.renderer.removeStyle(this.appRoot, "height");
+      this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
     }
 
     fromEvent(window, "resize").subscribe(() => {
@@ -101,7 +104,9 @@ export class PositioningService {
   }
 
   scrollTo(component: string) {
-    // Scrolling for excluded apps is handled by their own component once API requests are completed
-    document.querySelector(component)?.scrollIntoView({ block: "center" });
+    // Scrolling for some apps is handled by their own component once API requests are completed
+    setTimeout(() => {
+      document.querySelector(component)?.scrollIntoView({ block: "center" });
+    }, 100);
   }
 }

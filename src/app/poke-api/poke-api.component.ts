@@ -29,7 +29,7 @@ export class PokeApiComponent implements OnInit {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await res.json();
 
-    this.pkUrl = `../res/pkmn/${data.id}.png`;
+    this.pkUrl = `https://cornejobarraza.github.io/res/pkmn/${data.id}.png`;
     this.pkNumber = `Pokémon #${data.id}`;
     this.pkName = data.name.toUpperCase();
 
