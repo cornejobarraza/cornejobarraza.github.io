@@ -6,6 +6,7 @@ import { timer, fromEvent } from "rxjs";
 })
 export class TogglePositionService {
   log!: any;
+  class: string = "d-none";
 
   public renderer: Renderer2;
 
@@ -97,5 +98,9 @@ export class TogglePositionService {
         this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
       }
     });
+  }
+
+  scrollTo(component: string) {
+    document.querySelector(component)?.scrollIntoView({ block: "center" });
   }
 }
