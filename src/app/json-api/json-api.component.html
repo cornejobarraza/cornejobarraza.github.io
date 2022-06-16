@@ -20,7 +20,7 @@
         <p *ngFor="let content of contents" class="m-1">{{ content }}</p>
       </div>
       <ng-template #img>
-        <img src="{{ this.contents }}" alt="" width="100px" class="my-2" />
+        <img src="{{ this.contents[0] }}" alt="" width="100px" class="my-2" />
       </ng-template>
     </div>
     <div class="card-footer p-0">
