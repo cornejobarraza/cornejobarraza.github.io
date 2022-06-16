@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { TogglePositionService } from "../toggle-position.service";
+import { PositioningService } from "../positioning.service";
 
 @Component({
   selector: "app-home",
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
   currentComponent!: string;
 
-  constructor(private router: Router, private position: TogglePositionService) {}
+  constructor(private router: Router, private position: PositioningService) {}
 
   ngOnInit(): void {
     this.currentApp();

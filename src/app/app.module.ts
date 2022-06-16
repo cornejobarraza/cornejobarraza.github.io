@@ -14,7 +14,7 @@ import { ToDoComponent } from "./to-do/to-do.component";
 import { JsonApiComponent } from "./json-api/json-api.component";
 import { PokeApiComponent } from "./poke-api/poke-api.component";
 import { HomeComponent } from "./home/home.component";
-import { TogglePositionService } from "./toggle-position.service";
+import { PositioningService } from "./positioning.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { TogglePositionService } from "./toggle-position.service";
     HomeComponent,
   ],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, ReactiveFormsModule],
-  providers: [TogglePositionService],
+  providers: [PositioningService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

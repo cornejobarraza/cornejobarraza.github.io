@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { TogglePositionService } from "./toggle-position.service";
+import { PositioningService } from "./positioning.service";
 declare let goodNight: any;
 
 @Component({
@@ -10,7 +10,7 @@ declare let goodNight: any;
 export class AppComponent implements OnInit {
   title = "project-website";
 
-  constructor(public position: TogglePositionService) {}
+  constructor(public position: PositioningService) {}
 
   ngOnInit() {
     goodNight();
