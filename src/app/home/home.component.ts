@@ -13,29 +13,12 @@ import { TogglePositionService } from "../toggle-position.service";
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
+  currentComponent!: string;
 
   constructor(private router: Router, private position: TogglePositionService) {}
 
   ngOnInit(): void {
-    if (this.router.url === "/" || this.router.url === "/game") {
-      this.appName = "Tic-tac-toe";
-    }
-
-    if (this.router.url === "/list") {
-      this.appName = "To-Do list";
-    }
-
-    if (this.router.url === "/donation") {
-      this.appName = "Donation box";
-    }
-
-    if (this.router.url === "/placeholder") {
-      this.appName = "Fake API";
-    }
-
-    if (this.router.url === "/pokemon") {
-      this.appName = "PokeAPI";
-    }
+    this.currentApp();
   }
 
   ngAfterViewInit(): void {
@@ -153,6 +136,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
     }
+
+    this.position.scrollTo(this.currentComponent);
   }
 
   nextApp() {
@@ -179,6 +164,35 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.router.url === "/pokemon") {
       this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
+    }
+
+    this.position.scrollTo(this.currentComponent);
+  }
+
+  currentApp() {
+    if (this.router.url === "/" || this.router.url === "/game") {
+      this.appName = "Tic-tac-toe";
+      this.currentComponent = "app-board";
+    }
+
+    if (this.router.url === "/list") {
+      this.appName = "To-Do list";
+      this.currentComponent = "app-to-do";
+    }
+
+    if (this.router.url === "/donation") {
+      this.appName = "Donation box";
+      this.currentComponent = "app-dono-box";
+    }
+
+    if (this.router.url === "/placeholder") {
+      this.appName = "Fake API";
+      this.currentComponent = "app-json-api";
+    }
+
+    if (this.router.url === "/pokemon") {
+      this.appName = "PokeAPI";
+      this.currentComponent = "app-poke-api";
     }
   }
 }
