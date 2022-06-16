@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.position.footerCheck(true);
+    this.position.footerCheck();
   }
 
   code1() {
