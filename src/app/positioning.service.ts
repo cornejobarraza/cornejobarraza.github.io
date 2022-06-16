@@ -101,6 +101,9 @@ export class PositioningService {
   }
 
   scrollTo(component: string) {
-    document.querySelector(component)?.scrollIntoView({ block: "center" });
+    if (component !== "app-json-api" || "app-poke-api") {
+      // Scrolling for excluded apps is handled by their own component once API requests are completed
+      document.querySelector(component)?.scrollIntoView({ block: "center" });
+    }
   }
 }

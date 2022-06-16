@@ -113,26 +113,31 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   previousApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
+      this.currentComponent = "app-poke-api";
       this.appName = "PokeAPI";
       this.router.navigate(["/pokemon"]);
     }
 
     if (this.router.url === "/pokemon") {
+      this.currentComponent = "app-json-api";
       this.appName = "Fake API";
       this.router.navigate(["/placeholder"]);
     }
 
     if (this.router.url === "/placeholder") {
+      this.currentComponent = "app-dono-box";
       this.appName = "Donation box";
       this.router.navigate(["/donation"]);
     }
 
     if (this.router.url === "/donation") {
+      this.currentComponent = "app-to-do";
       this.appName = "To-Do list";
       this.router.navigate(["/list"]);
     }
 
     if (this.router.url === "/list") {
+      this.currentComponent = "app-board";
       this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
     }
@@ -142,26 +147,31 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   nextApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
+      this.currentComponent = "app-to-do";
       this.appName = "To-Do list";
       this.router.navigate(["/list"]);
     }
 
     if (this.router.url === "/list") {
+      this.currentComponent = "app-dono-box";
       this.appName = "Donation box";
       this.router.navigate(["/donation"]);
     }
 
     if (this.router.url === "/donation") {
+      this.currentComponent = "app-json-api";
       this.appName = "Fake API";
       this.router.navigate(["/placeholder"]);
     }
 
     if (this.router.url === "/placeholder") {
+      this.currentComponent = "app-poke-api";
       this.appName = "PokeAPI";
       this.router.navigate(["/pokemon"]);
     }
 
     if (this.router.url === "/pokemon") {
+      this.currentComponent = "app-board";
       this.appName = "Tic-tac-toe";
       this.router.navigate(["/game"]);
     }
@@ -172,27 +182,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   currentApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
       this.appName = "Tic-tac-toe";
-      this.currentComponent = "app-board";
     }
 
     if (this.router.url === "/list") {
       this.appName = "To-Do list";
-      this.currentComponent = "app-to-do";
     }
 
     if (this.router.url === "/donation") {
       this.appName = "Donation box";
-      this.currentComponent = "app-dono-box";
     }
 
     if (this.router.url === "/placeholder") {
       this.appName = "Fake API";
-      this.currentComponent = "app-json-api";
     }
 
     if (this.router.url === "/pokemon") {
       this.appName = "PokeAPI";
-      this.currentComponent = "app-poke-api";
     }
   }
 }

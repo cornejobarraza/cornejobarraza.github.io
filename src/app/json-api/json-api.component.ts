@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { PositioningService } from "../positioning.service";
 
 @Component({
   selector: "app-json-api",
@@ -33,7 +34,7 @@ export class JsonApiComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private position: PositioningService) {}
 
   ngOnInit(): void {
     this.turn = 0;
@@ -79,6 +80,8 @@ export class JsonApiComponent implements OnInit {
           this.title = `📷 Picture #${data.id}`;
           this.contents = [data.thumbnailUrl];
         }
+
+        this.position.scrollTo("app-json-api");
       }
     };
   }
