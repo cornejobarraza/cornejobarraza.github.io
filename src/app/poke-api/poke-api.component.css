@@ -54,9 +54,8 @@ span {
 
 #aboutPoke {
   position: absolute;
-  top: 0.47rem;
+  top: 0.37rem;
   right: 1rem;
-  font-size: 0.9rem;
 }
 
 #aboutPoke i {
@@ -79,8 +78,8 @@ a#aboutPoke:focus {
 .arrow::after {
   content: "";
   position: absolute;
-  bottom: -15%;
-  margin-left: 105px;
+  bottom: -10%;
+  margin-left: 120px;
   border-width: 7px;
   border-style: solid;
   border-color: black transparent transparent transparent;

@@ -1,5 +1,5 @@
 /* Game status */
-#game {
+.game {
   font-size: 0.9em;
   border: 1px solid rgba(0, 0, 0, 0.125);
   background: #060607;
@@ -27,4 +27,40 @@
   right: 0;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 0.75em 0 #202225;
+}
+
+#aboutGame i {
+  color: var(--headers);
+}
+
+a:hover#aboutGame ~ #description {
+  z-index: 1;
+  opacity: 1;
+}
+
+a#aboutGame:focus {
+  pointer-events: none;
+}
+
+#description {
+  font-size: 0.9rem !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -18%;
+  margin-left: 64px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#description {
+  top: 41% !important;
 }

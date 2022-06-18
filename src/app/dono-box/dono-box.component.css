@@ -18,36 +18,6 @@
   padding: 0.75rem;
 }
 
-.arrow {
-  position: absolute;
-}
-
-.arrow::before {
-  content: "";
-  transform: rotate(45deg);
-  position: absolute;
-  bottom: 1.65rem;
-  margin-left: 105px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black;
-  background-color: black;
-}
-
-.arrow::after {
-  z-index: -1;
-  content: "";
-  transform: rotate(45deg);
-  position: absolute;
-  bottom: 1.65rem;
-  margin-left: 105px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black;
-  background-color: black;
-  box-shadow: 0 0 0.4em 0 black;
-}
-
 #box {
   color: var(--text);
   background: var(--secondary);
@@ -58,10 +28,50 @@
 }
 
 #inner-box {
+  position: relative;
   padding: 1rem;
   text-align: start;
   font-size: 0.9rem;
   box-shadow: inset 0 0.25em 0.25em -0.25em black;
+}
+
+#aboutDono {
+  position: absolute !important;
+  bottom: 1.2rem !important;
+  right: 1.25rem !important;
+}
+
+#aboutDono i {
+  color: var(--headers);
+}
+
+a:hover#aboutDono ~ #description {
+  z-index: 1;
+  opacity: 1;
+}
+
+a#aboutDono:focus {
+  pointer-events: none;
+}
+
+#description {
+  width: 17.5rem !important;
+  top: 86% !important;
+  transform: translate(-50%, -135%) !important;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  margin-left: 116px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
 }
 
 #inner-box p {

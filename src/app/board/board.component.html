@@ -1,22 +1,26 @@
 <div class="col text-center mx-auto">
   <div *ngIf="!winner && !tie; then game; else result"></div>
   <ng-template #game>
-    <span id="game" class="badge rounded-pill fw-bold">
+    <span class="badge rounded-pill game fw-bold me-2">
       Current Player:
       <span class="fw-light">
         {{ player }}
       </span>
     </span>
+    <a id="aboutGame" href="javascript:;" target="_blank"><i class="fa-solid fa-circle-question fs-6"></i></a>
+    <div id="description">
+      <p class="mb-0">Game that saves your progress and freezes the board once completed</p>
+      <span class="arrow"><wbr /></span>
+    </div>
   </ng-template>
   <ng-template #result>
     <div *ngIf="winner; else tie">
-      <span id="game" class="badge rounded-pill fw-bold" @fadeIn>Player {{ winner }} won the game!</span>
+      <span class="badge rounded-pill game fw-bold" @fadeIn>Player {{ winner }} won the game!</span>
     </div>
     <ng-template #tie>
-      <span id="game" class="badge rounded-pill fw-bold" @fadeIn>Game Over...</span>
+      <span class="game" class="badge rounded-pill game fw-bold" @fadeIn>Game Over...</span>
     </ng-template>
   </ng-template>
-
   <div id="mainContent" class="mt-4 mx-auto">
     <button
       [@fadeIn]

@@ -57,9 +57,8 @@ import { formatDate } from "@angular/common";
       }
       #aboutList {
         position: absolute;
-        top: 0.47rem;
+        top: 0.35rem;
         right: 1rem;
-        font-size: 0.9rem;
       }
       #aboutList i {
         color: var(--headers);
@@ -81,8 +80,8 @@ import { formatDate } from "@angular/common";
       .arrow::after {
         content: "";
         position: absolute;
-        bottom: -20%;
-        margin-left: 225px;
+        bottom: -15%;
+        margin-left: 247px;
         border-width: 7px;
         border-style: solid;
         border-color: black transparent transparent transparent;

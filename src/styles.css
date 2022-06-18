@@ -244,13 +244,13 @@ footer {
   top: 50%;
   font-size: 0.95rem;
   left: 50%;
-  width: 18rem;
+  width: 19rem;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background: black;
-  transform: translate(-50%, -135%);
+  transform: translate(-50%, -140%);
   opacity: 0;
-  transition: all 0.25s ease;
+  transition: all 0.5s ease;
 }
 
 #description a {

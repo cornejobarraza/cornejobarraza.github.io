@@ -26,12 +26,19 @@
           </ng-template>
         </ng-template>
       </ng-template>
-      <span class="arrow"><wbr /></span>
     </div>
 
     <div id="box">
       <app-dono-bar [progress]="progress"></app-dono-bar>
       <div id="inner-box">
+        <a id="aboutDono" href="javascript:;" target="_blank"><i class="fa-solid fa-circle-question fs-6"></i></a>
+        <div id="description" class="text-center">
+          <p class="mb-0">
+            Donation box that updates <br />
+            it's progress and status
+          </p>
+          <span class="arrow"><wbr /></span>
+        </div>
         <p>Only 1 month left to fund this project.</p>
         <p>Join the other donors who have already supported us. Every dollar helps!</p>
         <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
