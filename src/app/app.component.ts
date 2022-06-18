@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     goodNight();
 
-    this.position.bottomCheck();
+    this.position.toggleCheck();
   }
 }
