@@ -14,12 +14,12 @@ export class LongPressDirective implements OnDestroy {
   mouseLongPress = new EventEmitter();
 
   constructor(private elementRef: ElementRef) {
-    const mousedown = fromEvent<MouseEvent>(elementRef.nativeElement, "mousedown").pipe(
+    const mousedown = fromEvent<MouseEvent>(this.elementRef.nativeElement, "mousedown").pipe(
       filter((event) => event.button == 0), // Only allow left button (Primary button)
       map(() => true) // turn on threshold counter
     );
-    const touchstart = fromEvent(elementRef.nativeElement, "touchstart").pipe(map(() => true));
-    const touchEnd = fromEvent(elementRef.nativeElement, "touchend").pipe(map(() => false));
+    const touchstart = fromEvent(this.elementRef.nativeElement, "touchstart").pipe(map(() => true));
+    const touchEnd = fromEvent(this.elementRef.nativeElement, "touchend").pipe(map(() => false));
     const mouseup = fromEvent<MouseEvent>(window, "mouseup").pipe(
       filter((event) => event.button == 0), // Only allow left button (Primary button)
       map(() => false) // reset threshold counter

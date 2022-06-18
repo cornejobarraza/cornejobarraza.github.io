@@ -194,7 +194,7 @@ export class HomeComponent implements OnInit {
 
   scrollToApp() {
     setTimeout(() => {
-      document.querySelector("#apps")?.scrollIntoView({ block: "end" });
+      document.querySelector("#apps")?.scrollIntoView({ block: "start" });
     }, 1);
   }
 }
