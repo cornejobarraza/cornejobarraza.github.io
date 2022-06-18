@@ -15,6 +15,7 @@ import { JsonApiComponent } from "./json-api/json-api.component";
 import { PokeApiComponent } from "./poke-api/poke-api.component";
 import { HomeComponent } from "./home/home.component";
 import { PositioningService } from "./positioning.service";
+import { LongPressDirective } from './to-do/long-press.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PositioningService } from "./positioning.service";
     JsonApiComponent,
     PokeApiComponent,
     HomeComponent,
+    LongPressDirective,
   ],
   imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [PositioningService],
