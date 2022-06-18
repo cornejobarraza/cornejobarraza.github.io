@@ -31,7 +31,9 @@
     <div id="box">
       <app-dono-bar [progress]="progress"></app-dono-bar>
       <div id="inner-box">
-        <a id="aboutDono" href="javascript:;" target="_blank"><i class="fa-solid fa-circle-question fs-6"></i></a>
+        <a id="aboutDono" href="javascript:;" target="_blank" aria-label="About donation box"
+          ><i class="fa-solid fa-circle-question fs-6"></i
+        ></a>
         <div id="description" class="text-center">
           <p class="mb-0">
             Donation box that updates <br />
@@ -47,6 +49,7 @@
             <input type="number" formControlName="amount" min="1" /><button
               type="submit"
               class="btn btn-sm btn-success"
+              aria-label="Donate button"
             >
               Give now
             </button>

@@ -7,7 +7,9 @@
         {{ player }}
       </span>
     </span>
-    <a id="aboutGame" href="javascript:;" target="_blank"><i class="fa-solid fa-circle-question fs-6"></i></a>
+    <a id="aboutGame" href="javascript:;" target="_blank" aria-label="About Tic-tac-toe game"
+      ><i class="fa-solid fa-circle-question fs-6"></i
+    ></a>
     <div id="description">
       <p class="mb-0">Game that saves your progress and freezes the board once completed</p>
       <span class="arrow"><wbr /></span>
@@ -31,6 +33,7 @@
       *ngIf="winner || tie"
       class="btn btn-sm"
       (click)="newGame()"
+      aria-label="Reset game board"
     >
       Reset game
     </button>

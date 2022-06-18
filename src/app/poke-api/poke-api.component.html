@@ -3,7 +3,9 @@
   <div id="pokeCard" class="card mx-auto">
     <div class="card-header d-flex justify-content-center">
       <h6 class="m-0">Gotta Catch 'Em All!</h6>
-      <a id="aboutPoke" href="https://pokeapi.co/" target="_blank"><i class="fa-solid fa-circle-question fs-6"></i></a>
+      <a id="aboutPoke" href="https://pokeapi.co/" target="_blank" aria-label="About PokeAPI card"
+        ><i class="fa-solid fa-circle-question fs-6"></i
+      ></a>
       <div id="description" class="text-center">
         <a class="text-light" href="https://pokeapi.co/" target="_blank">
           The RESTful Pokémon API <i class="fa-solid fa-gamepad"></i>
@@ -25,7 +27,13 @@
       </div>
     </div>
     <div class="card-footer p-0">
-      <button id="cyclePoke" type="button" class="btn w-100" (click)="this.fetchPkmn(this.ranNum)">
+      <button
+        id="cyclePoke"
+        type="button"
+        class="btn w-100"
+        (click)="this.fetchPkmn(this.ranNum)"
+        aria-label="Cycle Pokemon"
+      >
         <i class="fa fa-arrows-rotate"></i>
       </button>
     </div>

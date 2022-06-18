@@ -3,7 +3,11 @@
   <div id="jsonCard" class="card mx-auto">
     <div class="card-header justify-content-center">
       <h6 class="m-0">{{ this.title }}</h6>
-      <a id="aboutJson" href="https://jsonplaceholder.typicode.com/" target="_blank"
+      <a
+        id="aboutJson"
+        href="https://jsonplaceholder.typicode.com/"
+        target="_blank"
+        aria-label="About JSON Placeholder card"
         ><i class="fa-solid fa-circle-question fs-6"></i
       ></a>
       <div id="description" class="text-center">
@@ -26,16 +30,16 @@
       </ng-template>
     </div>
     <div class="card-footer p-0">
-      <button id="cycleJson" type="button" class="btn w-100" (click)="getData(this.turn)">
+      <button id="cycleJson" type="button" class="btn w-100" (click)="getData(this.turn)" aria-label="Cycle card data">
         <i class="fa fa-arrows-rotate"></i>
       </button>
     </div>
   </div>
   <div id="cardSelector" class="d-inline-flex mt-3">
-    <button id="previousJson" type="button" class="btn" (click)="getData(this.previous)">
+    <button id="previousJson" type="button" class="btn" (click)="getData(this.previous)" aria-label="Previous card">
       <i class="fa-solid fa-square-caret-left"></i>
     </button>
-    <button id="nextJson" type="button" class="btn" (click)="getData(this.next)">
+    <button id="nextJson" type="button" class="btn" (click)="getData(this.next)" aria-label="Next card">
       <i class="fa-solid fa-square-caret-right"></i>
     </button>
   </div>

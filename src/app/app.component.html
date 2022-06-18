@@ -10,14 +10,18 @@
         <p class="mb-0">Click "Not nice" to turn light mode on 💡</p>
       </div>
       <div class="modal-footer">
-        <button id="lightsOn" type="button" class="btn btn-sm" data-bs-dismiss="modal">Not nice</button>
-        <button id="lightsOff" type="button" class="btn btn-sm" data-bs-dismiss="modal">Nice</button>
+        <button id="lightsOn" type="button" class="btn btn-sm" data-bs-dismiss="modal" aria-label="Enable light mode">
+          Not nice
+        </button>
+        <button id="lightsOff" type="button" class="btn btn-sm" data-bs-dismiss="modal" aria-label="Keep dark mode">
+          Nice
+        </button>
       </div>
     </div>
   </div>
 </div>
 <div id="topWrapper">
-  <button id="lightToggle" class="btn btn-sm p-0">
+  <button id="lightToggle" class="btn btn-sm p-0" aria-label="Light mode toggle">
     <i class="fa-solid fa-lightbulb"></i>
   </button>
   <header>

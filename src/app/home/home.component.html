@@ -3,15 +3,21 @@
     <div class="col-lg-3 col-md-8 col-card justify-content-center">
       <div id="profile-card" class="card about mx-auto">
         <div class="card-body">
-          <img src="res/pfp.jpg" class="mx-auto my-2 img-thumbnail rounded-circle" width="150px" alt="" />
+          <img
+            src="res/pfp.webp"
+            class="mx-auto my-2 img-thumbnail rounded-circle"
+            width="150px"
+            height="150px"
+            alt=""
+          />
           <h5 class="card-title fw-bold my-2">David Cornejo</h5>
           <div class="card-text mt-2 mb-1">
             <p class="mb-0">Welcome to my page!</p>
             <p class="mb-3">Check out my profiles</p>
-            <a class="me-4" href="https://github.com/cornejobarraza" target="_blank">
+            <a class="me-4" href="https://github.com/cornejobarraza" target="_blank" aria-label="My GitHub profile">
               <i class="fa-brands fa-github fs-5"></i>
             </a>
-            <a href="https://linkedin.com/in/cornejobarraza" target="_blank">
+            <a href="https://linkedin.com/in/cornejobarraza" target="_blank" aria-label="My LinkedIn profile">
               <i class="fa-brands fa-linkedin fs-5"></i>
             </a>
           </div>
@@ -106,11 +112,11 @@
       </div>
       <div [@fadeIn]="o.activatedRoute" id="appSelector" class="col">
         <div class="col-7 col-md-4 col-lg-5 d-flex justify-content-evenly mx-auto mb-4">
-          <button id="nextApp" type="button" class="btn btn-sm" (click)="this.previousApp()">
+          <button id="nextApp" type="button" class="btn btn-sm" (click)="this.previousApp()" aria-label="Previous app">
             <i class="fa-solid fa-circle-chevron-left"></i>
           </button>
           <h5 class="fw-bold my-0">{{ this.appName }}</h5>
-          <button id="previousApp" type="button" class="btn btn-sm" (click)="this.nextApp()">
+          <button id="previousApp" type="button" class="btn btn-sm" (click)="this.nextApp()" aria-label="Next app">
             <i class="fa-solid fa-circle-chevron-right"></i>
           </button>
         </div>

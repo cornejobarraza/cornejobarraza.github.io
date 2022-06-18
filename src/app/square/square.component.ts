@@ -3,9 +3,9 @@ import { Component, Input } from "@angular/core";
 @Component({
   selector: "app-square",
   template: `
-    <button class="btn btn-white" *ngIf="!value">{{ value }}</button>
-    <button class="btn btn-white" *ngIf="value == 'X'">{{ value }}</button>
-    <button class="btn btn-white" *ngIf="value == 'O'">{{ value }}</button>
+    <button class="btn btn-white" *ngIf="!value" aria-label="Empty square">{{ value }}</button>
+    <button class="btn btn-white" *ngIf="value == 'X'" aria-label="Square with X">{{ value }}</button>
+    <button class="btn btn-white" *ngIf="value == 'O'" aria-label="Square with O">{{ value }}</button>
   `,
   styles: [
     `
