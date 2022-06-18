@@ -261,14 +261,10 @@ footer {
 
 @media screen and (min-width: 768px) {
   .modal-content {
-    width: 80%;
+    width: 75%;
   }
 
   .modal-dialog {
     margin: 1.5rem auto !important;
-  }
-
-  #links {
-    display: flex;
   }
 }
