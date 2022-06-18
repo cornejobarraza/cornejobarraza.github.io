@@ -1,5 +1,5 @@
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
-import { fromEvent, timer } from "rxjs";
+import { fromEvent } from "rxjs";
 
 @Injectable({
   providedIn: "root",
