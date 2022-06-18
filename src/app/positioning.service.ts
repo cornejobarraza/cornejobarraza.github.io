@@ -1,22 +1,18 @@
-import { Injectable, Renderer2, RendererFactory2, OnInit } from "@angular/core";
-import { timer, fromEvent } from "rxjs";
+import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
+import { fromEvent, timer } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
-export class PositioningService implements OnInit {
-  log!: any;
-  class!: string;
+export class PositioningService {
+  log: any = "";
+  class: string = "d-none";
+  initHeight: number = this.screenHeight;
 
   public renderer: Renderer2;
 
   constructor(private _renderer: RendererFactory2) {
     this.renderer = _renderer.createRenderer(null, null);
-  }
-
-  ngOnInit(): void {
-    this.log = "";
-    this.class = "d-none";
   }
 
   get html() {
@@ -35,8 +31,8 @@ export class PositioningService implements OnInit {
     return window.innerWidth;
   }
 
-  get positionY() {
-    return this.body.offsetHeight - (this.html.scrollTop + this.screenHeight);
+  get pixelsAway() {
+    return this.html.scrollHeight - (window.scrollY + this.screenHeight);
   }
 
   get toggle() {
@@ -55,22 +51,12 @@ export class PositioningService implements OnInit {
     return document.querySelector("footer");
   }
 
-  bottomCheck() {
+  toggleCheck() {
     fromEvent(window, "scroll").subscribe(() => {
-      let currentPosition = this.positionY;
-
-      if (currentPosition < 40) {
-        this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+      if (this.pixelsAway < 40) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       } else {
-        this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
-      }
-    });
-
-    timer(0, 100).subscribe(() => {
-      let currentPosition2 = this.positionY;
-
-      if (currentPosition2 < 1) {
-        this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
     });
   }
@@ -80,33 +66,43 @@ export class PositioningService implements OnInit {
       this.renderer.setStyle(this.html, "height", "100%");
       this.renderer.setStyle(this.body, "height", "100%");
       this.renderer.setStyle(this.appRoot, "height", "100%");
-      this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
-    } else {
-      this.renderer.removeStyle(this.html, "height");
-      this.renderer.removeStyle(this.body, "height");
-      this.renderer.removeStyle(this.appRoot, "height");
-      this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
+      this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
     }
 
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    // We listen to the resize event
     fromEvent(window, "resize").subscribe(() => {
-      if (this.footer?.offsetTop === this.wrapper?.clientHeight && this.screenWidth < 1024) {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+      setTimeout(() => {
+        if (this.pixelsAway < 1) {
+          this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+        }
+      }, 1);
+
+      if (this.footer?.offsetTop === this.wrapper?.clientHeight && this.screenWidth <= 1024) {
         this.renderer.removeStyle(this.html, "height");
         this.renderer.removeStyle(this.body, "height");
         this.renderer.removeStyle(this.appRoot, "height");
-        this.renderer.setStyle(this.toggle, "margin-bottom", "1rem");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       } else {
         this.renderer.setStyle(this.html, "height", "100%");
         this.renderer.setStyle(this.body, "height", "100%");
         this.renderer.setStyle(this.appRoot, "height", "100%");
-        this.renderer.setStyle(this.toggle, "margin-bottom", "3.5rem");
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
       }
     });
   }
 
-  scrollTo(component: string) {
+  scrollToApp() {
     // Scrolling for some apps is handled by their own component once API requests are completed
     setTimeout(() => {
-      document.querySelector(component)?.scrollIntoView({ block: "center" });
-    }, 100);
+      document.querySelector("#apps")?.scrollIntoView({ block: "center" });
+    }, 1);
   }
 }
