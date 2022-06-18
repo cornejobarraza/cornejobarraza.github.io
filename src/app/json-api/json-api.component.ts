@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PositioningService } from "../positioning.service";
+import { HomeComponent } from "../home/home.component";
 
 @Component({
   selector: "app-json-api",
@@ -34,11 +34,10 @@ export class JsonApiComponent implements OnInit {
     },
   ];
 
-  constructor(private position: PositioningService) {}
+  constructor(private home: HomeComponent) {}
 
   ngOnInit(): void {
-    this.turn = 0;
-    this.getData(this.turn);
+    this.getData(0);
   }
 
   getData(turn: number) {
@@ -81,7 +80,7 @@ export class JsonApiComponent implements OnInit {
           this.contents = [data.thumbnailUrl];
         }
 
-        this.position.scrollToApp();
+        this.home.scrollToApp();
       }
     };
   }

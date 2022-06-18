@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PositioningService } from "../positioning.service";
+import { HomeComponent } from "../home/home.component";
 
 @Component({
   selector: "app-poke-api",
@@ -11,7 +11,7 @@ export class PokeApiComponent implements OnInit {
   pkNumber!: string | null;
   pkName!: string;
 
-  constructor(private position: PositioningService) {}
+  constructor(private home: HomeComponent) {}
 
   ngOnInit(): void {
     this.fetchPkmn(this.ranNum);
@@ -33,6 +33,6 @@ export class PokeApiComponent implements OnInit {
     this.pkNumber = `Pokémon #${data.id}`;
     this.pkName = data.name.toUpperCase();
 
-    this.position.scrollToApp();
+    this.home.scrollToApp();
   }
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { PositioningService } from "../positioning.service";
 
 @Component({
   selector: "app-home",
@@ -11,18 +10,14 @@ import { PositioningService } from "../positioning.service";
     trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))])]),
   ],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
   appName!: string;
   currentComponent!: string;
 
-  constructor(private router: Router, private position: PositioningService) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.currentApp();
-  }
-
-  ngAfterViewInit(): void {
-    this.position.footerCheck();
   }
 
   code1() {
@@ -140,7 +135,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigate(["/game"]);
     }
 
-    this.position.scrollToApp();
+    this.scrollToApp();
   }
 
   nextApp() {
@@ -172,7 +167,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigate(["/game"]);
     }
 
-    this.position.scrollToApp();
+    this.scrollToApp();
   }
 
   currentApp() {
@@ -195,5 +190,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.router.url === "/pokemon") {
       this.appName = "PokeAPI";
     }
+  }
+
+  scrollToApp() {
+    setTimeout(() => {
+      document.querySelector("#apps")?.scrollIntoView({ block: "end" });
+    }, 1);
   }
 }
