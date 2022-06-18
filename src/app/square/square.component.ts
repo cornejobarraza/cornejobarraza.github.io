@@ -38,10 +38,14 @@ import { Component, Input } from "@angular/core";
         color: var(--headers);
         background-color: var(--secondary);
       }
-      @media (pointer: fine) {
+      @media (pointer: coarse) {
+        .btn-white:hover {
+          opacity: 1;
+          color: var(--headers);
+          background-color: var(--secondary);
+        }
         .btn-white:focus:hover {
-          color: white;
-          background-color: var(--tertiary);
+          background-color: var(--secondary);
         }
       }
     `,

@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigate(["/game"]);
     }
 
-    this.position.scrollTo(this.currentComponent);
+    this.position.scrollToApp();
   }
 
   nextApp() {
@@ -172,7 +172,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigate(["/game"]);
     }
 
-    this.position.scrollTo(this.currentComponent);
+    this.position.scrollToApp();
   }
 
   currentApp() {

@@ -81,7 +81,7 @@ export class JsonApiComponent implements OnInit {
           this.contents = [data.thumbnailUrl];
         }
 
-        this.position.scrollTo("app-json-api");
+        this.position.scrollToApp();
       }
     };
   }

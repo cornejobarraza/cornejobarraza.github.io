@@ -16,6 +16,9 @@ import { formatDate } from "@angular/common";
         color: #fff;
         box-shadow: 0 0 0.25em 0 black;
       }
+      .card-header {
+        position: relative;
+      }
       #toDoCard {
         width: 19rem;
         border: 1px solid black;
@@ -51,6 +54,38 @@ import { formatDate } from "@angular/common";
       }
       .btn:hover {
         border-color: rgba(0, 0, 0, 0.125);
+      }
+      #aboutList {
+        position: absolute;
+        top: 0.47rem;
+        right: 1rem;
+        font-size: 0.9rem;
+      }
+      #aboutList i {
+        color: var(--headers);
+      }
+      a:hover#aboutList ~ #description {
+        z-index: 1;
+        opacity: 1;
+      }
+      a#aboutList:focus {
+        pointer-events: none;
+      }
+      #description {
+        font-size: 0.9rem !important;
+        padding: 0.75rem 1.5rem !important;
+      }
+      .arrow {
+        position: absolute;
+      }
+      .arrow::after {
+        content: "";
+        position: absolute;
+        bottom: -20%;
+        margin-left: 225px;
+        border-width: 7px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
       }
       @media screen and (min-width: 1024px) {
         #toDo {
@@ -113,10 +148,16 @@ export class ToDoComponent implements OnInit {
     localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
 
-  clearTasks() {
-    this.tasks = [];
-    this.toDoForm.reset();
-    localStorage.removeItem("tasks");
+  clearTasks(longPress: boolean) {
+    if (longPress) {
+      this.tasks = [];
+      this.saveTasks();
+      this.toDoForm.reset();
+    } else {
+      this.tasks = this.tasks.filter((task) => !task.completed);
+      this.saveTasks();
+      this.toDoForm.reset();
+    }
   }
 }
 

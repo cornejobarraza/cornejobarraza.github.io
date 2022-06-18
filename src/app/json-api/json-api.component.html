@@ -8,7 +8,7 @@
       ></a>
       <div id="description" class="text-center">
         <a class="text-light" href="https://jsonplaceholder.typicode.com/" target="_blank">
-          <i class="fa-solid fa-server"></i> {{ "{JSON}" }} Placeholder API
+          {{ "{JSON}" }} Placeholder API <i class="fa-solid fa-server"></i>
         </a>
         <p class="mt-1 mb-0">Set of cards that request fake data</p>
         <p class="mb-0">using the AJAX model</p>
@@ -20,7 +20,9 @@
         <p *ngFor="let content of contents" class="m-1">{{ content }}</p>
       </div>
       <ng-template #img>
-        <img src="{{ this.contents[0] }}" alt="" width="100px" class="my-2" />
+        <div class="img-container">
+          <img src="{{ this.contents[0] }}" alt="" width="125px" />
+        </div>
       </ng-template>
     </div>
     <div class="card-footer p-0">

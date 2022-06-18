@@ -6,7 +6,7 @@
       <a id="aboutPoke" href="https://pokeapi.co/" target="_blank"><i class="fa-solid fa-circle-question"></i></a>
       <div id="description" class="text-center">
         <a class="text-light" href="https://pokeapi.co/" target="_blank">
-          <i class="fa-solid fa-gamepad"></i> The RESTful Pokémon API
+          The RESTful Pokémon API <i class="fa-solid fa-gamepad"></i>
         </a>
         <p class="mt-1 mb-0">Card to request a random Pokémon</p>
         <p class="mb-0">using the Fetch API</p>
@@ -14,7 +14,9 @@
       </div>
     </div>
     <div class="card-body p-3">
-      <img class="mb-4" width="125px" alt="" src="{{ this.pkUrl }}" />
+      <div class="img-container">
+        <img src="{{ this.pkUrl }}" alt="" width="125px" />
+      </div>
       <div>
         <span class="badge rounded-pill fs-7">{{ this.pkNumber }}</span>
       </div>

@@ -51,6 +51,21 @@
   --secondary: var(--dark-bg-secondary);
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.toggledDark body,
+.toggledLight body {
+  transition: background 0.25s;
+}
+
 #log {
   z-index: 1;
   position: fixed;
@@ -60,21 +75,14 @@
   font-weight: bold;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
+#topWrapper {
+  position: relative;
 }
 
 app-root {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.toggledDark body,
-.toggledLight body {
-  transition: background 0.25s;
 }
 
 header,
@@ -137,8 +145,7 @@ nav .container {
   position: fixed;
   z-index: 1000;
   right: 1rem;
-  bottom: 0;
-  margin-bottom: 1rem;
+  bottom: 1rem;
   display: flex;
   width: 2.6rem;
   height: 2.6rem;
@@ -241,7 +248,7 @@ footer {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background: black;
-  transform: translate(-50%, -140%);
+  transform: translate(-50%, -135%);
   opacity: 0;
   transition: all 0.25s ease;
 }

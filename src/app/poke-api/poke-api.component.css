@@ -21,6 +21,11 @@
   border-radius: 1rem 1rem 0 0 !important;
 }
 
+.img-container {
+  min-height: 125px;
+  margin-bottom: 1.5rem;
+}
+
 .card-footer {
   border: 0;
   background: transparent;
@@ -49,7 +54,7 @@ span {
 
 #aboutPoke {
   position: absolute;
-  top: 0.45rem;
+  top: 0.47rem;
   right: 1rem;
   font-size: 0.9rem;
 }
@@ -74,7 +79,7 @@ a#aboutPoke:focus {
 .arrow::after {
   content: "";
   position: absolute;
-  bottom: -10%;
+  bottom: -15%;
   margin-left: 105px;
   border-width: 7px;
   border-style: solid;
