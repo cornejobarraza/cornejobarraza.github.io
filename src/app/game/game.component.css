@@ -76,8 +76,20 @@ button.btn-white:focus {
   box-shadow: 0 0 0.75em 0 #202225;
 }
 
+#aboutGame {
+  transition: 0.15s;
+}
+
 #aboutGame i {
   color: var(--headers);
+}
+
+a:hover#aboutGame {
+  opacity: 0.75;
+}
+
+a:active#aboutGame {
+  opacity: 0.75;
 }
 
 a:hover#aboutGame ~ #description {

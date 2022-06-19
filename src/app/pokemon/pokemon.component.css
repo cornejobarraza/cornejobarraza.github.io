@@ -56,10 +56,19 @@ span {
   position: absolute;
   top: 0.37rem;
   right: 1rem;
+  transition: 0.15s;
 }
 
 #aboutPoke i {
   color: var(--headers);
+}
+
+a:hover#aboutPoke {
+  opacity: 0.75;
+}
+
+a:active#aboutPoke {
+  opacity: 0.75;
 }
 
 a:hover#aboutPoke ~ #description {

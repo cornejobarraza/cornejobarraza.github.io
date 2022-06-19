@@ -66,14 +66,28 @@ a {
   background-color: transparent;
 }
 
+button#nextJson:active,
+button#previousJson:active {
+  opacity: 0.5;
+}
+
 #aboutJson {
   position: absolute;
   top: 0.35rem;
   right: 1rem;
+  transition: 0.15s;
 }
 
 #aboutJson i {
   color: var(--headers);
+}
+
+a:hover#aboutJson {
+  opacity: 0.75;
+}
+
+a:active#aboutJson {
+  opacity: 0.75;
 }
 
 a:hover#aboutJson ~ #description {
@@ -99,7 +113,7 @@ a#aboutJson:focus {
   border-color: black transparent transparent transparent;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
   a#aboutJson:focus {
     pointer-events: auto;
   }

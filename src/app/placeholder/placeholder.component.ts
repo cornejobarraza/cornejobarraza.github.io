@@ -37,7 +37,8 @@ export class PlaceholderComponent implements OnInit {
   constructor(private home: HomeComponent) {}
 
   ngOnInit(): void {
-    this.getData(0);
+    this.turn = 0;
+    this.getData(this.turn);
   }
 
   getData(turn: number) {
@@ -66,7 +67,7 @@ export class PlaceholderComponent implements OnInit {
         }
 
         if (turn === 1) {
-          this.title = `✉ @${data.email.split("@")[0].toLowerCase()} says:`;
+          this.title = `💬 @${data.email.split("@")[0].toLowerCase()} says:`;
           this.contents = [data.body];
         }
 
@@ -76,7 +77,7 @@ export class PlaceholderComponent implements OnInit {
         }
 
         if (turn === 3) {
-          this.title = `📷 Picture #${data.id}`;
+          this.title = `🎞 Picture #${data.id}`;
           this.contents = [data.thumbnailUrl];
         }
 

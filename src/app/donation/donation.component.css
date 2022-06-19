@@ -50,10 +50,19 @@
   position: absolute !important;
   bottom: 1.2rem !important;
   right: 1.25rem !important;
+  transition: 0.15s;
 }
 
 #aboutDono i {
   color: var(--headers);
+}
+
+a:hover#aboutDono {
+  opacity: 0.75;
+}
+
+a:active#aboutDono {
+  opacity: 0.75;
 }
 
 a:hover#aboutDono ~ #description {
@@ -150,12 +159,17 @@ button[type="submit"] {
   color: white;
   box-shadow: none !important;
   font-weight: bold;
-  background: #212529;
+  background-color: black;
   border-radius: 0.75rem;
+  transition: 0.15s;
 }
 
 button[type="submit"]:hover {
-  opacity: 0.9;
+  background-color: #0d0d0d;
+}
+
+button[type="submit"]:active {
+  background-color: #1a1a1a;
 }
 
 @media screen and (min-width: 1200px) {
