@@ -1,12 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { BoardComponent } from "./board/board.component";
-import { DonoBarComponent } from "./dono-bar/dono-bar.component";
-import { DonoBoxComponent } from "./dono-box/dono-box.component";
-import { SquareComponent } from "./square/square.component";
-import { ToDoComponent } from "./to-do/to-do.component";
-import { JsonApiComponent } from "./json-api/json-api.component";
-import { PokeApiComponent } from "./poke-api/poke-api.component";
 import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
@@ -14,42 +7,15 @@ const routes: Routes = [
     path: "",
     component: HomeComponent,
     children: [
-      {
-        path: "",
-        component: BoardComponent,
-      },
-      {
-        path: "game",
-        component: BoardComponent,
-        children: [
-          {
-            path: "",
-            component: SquareComponent,
-          },
-        ],
-      },
-      {
-        path: "donation",
-        component: DonoBoxComponent,
-        children: [
-          {
-            path: "",
-            component: DonoBarComponent,
-          },
-        ],
-      },
-      {
-        path: "list",
-        component: ToDoComponent,
-      },
+      { path: "", loadChildren: () => import("./game/game.module").then((m) => m.GameModule) },
+      { path: "game", loadChildren: () => import("./game/game.module").then((m) => m.GameModule) },
+      { path: "list", loadChildren: () => import("./list/list.module").then((m) => m.ListModule) },
+      { path: "donation", loadChildren: () => import("./donation/donation.module").then((m) => m.DonationModule) },
       {
         path: "placeholder",
-        component: JsonApiComponent,
+        loadChildren: () => import("./placeholder/placeholder.module").then((m) => m.PlaceholderModule),
       },
-      {
-        path: "pokemon",
-        component: PokeApiComponent,
-      },
+      { path: "pokemon", loadChildren: () => import("./pokemon/pokemon.module").then((m) => m.PokemonModule) },
     ],
   },
 ];

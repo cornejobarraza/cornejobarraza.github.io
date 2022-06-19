@@ -37,6 +37,10 @@
     >
       Reset game
     </button>
-    <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"> </app-square>
+    <div id="board" *ngFor="let val of squares; let i = index" (click)="makeMove(i)">
+      <button class="btn btn-white" *ngIf="!val" aria-label="Empty square">{{ val }}</button>
+      <button class="btn btn-white" *ngIf="val === 'X'" aria-label="Square with X">{{ val }}</button>
+      <button class="btn btn-white" *ngIf="val === 'O'" aria-label="Square with O">{{ val }}</button>
+    </div>
   </div>
 </div>

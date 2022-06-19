@@ -7,6 +7,14 @@ declare var window: any;
 export class GoodnightService {
   constructor() {}
 
+  get html() {
+    return document.documentElement;
+  }
+
+  get body() {
+    return document.body;
+  }
+
   get modal() {
     return document.querySelector("#myModal") as HTMLElement;
   }
@@ -48,8 +56,8 @@ export class GoodnightService {
       });
 
       myModal.show();
-      document.body.style.paddingRight = "0";
-      this.lightSwitch.style.opacity;
+      this.body.style.paddingRight = "0";
+      this.lightSwitch.style.opacity = "0";
 
       this.keepOn.addEventListener("click", () => {
         localStorage.setItem("keepLightMode", "no");
@@ -64,8 +72,8 @@ export class GoodnightService {
         this.lightSwitch.insertAdjacentHTML("afterbegin", this.moon);
         this.lightSwitch.style.opacity = "1";
 
-        document.documentElement.classList.remove("dark");
-        document.documentElement.classList.add("toggledLight");
+        this.html.classList.remove("dark");
+        this.html.classList.add("toggledLight");
       });
     }
 
@@ -74,15 +82,15 @@ export class GoodnightService {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.moon);
 
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.remove("toggledDark");
+      this.html.classList.remove("dark");
+      this.html.classList.remove("toggledDark");
     }
 
     if (this.prefersLight === "no") {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.lightbulb);
 
-      document.documentElement.classList.remove("toggledLight");
+      this.html.classList.remove("toggledLight");
     }
   }
 
@@ -96,9 +104,9 @@ export class GoodnightService {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.lightbulb);
 
-      document.documentElement.classList.remove("toggledLight");
-      document.documentElement.classList.add("toggledDark");
-      document.documentElement.classList.add("dark");
+      this.html.classList.remove("toggledLight");
+      this.html.classList.add("toggledDark");
+      this.html.classList.add("dark");
     }
 
     if (prefersLight === "no") {
@@ -107,9 +115,9 @@ export class GoodnightService {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.moon);
 
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.remove("toggledDark");
-      document.documentElement.classList.add("toggledLight");
+      this.html.classList.remove("dark");
+      this.html.classList.remove("toggledDark");
+      this.html.classList.add("toggledLight");
     }
   }
 }

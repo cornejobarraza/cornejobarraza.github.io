@@ -4,9 +4,9 @@ import { FormBuilder } from "@angular/forms";
 import { AnimationEvent } from "@angular/animations";
 
 @Component({
-  selector: "app-dono-box",
-  templateUrl: "./dono-box.component.html",
-  styleUrls: ["./dono-box.component.css"],
+  selector: "app-donation",
+  templateUrl: "./donation.component.html",
+  styleUrls: ["./donation.component.css"],
   animations: [
     trigger("fadeIn", [transition(":enter", [style({ opacity: 0 }), animate("0.5s ease", style({ opacity: 1 }))])]),
     trigger("fadeInOut", [
@@ -18,12 +18,12 @@ import { AnimationEvent } from "@angular/animations";
     ]),
   ],
 })
-export class DonoBoxComponent {
+export class DonationComponent {
   donated: number = 250;
   remaining: number | string = 750;
   plus: number | string = 0;
   goal: number = 1000;
-  progress: number = 25;
+  progress: string = "25%";
   hasDonated: boolean = false;
   isInvalid: boolean = false;
 
@@ -66,9 +66,9 @@ export class DonoBoxComponent {
     let percent = ((this.donated * 1) / this.goal) * 100;
 
     if (percent <= 100) {
-      this.progress = percent;
+      this.progress = String(percent) + "%";
     } else {
-      this.progress = 100;
+      this.progress = "100%";
     }
   }
 

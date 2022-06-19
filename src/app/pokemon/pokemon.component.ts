@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { HomeComponent } from "../home/home.component";
 
 @Component({
-  selector: "app-poke-api",
-  templateUrl: "./poke-api.component.html",
-  styleUrls: ["./poke-api.component.css"],
+  selector: "app-pokemon",
+  templateUrl: "./pokemon.component.html",
+  styleUrls: ["./pokemon.component.css"],
 })
-export class PokeApiComponent implements OnInit {
+export class PokemonComponent implements OnInit {
   pkUrl!: string;
   pkNumber!: string | null;
   pkName!: string;

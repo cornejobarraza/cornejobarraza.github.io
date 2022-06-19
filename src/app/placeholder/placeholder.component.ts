@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { HomeComponent } from "../home/home.component";
 
 @Component({
-  selector: "app-json-api",
-  templateUrl: "./json-api.component.html",
-  styleUrls: ["./json-api.component.css"],
+  selector: "app-placeholder",
+  templateUrl: "./placeholder.component.html",
+  styleUrls: ["./placeholder.component.css"],
 })
-export class JsonApiComponent implements OnInit {
+export class PlaceholderComponent implements OnInit {
   title!: string;
   contents!: string[];
   turn!: number;

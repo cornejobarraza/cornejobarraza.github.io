@@ -29,7 +29,9 @@
     </div>
 
     <div id="box">
-      <app-dono-bar [progress]="progress"></app-dono-bar>
+      <div id="progress">
+        <div id="progress-bar" [style.width]="progress"></div>
+      </div>
       <div id="inner-box">
         <a id="aboutDono" href="javascript:;" target="_blank" aria-label="About donation box"
           ><i class="fa-solid fa-circle-question fs-6"></i

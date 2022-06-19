@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   appName!: string;
   currentComponent!: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.currentApp();
@@ -109,30 +109,30 @@ export class HomeComponent implements OnInit {
   previousApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
       this.appName = "PokeAPI";
-      this.router.navigate(["/pokemon"]);
+      this.router.navigate(["pokemon"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/pokemon") {
       this.appName = "Fake API";
-      this.router.navigate(["/placeholder"]);
+      this.router.navigate(["placeholder"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/placeholder") {
       this.currentComponent = "app-dono-box";
       this.appName = "Donation box";
-      this.router.navigate(["/donation"]);
+      this.router.navigate(["donation"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/donation") {
       this.currentComponent = "app-to-do";
       this.appName = "To-Do list";
-      this.router.navigate(["/list"]);
+      this.router.navigate(["list"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/list") {
       this.currentComponent = "app-board";
       this.appName = "Tic-tac-toe";
-      this.router.navigate(["/game"]);
+      this.router.navigate(["game"], { relativeTo: this.route });
     }
 
     this.scrollToApp();
@@ -142,29 +142,29 @@ export class HomeComponent implements OnInit {
     if (this.router.url === "/" || this.router.url === "/game") {
       this.currentComponent = "app-to-do";
       this.appName = "To-Do list";
-      this.router.navigate(["/list"]);
+      this.router.navigate(["list"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/list") {
       this.currentComponent = "app-dono-box";
       this.appName = "Donation box";
-      this.router.navigate(["/donation"]);
+      this.router.navigate(["donation"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/donation") {
       this.appName = "Fake API";
-      this.router.navigate(["/placeholder"]);
+      this.router.navigate(["placeholder"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/placeholder") {
       this.appName = "PokeAPI";
-      this.router.navigate(["/pokemon"]);
+      this.router.navigate(["pokemon"], { relativeTo: this.route });
     }
 
     if (this.router.url === "/pokemon") {
       this.currentComponent = "app-board";
       this.appName = "Tic-tac-toe";
-      this.router.navigate(["/game"]);
+      this.router.navigate(["game"], { relativeTo: this.route });
     }
 
     this.scrollToApp();

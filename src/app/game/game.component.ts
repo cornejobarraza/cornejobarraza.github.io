@@ -3,15 +3,15 @@ import { trigger, style, animate, transition } from "@angular/animations";
 import { AnimationEvent } from "@angular/animations";
 
 @Component({
-  selector: "app-board",
-  templateUrl: "./board.component.html",
-  styleUrls: ["./board.component.css"],
+  selector: "app-game",
+  templateUrl: "./game.component.html",
+  styleUrls: ["./game.component.css"],
   animations: [
     trigger("fadeIn", [transition(":enter", [style({ opacity: 0 }), animate("0.2s ease", style({ opacity: 1 }))])]),
     trigger("fadeOut", [transition(":leave", [style({ opacity: 1 }), animate("0.2s ease", style({ opacity: 0 }))])]),
   ],
 })
-export class BoardComponent implements OnInit {
+export class GameComponent implements OnInit {
   squares: string[] = [];
   xIsNext!: boolean;
   winner: string | null = null;
@@ -94,7 +94,7 @@ export class BoardComponent implements OnInit {
   }
 
   freezeBoard(event: AnimationEvent) {
-    let squares = document.querySelectorAll("app-square");
+    let squares = document.querySelectorAll("#board");
 
     for (let i: number = 0; i < squares.length; i++) {
       this.renderer.setStyle(squares[i], "pointer-events", "none");
@@ -102,7 +102,7 @@ export class BoardComponent implements OnInit {
   }
 
   unfreezeBoard(event: AnimationEvent) {
-    let squares = document.querySelectorAll("app-square");
+    let squares = document.querySelectorAll("#board");
 
     for (let i: number = 0; i < squares.length; i++) {
       this.renderer.removeStyle(squares[i], "pointer-events");

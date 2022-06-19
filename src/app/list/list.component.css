@@ -1,0 +1,82 @@
+#date {
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #060607;
+  color: #fff;
+  box-shadow: 0 0 0.25em 0 black;
+}
+.card-header {
+  position: relative;
+}
+#toDoCard {
+  width: 19rem;
+  border: 1px solid black;
+  color: var(--headers);
+  border-radius: 1rem;
+  background: var(--secondary);
+  box-shadow: 0 0 0.25em 0 black;
+}
+.form-check-input:focus {
+  box-shadow: none;
+}
+#list {
+  font-size: 0.9rem;
+}
+#taskInput {
+  font-size: 0.875rem;
+  background: white;
+  box-shadow: none;
+  border: 0;
+  padding: 0.25rem 0.5rem;
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+button {
+  border: 0 !important;
+  background-color: #212529 !important;
+  box-shadow: none !important;
+}
+button:last-child {
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.btn:hover {
+  border-color: rgba(0, 0, 0, 0.125);
+}
+#aboutList {
+  position: absolute;
+  top: 0.35rem;
+  right: 1rem;
+}
+#aboutList i {
+  color: var(--headers);
+}
+a:hover#aboutList ~ #description {
+  z-index: 1;
+  opacity: 1;
+}
+a#aboutList:focus {
+  pointer-events: none;
+}
+#description {
+  font-size: 0.9rem !important;
+  padding: 0.75rem 1.5rem !important;
+}
+.arrow {
+  position: absolute;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  margin-left: 247px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+@media screen and (min-width: 1024px) {
+  #toDo {
+    width: 92%;
+  }
+}

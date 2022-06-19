@@ -20,6 +20,53 @@
   overflow: hidden;
 }
 
+button.btn-white {
+  width: 100%;
+  height: 60px;
+  color: white;
+  font-weight: bold;
+  border-radius: 0;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+button.btn-white:focus {
+  box-shadow: none;
+}
+
+.btn-white {
+  color: var(--headers);
+  background: var(--secondary);
+}
+
+.btn-white:hover {
+  color: white;
+  background-color: var(--tertiary);
+}
+
+.btn-white:focus {
+  transition: none;
+  background-color: var(--secondary);
+}
+
+.btn-white:focus:hover {
+  opacity: 1;
+  color: var(--headers);
+  background-color: var(--secondary);
+}
+
+@media (pointer: coarse) {
+  .btn-white:hover {
+    opacity: 1;
+    color: var(--headers);
+    background-color: var(--secondary);
+  }
+
+  .btn-white:focus:hover {
+    background-color: var(--secondary);
+  }
+}
+
 #newGame {
   z-index: 1;
   position: absolute;
