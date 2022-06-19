@@ -7,7 +7,7 @@ import { trigger, style, animate, transition } from "@angular/animations";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
   animations: [
-    trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))])]),
+    trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.5s ease", style({ opacity: 1 }))])]),
   ],
 })
 export class HomeComponent implements OnInit {

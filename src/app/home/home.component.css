@@ -29,6 +29,10 @@
   display: none;
 }
 
+#appName {
+  width: 130px;
+}
+
 #nextApp,
 #previousApp {
   border: 0;
@@ -37,6 +41,11 @@
   margin-top: -2px;
   box-shadow: none;
   background-color: transparent;
+}
+
+button#nextApp:active,
+button#previousApp:active {
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 768px) {
