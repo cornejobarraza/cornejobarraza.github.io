@@ -75,7 +75,7 @@ a#aboutList:focus {
   border-style: solid;
   border-color: black transparent transparent transparent;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   #toDo {
     width: 92%;
   }

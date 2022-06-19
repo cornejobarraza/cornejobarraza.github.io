@@ -99,7 +99,7 @@ a#aboutJson:focus {
   border-color: black transparent transparent transparent;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   a#aboutJson:focus {
     pointer-events: auto;
   }
