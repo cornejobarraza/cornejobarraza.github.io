@@ -40,7 +40,7 @@ export class PositioningService {
   }
 
   get wrapper() {
-    return document.querySelector("#topWrapper") as HTMLElement;
+    return document.querySelector("#top-wrapper") as HTMLElement;
   }
 
   get appRoot() {
