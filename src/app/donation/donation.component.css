@@ -2,15 +2,12 @@
   height: 1.25rem;
   background: var(--secondary);
 }
+
 #progress-bar {
   height: inherit;
   background-color: #198754;
   transition: width 0.75s;
   box-shadow: inset 0 0 0.5em 0 #115c39;
-}
-
-.content {
-  width: 19rem;
 }
 
 #goal {
@@ -123,14 +120,6 @@ a#aboutDono:focus {
   height: 17.33px;
   width: 15.15rem;
   position: absolute;
-}
-
-form {
-  margin-bottom: 1rem;
-}
-
-.input-container {
-  display: flex;
 }
 
 .input-container i {

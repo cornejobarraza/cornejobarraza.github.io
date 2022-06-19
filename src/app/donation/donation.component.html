@@ -1,5 +1,5 @@
 <div class="col mx-auto">
-  <div class="content mx-auto">
+  <div class="content mx-auto" style="width: 19rem">
     <div id="goal">
       <div *ngIf="isInvalid; else valid">
         <h6 [@fadeInOut] (@fadeInOut.done)="invalidEnd($event)">Please enter a valid amount</h6>
@@ -35,8 +35,8 @@
       <div id="inner-box">
         <p>Only 1 month left to fund this project.</p>
         <p>Join the other donors who have already supported us. Every dollar helps!</p>
-        <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
-          <div class="input-container">
+        <form style="margin-bottom: 1rem" [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+          <div class="input-container" style="display: flex">
             <i>$</i>
             <input type="number" formControlName="amount" min="1" /><button
               type="submit"
