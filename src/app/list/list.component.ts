@@ -10,8 +10,8 @@ import { formatDate } from "@angular/common";
   styleUrls: ["./list.component.css"],
   animations: [
     trigger("fade", [
-      transition(":enter", [style({ opacity: 0 }), animate("0.15s ease", style({ opacity: 1 }))]),
-      transition(":leave", [style({ opacity: 1 }), animate("0.15s ease", style({ opacity: 0 }))]),
+      transition(":enter", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))]),
+      transition(":leave", [style({ opacity: 1 }), animate("0.25s ease", style({ opacity: 0 }))]),
     ]),
   ],
 })
