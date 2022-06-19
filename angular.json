@@ -42,7 +42,11 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              {
+              "input": "src/styles.css",
+              "bundleName": "styles",
+              "inject": false
+              }
             ],
             "scripts": []
           },
