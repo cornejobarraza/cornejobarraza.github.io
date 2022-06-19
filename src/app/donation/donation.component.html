@@ -33,16 +33,6 @@
         <div id="progress-bar" [style.width]="progress"></div>
       </div>
       <div id="inner-box">
-        <a id="aboutDono" href="javascript:;" target="_blank" aria-label="About donation box"
-          ><i class="fa-solid fa-circle-question fs-6"></i
-        ></a>
-        <div id="description" class="text-center">
-          <p class="mb-0">
-            Donation box that updates <br />
-            it's progress and status
-          </p>
-          <span class="arrow"><wbr /></span>
-        </div>
         <p>Only 1 month left to fund this project.</p>
         <p>Join the other donors who have already supported us. Every dollar helps!</p>
         <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
@@ -59,8 +49,18 @@
         </form>
         <a href="javascript:;">
           <span>Why give $50?</span>
-          <span class="why">You become a beta tester automatically!</span>
+          <span class="why">You can become a beta tester!</span>
         </a>
+        <a id="aboutDono" href="javascript:;" target="_blank" aria-label="About donation box"
+          ><i class="fa-solid fa-circle-question fs-6"></i
+        ></a>
+        <div id="description" class="text-center">
+          <p class="mb-0">
+            Donation box that updates <br />
+            it's progress and status
+          </p>
+          <span class="arrow"><wbr /></span>
+        </div>
       </div>
     </div>
   </div>
