@@ -8,7 +8,7 @@ import { PositioningService } from "./positioning.service";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  title = "project-website";
+  title = "project-portfolio";
 
   constructor(public goodnight: GoodnightService, public position: PositioningService) {}
 

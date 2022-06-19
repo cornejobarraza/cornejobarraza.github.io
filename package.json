@@ -1,5 +1,5 @@
 {
-  "name": "project-website",
+  "name": "project-portfolio",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,9 +7,9 @@
     "build": "ng build",
     "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
-    "analyze": "webpack-bundle-analyzer dist/project-website/stats.json",
+    "analyze": "webpack-bundle-analyzer dist/project-portfolio/stats.json",
     "test": "ng test",
-    "source-map-explorer": "source-map-explorer dist/project-website/main*"
+    "source-map-explorer": "source-map-explorer dist/project-portfolio/main*"
   },
   "private": true,
   "dependencies": {
