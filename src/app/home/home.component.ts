@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, AfterViewInit, Renderer2, HostListener } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { PositioningService } from "../positioning.service";
@@ -8,7 +8,7 @@ import { PositioningService } from "../positioning.service";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
   animations: [
-    trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.5s ease", style({ opacity: 1 }))])]),
+    trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.25s ease", style({ opacity: 1 }))])]),
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
@@ -23,15 +23,71 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private renderer: Renderer2
   ) {}
 
+  get html() {
+    return document.documentElement;
+  }
+
+  get page1() {
+    return document.querySelector("#page-1") as HTMLElement;
+  }
+
+  get page2() {
+    return document.querySelector("#page-2") as HTMLElement;
+  }
+
+  get page3() {
+    return document.querySelector("#page-3") as HTMLElement;
+  }
+
+  @HostListener("window:resize", ["$event"])
+  onScroll(event: Window) {
+    let currentPage = this.currentPage;
+
+    if (window.innerWidth > 576) {
+      this.renderer.removeClass(this.page1, "active");
+      this.renderer.removeClass(this.page1, "hidden");
+      this.renderer.removeClass(this.page2, "active");
+      this.renderer.removeClass(this.page2, "hidden");
+      this.renderer.removeClass(this.page3, "active");
+      this.renderer.removeClass(this.page3, "hidden");
+    } else {
+      if (currentPage === 1) {
+        this.renderer.removeClass(this.page1, "hidden");
+        this.renderer.addClass(this.page1, "active");
+        this.renderer.removeClass(this.page2, "active");
+        this.renderer.addClass(this.page2, "hidden");
+        this.renderer.removeClass(this.page3, "active");
+        this.renderer.addClass(this.page3, "hidden");
+      }
+
+      if (currentPage === 2) {
+        this.renderer.removeClass(this.page1, "active");
+        this.renderer.addClass(this.page1, "hidden");
+        this.renderer.removeClass(this.page2, "hidden");
+        this.renderer.addClass(this.page2, "active");
+        this.renderer.removeClass(this.page3, "active");
+        this.renderer.addClass(this.page3, "hidden");
+      }
+      if (currentPage === 3) {
+        this.renderer.removeClass(this.page1, "active");
+        this.renderer.addClass(this.page1, "hidden");
+        this.renderer.removeClass(this.page2, "active");
+        this.renderer.addClass(this.page2, "hidden");
+        this.renderer.removeClass(this.page3, "hidden");
+        this.renderer.addClass(this.page3, "active");
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.currentApp();
 
     this.currentPage = 1;
 
     if (window.innerWidth < 576) {
-      this.renderer.addClass(this.positioning.page1, "active");
-      this.renderer.addClass(this.positioning.page2, "hidden");
-      this.renderer.addClass(this.positioning.page3, "hidden");
+      this.renderer.addClass(this.page1, "active");
+      this.renderer.addClass(this.page2, "hidden");
+      this.renderer.addClass(this.page3, "hidden");
     }
   }
 
@@ -210,9 +266,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   onPointerDown(evt: any) {
     if (window.innerWidth < 576) {
       if (evt.clientX > window.innerWidth / 2) {
-        this.positioning.html.style.setProperty("--translate-hidden", "100%");
+        this.html.style.setProperty("--translate-hidden", "100%");
       } else {
-        this.positioning.html.style.setProperty("--translate-hidden", "-100%");
+        this.html.style.setProperty("--translate-hidden", "-100%");
       }
     }
   }
@@ -225,12 +281,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (currentPage === 1) {
           this.currentPage = 2;
 
-          this.renderer.removeClass(this.positioning.page2, "hidden");
-          this.renderer.addClass(this.positioning.page2, "active");
-          this.renderer.removeClass(this.positioning.page1, "active");
-          this.renderer.addClass(this.positioning.page1, "hidden");
-          this.renderer.removeClass(this.positioning.page3, "active");
-          this.renderer.addClass(this.positioning.page3, "hidden");
+          this.renderer.removeClass(this.page2, "hidden");
+          this.renderer.addClass(this.page2, "active");
+          this.renderer.removeClass(this.page1, "active");
+          this.renderer.addClass(this.page1, "hidden");
+          this.renderer.removeClass(this.page3, "active");
+          this.renderer.addClass(this.page3, "hidden");
 
           return;
         }
@@ -238,12 +294,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (currentPage === 2) {
           this.currentPage = 3;
 
-          this.renderer.removeClass(this.positioning.page3, "hidden");
-          this.renderer.addClass(this.positioning.page3, "active");
-          this.renderer.removeClass(this.positioning.page2, "active");
-          this.renderer.addClass(this.positioning.page2, "hidden");
-          this.renderer.removeClass(this.positioning.page1, "active");
-          this.renderer.addClass(this.positioning.page1, "hidden");
+          this.renderer.removeClass(this.page3, "hidden");
+          this.renderer.addClass(this.page3, "active");
+          this.renderer.removeClass(this.page2, "active");
+          this.renderer.addClass(this.page2, "hidden");
+          this.renderer.removeClass(this.page1, "active");
+          this.renderer.addClass(this.page1, "hidden");
 
           return;
         }
@@ -253,12 +309,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (currentPage === 3) {
           this.currentPage = 2;
 
-          this.renderer.removeClass(this.positioning.page2, "hidden");
-          this.renderer.addClass(this.positioning.page2, "active");
-          this.renderer.removeClass(this.positioning.page3, "active");
-          this.renderer.addClass(this.positioning.page3, "hidden");
-          this.renderer.removeClass(this.positioning.page1, "active");
-          this.renderer.addClass(this.positioning.page1, "hidden");
+          this.renderer.removeClass(this.page2, "hidden");
+          this.renderer.addClass(this.page2, "active");
+          this.renderer.removeClass(this.page3, "active");
+          this.renderer.addClass(this.page3, "hidden");
+          this.renderer.removeClass(this.page1, "active");
+          this.renderer.addClass(this.page1, "hidden");
 
           return;
         }
@@ -266,12 +322,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (currentPage === 2) {
           this.currentPage = 1;
 
-          this.renderer.removeClass(this.positioning.page1, "hidden");
-          this.renderer.addClass(this.positioning.page1, "active");
-          this.renderer.removeClass(this.positioning.page2, "active");
-          this.renderer.addClass(this.positioning.page2, "hidden");
-          this.renderer.removeClass(this.positioning.page3, "active");
-          this.renderer.addClass(this.positioning.page3, "hidden");
+          this.renderer.removeClass(this.page1, "hidden");
+          this.renderer.addClass(this.page1, "active");
+          this.renderer.removeClass(this.page2, "active");
+          this.renderer.addClass(this.page2, "hidden");
+          this.renderer.removeClass(this.page3, "active");
+          this.renderer.addClass(this.page3, "hidden");
 
           return;
         }
