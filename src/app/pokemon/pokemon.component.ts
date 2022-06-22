@@ -32,7 +32,5 @@ export class PokemonComponent implements OnInit {
     this.pkUrl = `res/pkmn/${data.id}.png`;
     this.pkNumber = `Pokémon #${data.id}`;
     this.pkName = data.name.toUpperCase();
-
-    this.home.scrollToApp();
   }
 }

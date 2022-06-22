@@ -8,7 +8,7 @@ import { filter, map, switchMap } from "rxjs/operators";
 })
 export class LongPressDirective implements OnDestroy {
   private eventSubscribe: Subscription;
-  threshold = 500;
+  threshold = 400;
 
   @Output()
   mouseLongPress = new EventEmitter();

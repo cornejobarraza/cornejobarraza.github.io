@@ -1,12 +1,12 @@
-<div class="col mx-auto">
+<div class="col mx-auto" style="position: relative">
   <span id="date" class="badge rounded-pill fw-bold mb-4">{{ this.date }}</span>
   <div id="toDoCard" class="card mx-auto">
     <div class="card-header text-start px-4">
       <h6 class="fw-bold m-0 text-center">Tasks for today</h6>
-      <a id="aboutList" href="javascript:;" target="_blank" aria-label="About To-Do list"
+      <a id="aboutList" class="d-none d-md-block" href="javascript:;" target="_blank" aria-label="About To-Do list"
         ><i class="fa-solid fa-circle-question fs-6"></i
       ></a>
-      <div id="description">
+      <div id="description" class="d-none d-md-block">
         <p class="mb-1">Press <i class="fa-solid fa-thumbtack text-light px-1"></i> or enter to add a task</p>
         <p class="mb-1">Press <i class="fa-solid fa-calendar-xmark text-light px-1"></i> to remove completed tasks</p>
         <p class="mb-0">Hold <i class="fa-solid fa-calendar-xmark text-light px-1"></i> to remove all tasks</p>
@@ -50,5 +50,11 @@
         </div>
       </form>
     </div>
+  </div>
+  <div id="description2" class="d-md-none mx-auto">
+    <span class="arrow2 d-md-none"><wbr /></span>
+    <p class="mb-1">Press <i class="fa-solid fa-thumbtack text-light px-1"></i> or enter to add a task</p>
+    <p class="mb-1">Press <i class="fa-solid fa-calendar-xmark text-light px-1"></i> to remove completed tasks</p>
+    <p class="mb-0">Hold <i class="fa-solid fa-calendar-xmark text-light px-1"></i> to remove all tasks</p>
   </div>
 </div>

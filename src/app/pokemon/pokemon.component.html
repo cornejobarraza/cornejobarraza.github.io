@@ -3,7 +3,12 @@
   <div id="pokeCard" class="card mx-auto">
     <div class="card-header d-flex justify-content-center">
       <h6 class="m-0">Gotta Catch 'Em All!</h6>
-      <a id="aboutPoke" href="https://pokeapi.co/" target="_blank" aria-label="About PokeAPI card"
+      <a
+        id="aboutPoke"
+        class="d-none d-md-block"
+        href="https://pokeapi.co/"
+        target="_blank"
+        aria-label="About PokeAPI card"
         ><i class="fa-solid fa-circle-question fs-6"></i
       ></a>
       <div id="description" class="text-center">
@@ -37,5 +42,13 @@
         <i class="fa fa-arrows-rotate"></i>
       </button>
     </div>
+  </div>
+  <div id="description2" class="d-md-none mx-auto text-center">
+    <span class="arrow2 d-md-none"><wbr /></span>
+    <a class="fw-bold text-light text-decoration-none" href="https://pokeapi.co/" target="_blank">
+      The RESTful Pokémon API <i class="fa-solid fa-gamepad"></i>
+    </a>
+    <p class="mt-1 mb-0">Card to request a random Pokémon</p>
+    <p class="mb-0">using the Fetch API</p>
   </div>
 </div>

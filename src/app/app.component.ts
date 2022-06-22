@@ -10,10 +10,10 @@ import { PositioningService } from "./positioning.service";
 export class AppComponent implements OnInit {
   title = "project-portfolio";
 
-  constructor(public goodnight: GoodnightService, public position: PositioningService) {}
+  constructor(public goodnight: GoodnightService, public positioning: PositioningService) {}
 
   ngOnInit() {
     this.goodnight.defaultTheme();
-    this.position.setPosition();
+    this.positioning.mobileHowTo();
   }
 }

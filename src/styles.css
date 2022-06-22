@@ -5,6 +5,10 @@
   background-clip: content-box;
 }
 
+#aboutText::-webkit-scrollbar {
+  display: none;
+}
+
 .toggledDark body,
 .toggledLight body {
   transition: background 0.25s;
@@ -58,6 +62,34 @@ main .btn:focus {
   box-shadow: none;
 }
 
+span#placeholder {
+  display: none;
+}
+
+img.pfp {
+  height: 125px;
+  width: 125px;
+}
+
+#aboutText {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  height: 19.5rem;
+  font-size: 0.95rem;
+}
+
+#problems > * {
+  margin-bottom: 2rem;
+}
+
+#problems > :last-child {
+  margin-bottom: 0;
+}
+
+#apps > :first-child {
+  margin-bottom: 2rem;
+}
+
 .fs-7 {
   font-size: 0.9rem;
 }
@@ -74,8 +106,57 @@ main .btn:focus {
   text-decoration: none;
 }
 
+.arrow2 {
+  position: absolute;
+}
+
+.arrow2::after {
+  content: "";
+  position: absolute;
+  bottom: 2.1rem;
+  transform: rotate(180deg);
+  left: -0.2rem;
+  border-width: 7px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#description2 {
+  background: #000;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+  left: 50%;
+  opacity: 0;
+  padding: 0.75rem 1rem;
+  transition: all 0.25s ease;
+  width: 19rem;
+  z-index: -1;
+  margin-top: 2rem;
+}
+
 #lightToggle:hover {
   background-color: #416bf0;
+}
+
+@media screen and (min-width: 576px) {
+  #aboutText {
+    height: fit-content;
+    font-size: 1rem;
+  }
+
+  img.pfp {
+    height: 150px;
+    width: 150px;
+  }
+
+  #problems > * {
+    margin-bottom: 0;
+  }
+
+  #apps > :first-child {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -85,5 +166,27 @@ main .btn:focus {
 
   .modal-dialog {
     margin: 1.5rem auto !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  span#placeholder {
+    display: block;
+  }
+
+  img.pfp {
+    left: 50%;
+    top: 75%;
+    position: absolute;
+    transform: translate(-50%, -100%);
+  }
+
+  .socials {
+    opacity: 1;
+    width: 100%;
+    top: 125%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
   }
 }

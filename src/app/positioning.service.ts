@@ -1,6 +1,7 @@
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
 import { fromEvent } from "rxjs";
+declare var window: any;
 
 @Injectable({
   providedIn: "root",
@@ -19,70 +20,106 @@ export class PositioningService {
     return document.documentElement;
   }
 
-  get body() {
-    return document.body;
+  get header() {
+    return document.querySelector("header") as HTMLElement;
   }
 
-  get screenHeight() {
-    return window.innerHeight;
-  }
-
-  get screenWidth() {
-    return window.innerWidth;
-  }
-
-  get pixelsAway() {
-    return this.html.scrollHeight - (window.scrollY + this.screenHeight);
-  }
-
-  get toggle() {
-    return document.querySelector("#lightToggle") as HTMLElement;
-  }
-
-  get wrapper() {
-    return document.querySelector("#top-wrapper") as HTMLElement;
-  }
-
-  get appRoot() {
-    return document.querySelector("app-root") as HTMLElement;
+  get main() {
+    return document.querySelector("main") as HTMLElement;
   }
 
   get footer() {
     return document.querySelector("footer") as HTMLElement;
   }
 
+  get customHeight() {
+    let headerHeight = Number(getComputedStyle(this.header).getPropertyValue("height").split("px")[0]);
+    let mainTopMargin = Number(getComputedStyle(this.main).getPropertyValue("margin-top").split("px")[0]);
+    let mainBottomMargin = Number(getComputedStyle(this.main).getPropertyValue("margin-bottom").split("px")[0]);
+    let footerHeight = Number(getComputedStyle(this.footer).getPropertyValue("height").split("px")[0]);
+
+    return window.innerHeight - headerHeight - mainTopMargin - mainBottomMargin - footerHeight;
+  }
+
+  get pixelsAway() {
+    return this.html.scrollHeight - (window.scrollY + window.innerHeight);
+  }
+
+  get toggle() {
+    return document.querySelector("#lightToggle") as HTMLElement;
+  }
+
+  get page1() {
+    return document.querySelector("#page-1") as HTMLElement;
+  }
+
+  get page2() {
+    return document.querySelector("#page-2") as HTMLElement;
+  }
+
+  get page3() {
+    return document.querySelector("#page-3") as HTMLElement;
+  }
+
+  get currentPage() {
+    return localStorage.getItem("currentPage");
+  }
+
   setPosition() {
     let vh = window.innerHeight * 0.01;
     this.html.style.setProperty("--vh", `${vh}px`);
 
-    if (this.footer.offsetTop === this.wrapper.clientHeight && this.screenWidth > 1024) {
-      this.renderer.setStyle(this.html, "height", "100%");
-      this.renderer.setStyle(this.body, "height", "100%");
-      this.renderer.setStyle(this.appRoot, "height", "100%");
+    this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
+    this.renderer.removeClass(this.footer, "fixed-bottom");
+
+    if (window.innerHeight === document.documentElement.scrollHeight) {
       this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+    } else {
+      this.renderer.removeStyle(this.toggle, "margin-bottom");
     }
 
     fromEvent(window, "resize").subscribe(() => {
       let vh = window.innerHeight * 0.01;
       this.html.style.setProperty("--vh", `${vh}px`);
 
+      this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
+
+      if (window.innerWidth > 576) {
+        this.renderer.removeClass(this.page1, "active");
+        this.renderer.removeClass(this.page1, "hidden");
+        this.renderer.removeClass(this.page2, "active");
+        this.renderer.removeClass(this.page2, "hidden");
+        this.renderer.removeClass(this.page3, "active");
+        this.renderer.removeClass(this.page3, "hidden");
+      } else {
+        if (this.currentPage === "1") {
+          this.renderer.addClass(this.page1, "active");
+          this.renderer.addClass(this.page2, "hidden");
+          this.renderer.addClass(this.page3, "hidden");
+        }
+        if (this.currentPage === "2") {
+          this.renderer.addClass(this.page1, "hidden");
+          this.renderer.addClass(this.page2, "active");
+          this.renderer.addClass(this.page3, "hidden");
+        }
+        if (this.currentPage === "3") {
+          this.renderer.addClass(this.page1, "hidden");
+          this.renderer.addClass(this.page2, "hidden");
+          this.renderer.addClass(this.page3, "active");
+        }
+      }
+
       setTimeout(() => {
+        if (window.innerHeight === document.documentElement.scrollHeight) {
+          this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+        } else {
+          this.renderer.removeStyle(this.toggle, "margin-bottom");
+        }
+
         if (this.pixelsAway < 1) {
           this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
         }
       }, 1);
-
-      if (this.footer.offsetTop === this.wrapper.clientHeight && this.screenWidth <= 1024) {
-        this.renderer.removeStyle(this.html, "height");
-        this.renderer.removeStyle(this.body, "height");
-        this.renderer.removeStyle(this.appRoot, "height");
-        this.renderer.removeStyle(this.toggle, "margin-bottom");
-      } else {
-        this.renderer.setStyle(this.html, "height", "100%");
-        this.renderer.setStyle(this.body, "height", "100%");
-        this.renderer.setStyle(this.appRoot, "height", "100%");
-        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
-      }
     });
 
     fromEvent(window, "scroll").subscribe(() => {
@@ -92,5 +129,18 @@ export class PositioningService {
         this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
     });
+  }
+
+  mobileHowTo() {
+    if (window.innerWidth < 576) {
+      let theme = localStorage.getItem("keepLightMode");
+
+      if (theme === null) {
+        var toastEl = document.querySelector(".toast");
+        var myToast = new window.bootstrap.Toast(toastEl, { autohide: false });
+
+        myToast.show();
+      }
+    }
   }
 }

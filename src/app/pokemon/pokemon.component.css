@@ -21,8 +21,12 @@
   border-radius: 1rem 1rem 0 0 !important;
 }
 
+img {
+  width: 100px !important;
+}
+
 .img-container {
-  min-height: 125px;
+  min-height: 100px;
   margin-bottom: 1.5rem;
 }
 
@@ -59,6 +63,11 @@ span {
   transition: 0.15s;
 }
 
+#description2 {
+  opacity: 1;
+  z-index: 1;
+}
+
 #aboutPoke i {
   color: var(--headers);
 }
@@ -92,6 +101,10 @@ a#aboutPoke:focus {
   border-width: 7px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+
+.arrow2::after {
+  left: 6rem;
 }
 
 @media screen and (min-width: 1200px) {

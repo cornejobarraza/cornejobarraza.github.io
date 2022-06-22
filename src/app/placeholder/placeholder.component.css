@@ -31,8 +31,12 @@ a {
   margin-top: -2px;
 }
 
+img {
+  width: 100px !important;
+}
+
 .img-container {
-  min-height: 125px;
+  min-height: 100px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -95,6 +99,11 @@ a:hover#aboutJson ~ #description {
   opacity: 1;
 }
 
+#description2 {
+  opacity: 1;
+  z-index: 1;
+}
+
 a#aboutJson:focus {
   pointer-events: none;
 }
@@ -111,6 +120,10 @@ a#aboutJson:focus {
   border-width: 7px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+
+.arrow2::after {
+  left: 5.25rem;
 }
 
 @media screen and (min-width: 1024px) {

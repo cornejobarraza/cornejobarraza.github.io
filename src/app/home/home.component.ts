@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { PositioningService } from "../positioning.service";
 
 @Component({
   selector: "app-home",
@@ -10,14 +11,47 @@ import { trigger, style, animate, transition } from "@angular/animations";
     trigger("fadeIn", [transition("* => *", [style({ opacity: 0 }), animate("0.5s ease", style({ opacity: 1 }))])]),
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
   currentComponent!: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private positioning: PositioningService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
     this.currentApp();
+
+    if (this.positioning.currentPage === null) {
+      localStorage.setItem("currentPage", "1");
+    }
+
+    if (window.innerWidth < 576) {
+      let currentPage = localStorage.getItem("currentPage");
+
+      if (currentPage === "1") {
+        this.renderer.addClass(this.positioning.page1, "active");
+        this.renderer.addClass(this.positioning.page2, "hidden");
+        this.renderer.addClass(this.positioning.page3, "hidden");
+      }
+      if (currentPage === "2") {
+        this.renderer.addClass(this.positioning.page1, "hidden");
+        this.renderer.addClass(this.positioning.page2, "active");
+        this.renderer.addClass(this.positioning.page3, "hidden");
+      }
+      if (currentPage === "3") {
+        this.renderer.addClass(this.positioning.page1, "hidden");
+        this.renderer.addClass(this.positioning.page2, "hidden");
+        this.renderer.addClass(this.positioning.page3, "active");
+      }
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.positioning.setPosition();
   }
 
   code1() {
@@ -134,8 +168,6 @@ export class HomeComponent implements OnInit {
       this.appName = "Tic-tac-toe";
       this.router.navigate(["game"], { relativeTo: this.route });
     }
-
-    this.scrollToApp();
   }
 
   nextApp() {
@@ -166,8 +198,6 @@ export class HomeComponent implements OnInit {
       this.appName = "Tic-tac-toe";
       this.router.navigate(["game"], { relativeTo: this.route });
     }
-
-    this.scrollToApp();
   }
 
   currentApp() {
@@ -192,9 +222,74 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  scrollToApp() {
-    setTimeout(() => {
-      document.querySelector("#apps")?.scrollIntoView({ block: "center", inline: "center" });
-    }, 1);
+  onPointerDown(evt: any) {
+    if (window.innerWidth < 576) {
+      if (evt.clientX > window.innerWidth / 2) {
+        this.positioning.html.style.setProperty("--translate-hidden", "100%");
+      } else {
+        this.positioning.html.style.setProperty("--translate-hidden", "-100%");
+      }
+    }
+  }
+
+  onSwipe(evt: any) {
+    if (window.innerWidth < 576) {
+      let currentPage = localStorage.getItem("currentPage");
+      if (evt.deltaX < -40) {
+        if (currentPage === "1") {
+          localStorage.setItem("currentPage", "2");
+
+          this.renderer.removeClass(this.positioning.page2, "hidden");
+          this.renderer.addClass(this.positioning.page2, "active");
+          this.renderer.removeClass(this.positioning.page1, "active");
+          this.renderer.addClass(this.positioning.page1, "hidden");
+          this.renderer.removeClass(this.positioning.page3, "active");
+          this.renderer.addClass(this.positioning.page3, "hidden");
+
+          return;
+        }
+
+        if (currentPage === "2") {
+          localStorage.setItem("currentPage", "3");
+
+          this.renderer.removeClass(this.positioning.page3, "hidden");
+          this.renderer.addClass(this.positioning.page3, "active");
+          this.renderer.removeClass(this.positioning.page2, "active");
+          this.renderer.addClass(this.positioning.page2, "hidden");
+          this.renderer.removeClass(this.positioning.page1, "active");
+          this.renderer.addClass(this.positioning.page1, "hidden");
+
+          return;
+        }
+      }
+
+      if (evt.deltaX > 40) {
+        if (currentPage === "3") {
+          localStorage.setItem("currentPage", "2");
+
+          this.renderer.removeClass(this.positioning.page2, "hidden");
+          this.renderer.addClass(this.positioning.page2, "active");
+          this.renderer.removeClass(this.positioning.page3, "active");
+          this.renderer.addClass(this.positioning.page3, "hidden");
+          this.renderer.removeClass(this.positioning.page1, "active");
+          this.renderer.addClass(this.positioning.page1, "hidden");
+
+          return;
+        }
+
+        if (currentPage === "2") {
+          localStorage.setItem("currentPage", "1");
+
+          this.renderer.removeClass(this.positioning.page1, "hidden");
+          this.renderer.addClass(this.positioning.page1, "active");
+          this.renderer.removeClass(this.positioning.page2, "active");
+          this.renderer.addClass(this.positioning.page2, "hidden");
+          this.renderer.removeClass(this.positioning.page3, "active");
+          this.renderer.addClass(this.positioning.page3, "hidden");
+
+          return;
+        }
+      }
+    }
   }
 }

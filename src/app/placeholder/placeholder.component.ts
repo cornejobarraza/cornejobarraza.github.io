@@ -80,8 +80,6 @@ export class PlaceholderComponent implements OnInit {
           this.title = `🎞 Picture #${data.id}`;
           this.contents = [data.thumbnailUrl];
         }
-
-        this.home.scrollToApp();
       }
     };
   }

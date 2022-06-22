@@ -7,10 +7,10 @@
         {{ player }}
       </span>
     </span>
-    <a id="aboutGame" href="javascript:;" target="_blank" aria-label="About Tic-tac-toe game"
+    <a id="aboutGame" class="d-none d-md-inline" href="javascript:;" aria-label="About Tic-tac-toe game"
       ><i class="fa-solid fa-circle-question fs-6"></i
     ></a>
-    <div id="description">
+    <div id="description" class="d-none d-md-block">
       <p class="mb-0">Game that saves your progress and freezes the board once completed</p>
       <span class="arrow"><wbr /></span>
     </div>
@@ -42,5 +42,9 @@
       <button class="btn btn-white" *ngIf="val === 'X'" aria-label="Square with X">{{ val }}</button>
       <button class="btn btn-white" *ngIf="val === 'O'" aria-label="Square with O">{{ val }}</button>
     </div>
+  </div>
+  <div id="description2" class="d-md-none mx-auto">
+    <span class="arrow2 d-md-none"><wbr /></span>
+    <p class="mb-0">Game that saves your progress and freezes the board once completed</p>
   </div>
 </div>

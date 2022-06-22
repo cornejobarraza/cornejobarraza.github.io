@@ -1,5 +1,5 @@
 <div class="col mx-auto">
-  <div class="content mx-auto" style="width: 19rem">
+  <div class="content mx-auto" style="width: 19rem; position: relative">
     <div id="goal">
       <div *ngIf="isInvalid; else valid">
         <h6 [@fadeInOut] (@fadeInOut.done)="invalidEnd($event)">Please enter a valid amount</h6>
@@ -27,7 +27,6 @@
         </ng-template>
       </ng-template>
     </div>
-
     <div id="box">
       <div id="progress">
         <div id="progress-bar" [style.width]="progress"></div>
@@ -51,10 +50,10 @@
           <span>Why give $50?</span>
           <span class="why">You can become a beta tester!</span>
         </a>
-        <a id="aboutDono" href="javascript:;" target="_blank" aria-label="About donation box"
+        <a id="aboutDono" class="d-none d-md-block" href="javascript:;" aria-label="About donation box"
           ><i class="fa-solid fa-circle-question fs-6"></i
         ></a>
-        <div id="description" class="text-center">
+        <div id="description" class="d-none d-md-block text-center">
           <p class="mb-0">
             Donation box that updates <br />
             it's progress and status
@@ -62,6 +61,13 @@
           <span class="arrow" style="position: absolute"><wbr /></span>
         </div>
       </div>
+    </div>
+    <div id="description2" class="d-md-none mx-auto">
+      <span class="arrow2 d-md-none"><wbr /></span>
+      <p class="mb-0">
+        Donation box that updates <br />
+        it's progress and status
+      </p>
     </div>
   </div>
 </div>
