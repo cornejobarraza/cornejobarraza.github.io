@@ -49,22 +49,6 @@ export class PositioningService {
     return document.querySelector("#lightToggle") as HTMLElement;
   }
 
-  get page1() {
-    return document.querySelector("#page-1") as HTMLElement;
-  }
-
-  get page2() {
-    return document.querySelector("#page-2") as HTMLElement;
-  }
-
-  get page3() {
-    return document.querySelector("#page-3") as HTMLElement;
-  }
-
-  get currentPage() {
-    return localStorage.getItem("currentPage");
-  }
-
   setPosition() {
     let vh = window.innerHeight * 0.01;
     this.html.style.setProperty("--vh", `${vh}px`);
@@ -72,30 +56,19 @@ export class PositioningService {
     this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
     this.renderer.removeClass(this.footer, "fixed-bottom");
 
-    if (window.innerHeight === document.documentElement.scrollHeight) {
-      this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
-    } else {
-      this.renderer.removeStyle(this.toggle, "margin-bottom");
-    }
+    setTimeout(() => {
+      if (window.innerHeight === document.documentElement.scrollHeight) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+      } else {
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
+      }
+    }, 1);
 
     fromEvent(window, "resize").subscribe(() => {
       let vh = window.innerHeight * 0.01;
       this.html.style.setProperty("--vh", `${vh}px`);
 
       this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
-
-      if (window.innerWidth > 576) {
-        this.renderer.removeClass(this.page1, "active");
-        this.renderer.removeClass(this.page1, "hidden");
-        this.renderer.removeClass(this.page2, "active");
-        this.renderer.removeClass(this.page2, "hidden");
-        this.renderer.removeClass(this.page3, "active");
-        this.renderer.removeClass(this.page3, "hidden");
-      } else {
-        this.renderer.addClass(this.page1, "active");
-        this.renderer.addClass(this.page2, "hidden");
-        this.renderer.addClass(this.page3, "hidden");
-      }
 
       setTimeout(() => {
         if (window.innerHeight === document.documentElement.scrollHeight) {
