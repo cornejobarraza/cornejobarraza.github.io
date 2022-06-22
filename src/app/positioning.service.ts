@@ -92,21 +92,9 @@ export class PositioningService {
         this.renderer.removeClass(this.page3, "active");
         this.renderer.removeClass(this.page3, "hidden");
       } else {
-        if (this.currentPage === "1") {
-          this.renderer.addClass(this.page1, "active");
-          this.renderer.addClass(this.page2, "hidden");
-          this.renderer.addClass(this.page3, "hidden");
-        }
-        if (this.currentPage === "2") {
-          this.renderer.addClass(this.page1, "hidden");
-          this.renderer.addClass(this.page2, "active");
-          this.renderer.addClass(this.page3, "hidden");
-        }
-        if (this.currentPage === "3") {
-          this.renderer.addClass(this.page1, "hidden");
-          this.renderer.addClass(this.page2, "hidden");
-          this.renderer.addClass(this.page3, "active");
-        }
+        this.renderer.addClass(this.page1, "active");
+        this.renderer.addClass(this.page2, "hidden");
+        this.renderer.addClass(this.page3, "hidden");
       }
 
       setTimeout(() => {

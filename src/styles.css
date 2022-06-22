@@ -121,20 +121,6 @@ img.pfp {
   border-color: black transparent transparent transparent;
 }
 
-#description2 {
-  background: #000;
-  border-radius: 0.5rem;
-  color: #fff;
-  font-size: 0.95rem;
-  left: 50%;
-  opacity: 0;
-  padding: 0.75rem 1rem;
-  transition: all 0.25s ease;
-  width: 19rem;
-  z-index: -1;
-  margin-top: 2rem;
-}
-
 #lightToggle:hover {
   background-color: #416bf0;
 }
@@ -176,7 +162,6 @@ img.pfp {
 
   img.pfp {
     left: 50%;
-    top: 75%;
     position: absolute;
     transform: translate(-50%, -100%);
   }
@@ -184,9 +169,17 @@ img.pfp {
   .socials {
     opacity: 1;
     width: 100%;
-    top: 125%;
+    top: 140%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, 0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  img.pfp {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -110%);
   }
 }

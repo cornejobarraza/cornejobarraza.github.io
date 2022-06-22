@@ -14,6 +14,7 @@ import { PositioningService } from "../positioning.service";
 export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
   currentComponent!: string;
+  currentPage!: number;
 
   constructor(
     private positioning: PositioningService,
@@ -25,28 +26,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.currentApp();
 
-    if (this.positioning.currentPage === null) {
-      localStorage.setItem("currentPage", "1");
-    }
+    this.currentPage = 1;
 
     if (window.innerWidth < 576) {
-      let currentPage = localStorage.getItem("currentPage");
-
-      if (currentPage === "1") {
-        this.renderer.addClass(this.positioning.page1, "active");
-        this.renderer.addClass(this.positioning.page2, "hidden");
-        this.renderer.addClass(this.positioning.page3, "hidden");
-      }
-      if (currentPage === "2") {
-        this.renderer.addClass(this.positioning.page1, "hidden");
-        this.renderer.addClass(this.positioning.page2, "active");
-        this.renderer.addClass(this.positioning.page3, "hidden");
-      }
-      if (currentPage === "3") {
-        this.renderer.addClass(this.positioning.page1, "hidden");
-        this.renderer.addClass(this.positioning.page2, "hidden");
-        this.renderer.addClass(this.positioning.page3, "active");
-      }
+      this.renderer.addClass(this.positioning.page1, "active");
+      this.renderer.addClass(this.positioning.page2, "hidden");
+      this.renderer.addClass(this.positioning.page3, "hidden");
     }
   }
 
@@ -234,10 +219,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSwipe(evt: any) {
     if (window.innerWidth < 576) {
-      let currentPage = localStorage.getItem("currentPage");
+      let currentPage = this.currentPage;
+
       if (evt.deltaX < -40) {
-        if (currentPage === "1") {
-          localStorage.setItem("currentPage", "2");
+        if (currentPage === 1) {
+          this.currentPage = 2;
 
           this.renderer.removeClass(this.positioning.page2, "hidden");
           this.renderer.addClass(this.positioning.page2, "active");
@@ -249,8 +235,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
           return;
         }
 
-        if (currentPage === "2") {
-          localStorage.setItem("currentPage", "3");
+        if (currentPage === 2) {
+          this.currentPage = 3;
 
           this.renderer.removeClass(this.positioning.page3, "hidden");
           this.renderer.addClass(this.positioning.page3, "active");
@@ -264,8 +250,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
 
       if (evt.deltaX > 40) {
-        if (currentPage === "3") {
-          localStorage.setItem("currentPage", "2");
+        if (currentPage === 3) {
+          this.currentPage = 2;
 
           this.renderer.removeClass(this.positioning.page2, "hidden");
           this.renderer.addClass(this.positioning.page2, "active");
@@ -277,8 +263,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
           return;
         }
 
-        if (currentPage === "2") {
-          localStorage.setItem("currentPage", "1");
+        if (currentPage === 2) {
+          this.currentPage = 1;
 
           this.renderer.removeClass(this.positioning.page1, "hidden");
           this.renderer.addClass(this.positioning.page1, "active");
