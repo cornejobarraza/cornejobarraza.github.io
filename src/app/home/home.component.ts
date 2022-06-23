@@ -273,20 +273,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSwipe(evt: any) {
+  onSwipeLeft(evt: any) {
     if (window.innerWidth < 576) {
       let currentPage = this.currentPage;
 
-      if (evt.deltaX < -40) {
+      setTimeout(() => {
         if (currentPage === 1) {
           this.currentPage = 2;
 
           this.renderer.removeClass(this.page2, "hidden");
           this.renderer.addClass(this.page2, "active");
+
           this.renderer.removeClass(this.page1, "active");
           this.renderer.addClass(this.page1, "hidden");
-          this.renderer.removeClass(this.page3, "active");
-          this.renderer.addClass(this.page3, "hidden");
 
           return;
         }
@@ -296,25 +295,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
           this.renderer.removeClass(this.page3, "hidden");
           this.renderer.addClass(this.page3, "active");
+
           this.renderer.removeClass(this.page2, "active");
           this.renderer.addClass(this.page2, "hidden");
-          this.renderer.removeClass(this.page1, "active");
-          this.renderer.addClass(this.page1, "hidden");
 
           return;
         }
-      }
+      }, 10);
+    }
+  }
 
-      if (evt.deltaX > 40) {
+  onSwipeRight(evt: any) {
+    if (window.innerWidth < 576) {
+      let currentPage = this.currentPage;
+
+      setTimeout(() => {
         if (currentPage === 3) {
           this.currentPage = 2;
 
           this.renderer.removeClass(this.page2, "hidden");
           this.renderer.addClass(this.page2, "active");
+
           this.renderer.removeClass(this.page3, "active");
           this.renderer.addClass(this.page3, "hidden");
-          this.renderer.removeClass(this.page1, "active");
-          this.renderer.addClass(this.page1, "hidden");
 
           return;
         }
@@ -324,14 +327,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
           this.renderer.removeClass(this.page1, "hidden");
           this.renderer.addClass(this.page1, "active");
+
           this.renderer.removeClass(this.page2, "active");
           this.renderer.addClass(this.page2, "hidden");
-          this.renderer.removeClass(this.page3, "active");
-          this.renderer.addClass(this.page3, "hidden");
 
           return;
         }
-      }
+      }, 10);
     }
   }
 }
