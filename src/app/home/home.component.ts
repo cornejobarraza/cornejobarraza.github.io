@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, Renderer2, HostListener } from "@angular/core";
+import { Component, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { PositioningService } from "../positioning.service";
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: "app-home",
@@ -20,74 +21,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private positioning: PositioningService,
     private router: Router,
     private route: ActivatedRoute,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private app: AppComponent
   ) {}
-
-  get html() {
-    return document.documentElement;
-  }
-
-  get page1() {
-    return document.querySelector("#page-1") as HTMLElement;
-  }
-
-  get page2() {
-    return document.querySelector("#page-2") as HTMLElement;
-  }
-
-  get page3() {
-    return document.querySelector("#page-3") as HTMLElement;
-  }
-
-  @HostListener("window:resize", ["$event"])
-  onScroll(event: Window) {
-    let currentPage = this.currentPage;
-
-    if (window.innerWidth > 576) {
-      this.renderer.removeClass(this.page1, "active");
-      this.renderer.removeClass(this.page1, "hidden");
-      this.renderer.removeClass(this.page2, "active");
-      this.renderer.removeClass(this.page2, "hidden");
-      this.renderer.removeClass(this.page3, "active");
-      this.renderer.removeClass(this.page3, "hidden");
-    } else {
-      if (currentPage === 1) {
-        this.renderer.removeClass(this.page1, "hidden");
-        this.renderer.addClass(this.page1, "active");
-        this.renderer.removeClass(this.page2, "active");
-        this.renderer.addClass(this.page2, "hidden");
-        this.renderer.removeClass(this.page3, "active");
-        this.renderer.addClass(this.page3, "hidden");
-      }
-
-      if (currentPage === 2) {
-        this.renderer.removeClass(this.page1, "active");
-        this.renderer.addClass(this.page1, "hidden");
-        this.renderer.removeClass(this.page2, "hidden");
-        this.renderer.addClass(this.page2, "active");
-        this.renderer.removeClass(this.page3, "active");
-        this.renderer.addClass(this.page3, "hidden");
-      }
-      if (currentPage === 3) {
-        this.renderer.removeClass(this.page1, "active");
-        this.renderer.addClass(this.page1, "hidden");
-        this.renderer.removeClass(this.page2, "active");
-        this.renderer.addClass(this.page2, "hidden");
-        this.renderer.removeClass(this.page3, "hidden");
-        this.renderer.addClass(this.page3, "active");
-      }
-    }
-  }
 
   ngOnInit(): void {
     this.currentApp();
 
-    this.currentPage = 1;
-
     if (window.innerWidth < 576) {
-      this.renderer.addClass(this.page1, "active");
-      this.renderer.addClass(this.page2, "hidden");
-      this.renderer.addClass(this.page3, "hidden");
+      this.renderer.addClass(this.app.page1, "active");
+      this.renderer.addClass(this.app.page2, "hidden");
+      this.renderer.addClass(this.app.page3, "hidden");
     }
   }
 
@@ -260,80 +204,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     if (this.router.url === "/pokemon") {
       this.appName = "PokeAPI";
-    }
-  }
-
-  onPointerDown(evt: any) {
-    if (window.innerWidth < 576) {
-      if (evt.clientX > window.innerWidth / 2) {
-        this.html.style.setProperty("--translate-hidden", "100%");
-      } else {
-        this.html.style.setProperty("--translate-hidden", "-100%");
-      }
-    }
-  }
-
-  onSwipeLeft(evt: any) {
-    if (window.innerWidth < 576) {
-      let currentPage = this.currentPage;
-
-      setTimeout(() => {
-        if (currentPage === 1) {
-          this.currentPage = 2;
-
-          this.renderer.removeClass(this.page2, "hidden");
-          this.renderer.addClass(this.page2, "active");
-
-          this.renderer.removeClass(this.page1, "active");
-          this.renderer.addClass(this.page1, "hidden");
-
-          return;
-        }
-
-        if (currentPage === 2) {
-          this.currentPage = 3;
-
-          this.renderer.removeClass(this.page3, "hidden");
-          this.renderer.addClass(this.page3, "active");
-
-          this.renderer.removeClass(this.page2, "active");
-          this.renderer.addClass(this.page2, "hidden");
-
-          return;
-        }
-      }, 10);
-    }
-  }
-
-  onSwipeRight(evt: any) {
-    if (window.innerWidth < 576) {
-      let currentPage = this.currentPage;
-
-      setTimeout(() => {
-        if (currentPage === 3) {
-          this.currentPage = 2;
-
-          this.renderer.removeClass(this.page2, "hidden");
-          this.renderer.addClass(this.page2, "active");
-
-          this.renderer.removeClass(this.page3, "active");
-          this.renderer.addClass(this.page3, "hidden");
-
-          return;
-        }
-
-        if (currentPage === 2) {
-          this.currentPage = 1;
-
-          this.renderer.removeClass(this.page1, "hidden");
-          this.renderer.addClass(this.page1, "active");
-
-          this.renderer.removeClass(this.page2, "active");
-          this.renderer.addClass(this.page2, "hidden");
-
-          return;
-        }
-      }, 10);
     }
   }
 }

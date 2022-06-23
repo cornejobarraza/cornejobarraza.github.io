@@ -52,7 +52,14 @@
     </div>
   </nav>
 </header>
-<main class="container"><router-outlet></router-outlet></main>
+<main
+  class="container"
+  (pointerdown)="onPointerDown($event)"
+  (swipeleft)="onSwipeLeft($event)"
+  (swiperight)="onSwipeRight($event)"
+>
+  <router-outlet></router-outlet>
+</main>
 <footer class="d-flex fixed-bottom py-2">
   <div class="container d-flex justify-content-center">
     <div class="col-auto">
