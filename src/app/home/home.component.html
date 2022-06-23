@@ -1,15 +1,16 @@
 <div
   class="row gap-md-5 justify-content-evenly overflow-hidden"
   (pointerdown)="onPointerDown($event)"
-  (swipe)="onSwipe($event)"
+  (swipeleft)="onSwipeLeft($event)"
+  (swiperight)="onSwipeRight($event)"
   style="position: relative"
 >
   <div id="page-1" class="row justify-content-evenly align-items-center text-center mx-auto">
     <div id="profile-container" class="col-xl-2 col-lg-3 col-md-4 justify-content-center">
       <img src="res/pfp.webp" class="img-thumbnail rounded-circle pfp mx-auto" alt="" aria-label="My profile picture" />
       <div class="socials">
-        <h5 class="fw-bold mb-2">David Cornejo</h5>
-        <p class="mb-2 mb-md-0">Welcome to my page!</p>
+        <h5 class="fw-bold mb-1 mb-md-2">David Cornejo</h5>
+        <p class="mb-3 mb-md-0">Welcome to my page!</p>
         <p class="mb-3 d-none d-md-block">Check out my profiles</p>
         <a class="me-4" href="https://github.com/cornejobarraza" target="_blank" aria-label="My GitHub profile">
           <i class="fa-brands fa-github fs-5"></i>
@@ -19,7 +20,7 @@
         </a>
       </div>
     </div>
-    <h5 class="fw-bold mb-2 d-md-none" style="margin-top: 2rem">So what is this?</h5>
+    <h5 class="fw-bold mb-2 d-md-none" style="margin-top: 2.5rem">So what is this?</h5>
     <div
       id="aboutText"
       class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-1 pe-xl-4 my-xl-3 overflow-auto"
@@ -34,14 +35,14 @@
         </span>
       </p>
       <p>
-        During this time of questioning my vocation and wondering what the future might look like, I catched up with a
-        good friend I had lost contact with. <br class="d-md-none" />
+        During this time of questioning my vocation and wondering what the future might have in store for me, I catched
+        up with a friend I had lost contact with. <br class="d-md-none" />
         <span class="d-block mt-3 d-md-inline mt-md-0">
           We definitely talked a lot but at some point he told me about his job as a developer, and for some reason that
           resonated with me.
         </span>
       </p>
-      <p class="mb-md-0">
+      <p class="mb-0">
         I have since started a journey to become a developer too, and this website is my way to show myself and others
         what I've accomplished so far. <br class="d-md-none" />
         <span class="d-block mt-3 d-md-inline mt-md-0">
