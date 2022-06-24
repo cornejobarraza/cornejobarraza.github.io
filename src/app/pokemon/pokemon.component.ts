@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { HomeComponent } from "../home/home.component";
 
 @Component({
   selector: "app-pokemon",
@@ -11,7 +10,7 @@ export class PokemonComponent implements OnInit {
   pkNumber!: string | null;
   pkName!: string;
 
-  constructor(private home: HomeComponent) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.fetchPkmn(this.ranNum);
