@@ -42,13 +42,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              {
-              "input": "src/styles.css",
-              "bundleName": "styles",
-              "inject": false
-              }
-            ],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
@@ -118,9 +112,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": [],
             "scripts": []
           }
         },
