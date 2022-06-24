@@ -26,13 +26,13 @@
     role="alert"
     aria-live="assertive"
     aria-atomic="true"
-    style="font-weight: bold; border: 1px solid black; background: var(--secondary) !important"
+    style="width: 18rem; font-weight: bold; border: 1px solid black; background: var(--secondary) !important"
   >
     <div class="d-flex">
       <div class="toast-body"><p class="mb-0">Swipe near the edges to navigate</p></div>
       <button
         type="button"
-        class="btn-close me-2 m-auto"
+        class="btn-close m-auto"
         data-bs-dismiss="toast"
         aria-label="Close"
         style="box-shadow: none; font-size: 0.75rem"
@@ -52,12 +52,7 @@
     </div>
   </nav>
 </header>
-<main
-  class="container"
-  (pointerdown)="onPointerDown($event)"
-  (swipeleft)="onSwipeLeft($event)"
-  (swiperight)="onSwipeRight($event)"
->
+<main class="container" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
   <router-outlet></router-outlet>
 </main>
 <footer class="d-flex fixed-bottom py-2">

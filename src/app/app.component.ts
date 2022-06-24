@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, Renderer2 } from "@angular/core";
 import { GoodnightService } from "./goodnight.service";
 import { PositioningService } from "./positioning.service";
 declare var window: any;
@@ -10,7 +10,6 @@ declare var window: any;
 })
 export class AppComponent implements OnInit {
   title = "project-portfolio";
-  currentPage!: number;
 
   constructor(
     public goodnight: GoodnightService,
@@ -18,10 +17,14 @@ export class AppComponent implements OnInit {
     private renderer: Renderer2
   ) {}
 
-  get html() {
-    return document.documentElement;
+  ngOnInit() {
+    this.goodnight.defaultTheme();
+
+    this.mobileHowTo();
+    localStorage.setItem("currentPage", "1");
   }
 
+  // Get elements
   get page1() {
     return document.querySelector("#page-1") as HTMLElement;
   }
@@ -34,53 +37,7 @@ export class AppComponent implements OnInit {
     return document.querySelector("#page-3") as HTMLElement;
   }
 
-  get paragraphs() {
-    return document.querySelectorAll("#aboutText > p");
-  }
-
-  @HostListener("window:resize", ["$event"])
-  onResize() {
-    let currentPage = this.currentPage;
-
-    if (window.innerWidth > 576) {
-      this.renderer.removeClass(this.page1, "hidden");
-      this.renderer.removeClass(this.page2, "hidden");
-      this.renderer.removeClass(this.page3, "hidden");
-      this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
-      this.renderer.removeClass(this.paragraphs[0], "hidden-textDown");
-      this.renderer.removeClass(this.paragraphs[2], "hidden-textUp");
-      this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
-    } else {
-      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
-      this.renderer.removeClass(this.paragraphs[2], "hidden-textUp");
-      this.renderer.removeStyle(this.paragraphs[2], "opacity");
-
-      if (currentPage === 1) {
-        this.renderer.removeClass(this.page1, "hidden");
-        this.renderer.addClass(this.page2, "hidden");
-        this.renderer.addClass(this.page3, "hidden");
-      }
-
-      if (currentPage === 2) {
-        this.renderer.addClass(this.page1, "hidden");
-        this.renderer.removeClass(this.page2, "hidden");
-        this.renderer.addClass(this.page3, "hidden");
-      }
-      if (currentPage === 3) {
-        this.renderer.addClass(this.page1, "hidden");
-        this.renderer.addClass(this.page2, "hidden");
-        this.renderer.removeClass(this.page3, "hidden");
-      }
-    }
-  }
-
-  ngOnInit() {
-    this.goodnight.defaultTheme();
-    this.mobileHowTo();
-
-    this.currentPage = 1;
-  }
-
+  // Toast notification for mobile
   mobileHowTo() {
     if (window.innerWidth < 576) {
       let theme = localStorage.getItem("keepLightMode");
@@ -94,69 +51,54 @@ export class AppComponent implements OnInit {
     }
   }
 
-  onPointerDown(evt: any) {
-    if (window.innerWidth < 576) {
-      if (evt.clientX > window.innerWidth / 2) {
-        this.html.style.setProperty("--translate-hidden", "100%");
-      } else {
-        this.html.style.setProperty("--translate-hidden", "-100%");
-      }
-    }
-  }
-
+  // Mobile swiping handlers
   onSwipeLeft(evt: any) {
     if (window.innerWidth < 576) {
-      let currentPage = this.currentPage;
+      let currentPage = localStorage.getItem("currentPage");
 
-      setTimeout(() => {
-        if (currentPage === 1) {
-          this.currentPage = 2;
+      if (currentPage === "1") {
+        localStorage.setItem("currentPage", "2");
 
-          this.renderer.removeClass(this.page2, "hidden");
+        this.renderer.removeClass(this.page2, "hidden-left");
+        this.renderer.addClass(this.page1, "hidden-right");
 
-          this.renderer.addClass(this.page1, "hidden");
+        return;
+      }
 
-          return;
-        }
+      if (currentPage === "2") {
+        localStorage.setItem("currentPage", "3");
 
-        if (currentPage === 2) {
-          this.currentPage = 3;
+        this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.addClass(this.page2, "hidden-right");
 
-          this.renderer.removeClass(this.page3, "hidden");
-
-          this.renderer.addClass(this.page2, "hidden");
-
-          return;
-        }
-      }, 10);
+        return;
+      }
     }
   }
 
   onSwipeRight(evt: any) {
     if (window.innerWidth < 576) {
-      let currentPage = this.currentPage;
+      let currentPage = localStorage.getItem("currentPage");
 
-      setTimeout(() => {
-        if (currentPage === 3) {
-          this.currentPage = 2;
+      if (currentPage === "3") {
+        localStorage.setItem("currentPage", "2");
 
-          this.renderer.removeClass(this.page2, "hidden");
+        this.renderer.removeClass(this.page2, "hidden-right");
+        this.renderer.addClass(this.page3, "hidden-right");
 
-          this.renderer.addClass(this.page3, "hidden");
+        return;
+      }
 
-          return;
-        }
+      if (currentPage === "2") {
+        localStorage.setItem("currentPage", "1");
 
-        if (currentPage === 2) {
-          this.currentPage = 1;
+        this.renderer.removeClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page3, "hidden-right");
+        this.renderer.addClass(this.page2, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-left");
 
-          this.renderer.removeClass(this.page1, "hidden");
-
-          this.renderer.addClass(this.page2, "hidden");
-
-          return;
-        }
-      }, 10);
+        return;
+      }
     }
   }
 }

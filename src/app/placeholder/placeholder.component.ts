@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { HomeComponent } from "../home/home.component";
 
 @Component({
   selector: "app-placeholder",
@@ -34,7 +33,7 @@ export class PlaceholderComponent implements OnInit {
     },
   ];
 
-  constructor(private home: HomeComponent) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.turn = 0;

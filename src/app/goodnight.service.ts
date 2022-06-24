@@ -7,6 +7,14 @@ declare var window: any;
 export class GoodnightService {
   constructor() {}
 
+  get keepLights() {
+    return localStorage.getItem("keepLightMode");
+  }
+
+  get prefersDark() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
   get html() {
     return document.documentElement;
   }
@@ -19,12 +27,12 @@ export class GoodnightService {
     return document.querySelector("#myModal") as HTMLElement;
   }
 
-  get moon() {
-    return '<i class="fa-solid fa-moon"></i>';
+  get lightsOff() {
+    return document.querySelector("#lightsOff") as HTMLElement;
   }
 
-  get lightbulb() {
-    return '<i class="fa-solid fa-lightbulb"></i>';
+  get lightsOn() {
+    return document.querySelector("#lightsOn") as HTMLElement;
   }
 
   get lightSwitch() {
@@ -35,21 +43,17 @@ export class GoodnightService {
     return this.lightSwitch.querySelector("i") as Node;
   }
 
-  get keepOn() {
-    return document.querySelector("#lightsOff") as HTMLElement;
+  get moon() {
+    return '<i class="fa-solid fa-moon"></i>';
   }
 
-  get keepOff() {
-    return document.querySelector("#lightsOn") as HTMLElement;
-  }
-
-  get prefersLight() {
-    return localStorage.getItem("keepLightMode");
+  get lightbulb() {
+    return '<i class="fa-solid fa-lightbulb"></i>';
   }
 
   defaultTheme() {
     // Select theme at first landing
-    if (this.prefersLight === null) {
+    if (this.keepLights === null && this.prefersDark === true) {
       var myModal = new window.bootstrap.Modal(this.modal, {
         backdrop: "static",
         keyboard: false,
@@ -59,13 +63,13 @@ export class GoodnightService {
       this.body.style.paddingRight = "0";
       this.lightSwitch.style.opacity = "0";
 
-      this.keepOn.addEventListener("click", () => {
+      this.lightsOff.addEventListener("click", () => {
         localStorage.setItem("keepLightMode", "no");
 
         this.lightSwitch.style.opacity = "1";
       });
 
-      this.keepOff.addEventListener("click", () => {
+      this.lightsOn.addEventListener("click", () => {
         localStorage.setItem("keepLightMode", "yes");
 
         this.lightSwitch.removeChild(this.icon);
@@ -78,7 +82,7 @@ export class GoodnightService {
     }
 
     // Remember theme
-    if (this.prefersLight === "yes") {
+    if (this.keepLights === "yes") {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.moon);
 
@@ -86,7 +90,7 @@ export class GoodnightService {
       this.html.classList.remove("toggledDark");
     }
 
-    if (this.prefersLight === "no") {
+    if (this.keepLights === "no") {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.lightbulb);
 
@@ -96,7 +100,7 @@ export class GoodnightService {
 
   switchTheme() {
     // Toggle between dark/light mode
-    let prefersLight = this.prefersLight;
+    let prefersLight = this.keepLights;
 
     if (prefersLight === "yes") {
       localStorage.setItem("keepLightMode", "no");

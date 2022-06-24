@@ -55,13 +55,11 @@ export class PositioningService {
     this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
     this.renderer.removeClass(this.footer, "fixed-bottom");
 
-    setTimeout(() => {
-      if (window.innerHeight === document.documentElement.scrollHeight) {
-        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
-      } else {
-        this.renderer.removeStyle(this.toggle, "margin-bottom");
-      }
-    }, 1);
+    if (window.innerHeight === document.documentElement.scrollHeight) {
+      this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+    } else {
+      this.renderer.removeStyle(this.toggle, "margin-bottom");
+    }
 
     let initialHeight = this.main.clientHeight;
 
@@ -79,17 +77,15 @@ export class PositioningService {
 
       this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
 
-      setTimeout(() => {
-        if (window.innerHeight === document.documentElement.scrollHeight) {
-          this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
-        } else {
-          this.renderer.removeStyle(this.toggle, "margin-bottom");
-        }
+      if (window.innerHeight === document.documentElement.scrollHeight) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+      } else {
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
+      }
 
-        if (this.pixelsAway < 1) {
-          this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
-        }
-      }, 1);
+      if (this.pixelsAway < 1) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+      }
     });
 
     var ro = new ResizeObserver((entries) => {

@@ -1,8 +1,7 @@
-import { Component, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
+import { Component, HostListener, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { PositioningService } from "../positioning.service";
-import { AppComponent } from "../app.component";
 
 @Component({
   selector: "app-home",
@@ -15,24 +14,22 @@ import { AppComponent } from "../app.component";
 export class HomeComponent implements OnInit, AfterViewInit {
   appName!: string;
   currentComponent!: string;
-  currentPage!: number;
 
   constructor(
     private positioning: PositioningService,
     private router: Router,
     private route: ActivatedRoute,
-    private renderer: Renderer2,
-    private app: AppComponent
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.currentApp();
 
     if (window.innerWidth < 576) {
-      this.renderer.addClass(this.app.page2, "hidden");
-      this.renderer.addClass(this.app.page3, "hidden");
-      this.renderer.setStyle(this.app.paragraphs[2], "opacity", "0");
-      this.renderer.addClass(this.app.paragraphs[2], "hidden-textDown");
+      this.renderer.addClass(this.page2, "hidden-left");
+      this.renderer.addClass(this.page3, "hidden-left");
+      this.renderer.setStyle(this.paragraphs[2], "opacity", "0");
+      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
     }
   }
 
@@ -40,6 +37,75 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.positioning.setPosition();
   }
 
+  // Get elements
+  get page1() {
+    return document.querySelector("#page-1") as HTMLElement;
+  }
+
+  get page2() {
+    return document.querySelector("#page-2") as HTMLElement;
+  }
+
+  get page3() {
+    return document.querySelector("#page-3") as HTMLElement;
+  }
+
+  get paragraphs() {
+    return document.querySelectorAll("#aboutText > p");
+  }
+
+  // Change layout when resizing
+  @HostListener("window:resize", ["$event"])
+  onResize() {
+    let currentPage = localStorage.getItem("currentPage");
+
+    if (window.innerWidth > 576) {
+      this.renderer.removeClass(this.page1, "hidden-left");
+      this.renderer.removeClass(this.page1, "hidden-right");
+      this.renderer.removeClass(this.page2, "hidden-left");
+      this.renderer.removeClass(this.page2, "hidden-right");
+      this.renderer.removeClass(this.page3, "hidden-left");
+      this.renderer.removeClass(this.page3, "hidden-right");
+      this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
+      this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
+      this.renderer.removeStyle(this.paragraphs[2], "opacity");
+    } else {
+      this.renderer.setStyle(this.paragraphs[2], "opacity", "0");
+      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
+
+      if (currentPage === "1") {
+        this.renderer.addClass(this.page2, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-left");
+      }
+
+      if (currentPage === "2") {
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.addClass(this.page3, "hidden=left");
+      }
+      if (currentPage === "3") {
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.addClass(this.page2, "hidden-right");
+      }
+    }
+  }
+
+  // Mobile paragraph swipe handler
+  onSwipeUp(evt: any) {
+    if (window.innerWidth < 576) {
+      this.renderer.removeStyle(this.paragraphs[2], "opacity");
+      this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
+      this.renderer.addClass(this.paragraphs[0], "hidden-textUp");
+    }
+  }
+
+  onSwipeDown(evt: any) {
+    if (window.innerWidth < 576) {
+      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
+      this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
+    }
+  }
+
+  // Home page code examples
   code1() {
     alert("Hello, World! 👋");
   }
@@ -126,21 +192,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSwipeUp(evt: any) {
-    if (window.innerWidth < 576) {
-      this.renderer.removeStyle(this.app.paragraphs[2], "opacity");
-      this.renderer.removeClass(this.app.paragraphs[2], "hidden-textDown");
-      this.renderer.addClass(this.app.paragraphs[0], "hidden-textUp");
-    }
-  }
-
-  onSwipeDown(evt: any) {
-    if (window.innerWidth < 576) {
-      this.renderer.addClass(this.app.paragraphs[2], "hidden-textDown");
-      this.renderer.removeClass(this.app.paragraphs[0], "hidden-textUp");
-    }
-  }
-
+  // Controlling app in view
   previousApp() {
     if (this.router.url === "/" || this.router.url === "/game") {
       this.appName = "PokeAPI";
