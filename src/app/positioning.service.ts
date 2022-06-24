@@ -1,7 +1,6 @@
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
 import { fromEvent } from "rxjs";
-declare var window: any;
 
 @Injectable({
   providedIn: "root",
@@ -64,6 +63,16 @@ export class PositioningService {
       }
     }, 1);
 
+    let initialHeight = this.main.clientHeight;
+
+    fromEvent(window, "scroll").subscribe(() => {
+      if (this.pixelsAway < 40) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
+      } else {
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
+      }
+    });
+
     fromEvent(window, "resize").subscribe(() => {
       let vh = window.innerHeight * 0.01;
       this.html.style.setProperty("--vh", `${vh}px`);
@@ -83,25 +92,18 @@ export class PositioningService {
       }, 1);
     });
 
-    fromEvent(window, "scroll").subscribe(() => {
-      if (this.pixelsAway < 40) {
-        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
-      } else {
+    var ro = new ResizeObserver((entries) => {
+      const cr = entries[0].contentRect;
+
+      if (cr.height !== initialHeight) {
         this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
-    });
-  }
 
-  mobileHowTo() {
-    if (window.innerWidth < 576) {
-      let theme = localStorage.getItem("keepLightMode");
-
-      if (theme === null) {
-        var toastEl = document.querySelector(".toast");
-        var myToast = new window.bootstrap.Toast(toastEl, { autohide: false });
-
-        myToast.show();
+      if (this.pixelsAway < 40) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       }
-    }
+    });
+
+    ro.observe(this.main);
   }
 }

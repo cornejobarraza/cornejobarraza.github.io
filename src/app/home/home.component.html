@@ -1,5 +1,17 @@
 <div class="row gap-md-5 justify-content-evenly overflow-hidden" style="position: relative">
   <div id="page-1" class="row justify-content-evenly align-items-center text-center mx-auto">
+    <div
+      class="d-md-none"
+      style="
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 318px;
+        width: 100%;
+        background-color: var(--primary);
+        transition: background 0.5s;
+      "
+    ></div>
     <div id="profile-container" class="col-xl-2 col-lg-3 col-md-4 justify-content-center">
       <img
         src="res/pfp.webp"
@@ -22,17 +34,14 @@
         </a>
       </div>
     </div>
-    <div class="col-12 text-center my-4 d-md-none">
+    <div class="col-12 text-center d-md-none" style="margin-top: 1.5rem; margin-bottom: 2rem">
       <div class="card about">
         <div class="card-body">
           <h6 class="card-text fw-bold">So what is this? <i class="fa-solid fa-circle-info"></i></h6>
         </div>
       </div>
     </div>
-    <div
-      id="aboutText"
-      class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-1 pe-xl-4 my-xl-3 overflow-auto"
-    >
+    <div id="aboutText" class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-1 pe-xl-4 my-xl-3">
       <h4 class="fw-bold text-center text-xl-start d-none d-md-block">So what is this?</h4>
       <p>
         Good question! Well, I've always been drawn to tech and I recently had the chance to study an associate's degree
@@ -41,23 +50,39 @@
           >I had always seen it as my dream career path, but fast forward a couple of years and I'm about to graduate
           from a career that doesn't make me feel that excited anymore.
         </span>
-      </p>
-      <p>
-        During this time of questioning my vocation and wondering what the future might have in store for me, I catched
-        up with a friend I had lost contact with. <br class="d-md-none" />
-        <span class="d-block mt-3 d-md-inline mt-md-0">
-          We definitely talked a lot but at some point he told me about his job as a developer, and for some reason that
-          resonated with me.
+        <span class="d-block my-3 d-md-none">
+          During this time of questioning my vocation and wondering what the future might have in store for me, I
+          catched up with a friend I had lost contact with a long ago.
         </span>
       </p>
+      <p class="d-none d-md-block">
+        During this time of questioning my vocation and wondering what the future might have in store for me, I catched
+        up with a friend I had lost contact with a long ago. We definitely talked about a lot of stuff but at some point
+        he told me about his job as a developer, and for some reason that resonated with me.
+      </p>
       <p class="mb-0">
-        I have since started a journey to become a developer too, and this website is my way to show myself and others
-        what I've accomplished so far. <br class="d-md-none" />
+        <span class="mt-3 d-md-none">
+          We definitely talked about a lot of stuff but at some point he told me about his job as a developer, and for
+          some reason that resonated with me.<br class="d-md-none" />
+        </span>
         <span class="d-block mt-3 d-md-inline mt-md-0">
-          The page will constantly change as I improve, but I'll make sure everything makes sense.
+          I have since started a journey to become a developer too, and this website is my way to show myself and others
+          what I've accomplished so far.<br class="d-md-none" />
+          <span class="d-block mt-3 d-md-inline mt-dm-0">
+            The page will constantly change as I improve, but I'll make sure everything is well explained.
+            <br class="d-md-none" />
+            <span class="fw-bold d-block mt-3 d-md-none">To check the next page, swipe to the left! ⏮</span>
+          </span>
         </span>
       </p>
     </div>
+    <div
+      class="d-md-none"
+      style="position: absolute; left: 0; bottom: 0; height: 288px; width: 100%"
+      (swipeup)="onSwipeUp($event)"
+      (swipedown)="onSwipeDown($event)"
+    ></div>
+    <span class="d-md-none" style="position: absolute; top: 48%"><i class="fa-solid fa-angles-down"></i></span>
   </div>
   <div id="page-2" class="col-xl-5">
     <div id="problems" class="row gap-md-5 justify-content-evenly mx-auto text-center">
@@ -76,7 +101,7 @@
       <div class="col-md-5">
         <h5 class="fw-bold">Code #1</h5>
         <p class="fs-6">
-          Alerts "Hello, World!" <br class="break" />
+          Alerts "Hello, World!" <br class="d-none d-md-inline d-xl-none" />
           to the screen
         </p>
         <button type="button" class="btn btn-sm" (click)="code1()">Display alert</button>
@@ -84,7 +109,7 @@
       <div class="col-md-5">
         <h5 class="fw-bold">Code #2</h5>
         <p class="fs-6">
-          Asks for your name <br class="break" />
+          Asks for your name <br class="d-none d-md-inline d-xl-none" />
           and says hi
         </p>
         <button type="button" class="btn btn-sm" (click)="code2()">Enter your name</button>
@@ -92,7 +117,7 @@
       <div class="col-md-5">
         <h5 class="fw-bold">Code #3</h5>
         <p class="fs-6">
-          Asks for a number <br class="break" />
+          Asks for a number <br class="d-none d-md-inline d-xl-none" />
           and sums it from 1 to n
         </p>
         <button type="button" class="btn btn-sm" (click)="code3()">Enter a number</button>
@@ -100,7 +125,7 @@
       <div class="col-md-5">
         <h5 class="fw-bold">Code #4</h5>
         <p class="fs-6">
-          Checks if the user's input <br class="break" />
+          Checks if the user's input <br class="d-none d-md-inline d-xl-none" />
           is a palindrome
         </p>
         <button type="button" class="btn btn-sm" (click)="code4()">Enter a sentence</button>

@@ -29,9 +29,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.currentApp();
 
     if (window.innerWidth < 576) {
-      this.renderer.addClass(this.app.page1, "active");
       this.renderer.addClass(this.app.page2, "hidden");
       this.renderer.addClass(this.app.page3, "hidden");
+      this.renderer.setStyle(this.app.paragraphs[2], "opacity", "0");
+      this.renderer.addClass(this.app.paragraphs[2], "hidden-textDown");
     }
   }
 
@@ -122,6 +123,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else {
       alert("Non-valid text, please try again");
       this.code4();
+    }
+  }
+
+  onSwipeUp(evt: any) {
+    if (window.innerWidth < 576) {
+      this.renderer.removeStyle(this.app.paragraphs[2], "opacity");
+      this.renderer.removeClass(this.app.paragraphs[2], "hidden-textDown");
+      this.renderer.addClass(this.app.paragraphs[0], "hidden-textUp");
+    }
+  }
+
+  onSwipeDown(evt: any) {
+    if (window.innerWidth < 576) {
+      this.renderer.addClass(this.app.paragraphs[2], "hidden-textDown");
+      this.renderer.removeClass(this.app.paragraphs[0], "hidden-textUp");
     }
   }
 
