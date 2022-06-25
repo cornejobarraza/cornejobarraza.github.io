@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { fromEvent } from "rxjs";
 declare var window: any;
 
 @Injectable({
@@ -7,11 +8,11 @@ declare var window: any;
 export class GoodnightService {
   constructor() {}
 
-  get keepLights() {
+  get prefersLight() {
     return localStorage.getItem("keepLightMode");
   }
 
-  get prefersDark() {
+  get darkScheme() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 
@@ -53,7 +54,7 @@ export class GoodnightService {
 
   defaultTheme() {
     // Select theme at first landing
-    if (this.keepLights === null && this.prefersDark === true) {
+    if ((this.darkScheme === true && this.prefersLight === null) || this.prefersLight === "") {
       var myModal = new window.bootstrap.Modal(this.modal, {
         backdrop: "static",
         keyboard: false,
@@ -63,13 +64,13 @@ export class GoodnightService {
       this.body.style.paddingRight = "0";
       this.lightSwitch.style.opacity = "0";
 
-      this.lightsOff.addEventListener("click", () => {
+      fromEvent(this.lightsOff, "click").subscribe(() => {
         localStorage.setItem("keepLightMode", "no");
 
         this.lightSwitch.style.opacity = "1";
       });
 
-      this.lightsOn.addEventListener("click", () => {
+      fromEvent(this.lightsOn, "click").subscribe(() => {
         localStorage.setItem("keepLightMode", "yes");
 
         this.lightSwitch.removeChild(this.icon);
@@ -82,7 +83,7 @@ export class GoodnightService {
     }
 
     // Remember theme
-    if (this.keepLights === "yes") {
+    if (this.prefersLight === "yes") {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.moon);
 
@@ -90,7 +91,7 @@ export class GoodnightService {
       this.html.classList.remove("toggledDark");
     }
 
-    if (this.keepLights === "no") {
+    if (this.prefersLight === "no") {
       this.lightSwitch.removeChild(this.icon);
       this.lightSwitch.insertAdjacentHTML("afterbegin", this.lightbulb);
 
@@ -100,9 +101,9 @@ export class GoodnightService {
 
   switchTheme() {
     // Toggle between dark/light mode
-    let prefersLight = this.keepLights;
+    let prefersLight = this.prefersLight;
 
-    if (prefersLight === "yes") {
+    if (prefersLight === "yes" || prefersLight === "") {
       localStorage.setItem("keepLightMode", "no");
 
       this.lightSwitch.removeChild(this.icon);
