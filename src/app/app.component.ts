@@ -19,9 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.goodnight.defaultTheme();
-
     this.mobileHowTo();
-    localStorage.setItem("currentPage", "1");
   }
 
   // Get elements
@@ -47,6 +45,8 @@ export class AppComponent implements OnInit {
         var myToast = new window.bootstrap.Toast(toastEl, { autohide: false });
 
         myToast.show();
+
+        localStorage.setItem("keepLightMode", "");
       }
     }
   }

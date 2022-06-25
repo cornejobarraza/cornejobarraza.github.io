@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.currentApp();
+    localStorage.setItem("currentPage", "1");
 
     if (window.innerWidth < 576) {
       this.renderer.addClass(this.page2, "hidden-left");
