@@ -37,7 +37,7 @@ export class PositioningService {
     let mainBottomMargin = Number(getComputedStyle(this.main).getPropertyValue("margin-bottom").split("px")[0]);
     let footerHeight = Number(getComputedStyle(this.footer).getPropertyValue("height").split("px")[0]);
 
-    return window.innerHeight - headerHeight - mainTopMargin - mainBottomMargin - footerHeight;
+    return Math.round(window.innerHeight - headerHeight - mainTopMargin - mainBottomMargin - footerHeight);
   }
 
   get pixelsAway() {
