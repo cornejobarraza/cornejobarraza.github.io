@@ -1,17 +1,5 @@
 <div class="row gap-md-5 justify-content-evenly overflow-hidden" style="position: relative">
   <div id="page-1" class="row justify-content-evenly align-items-center text-center mx-auto">
-    <div
-      class="d-md-none"
-      style="
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 318px;
-        width: 100%;
-        background-color: var(--primary);
-        transition: background 0.5s;
-      "
-    ></div>
     <div id="profile-container" class="col-xl-2 col-lg-3 col-md-4 justify-content-center">
       <img
         src="res/pfp.webp"
@@ -41,7 +29,12 @@
         </div>
       </div>
     </div>
-    <div id="aboutText" class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-1 pe-xl-4 my-xl-3">
+    <div
+      id="aboutText"
+      class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-2 pe-xl-3 my-xl-3 overflow-hidden"
+      (swipeup)="onSwipeUp($event)"
+      (swipedown)="onSwipeDown($event)"
+    >
       <h4 class="fw-bold text-center text-xl-start d-none d-md-block">So what is this?</h4>
       <p>
         Good question! Well, I've always been drawn to tech and I recently had the chance to study an associate's degree
@@ -76,13 +69,9 @@
         </span>
       </p>
     </div>
-    <div
-      class="d-md-none"
-      style="position: absolute; left: 0; bottom: 0; height: 288px; width: 100%"
-      (swipeup)="onSwipeUp($event)"
-      (swipedown)="onSwipeDown($event)"
-    ></div>
-    <span class="d-md-none fs-7" style="position: absolute; top: 48.5%"><i class="fa-solid fa-angles-down"></i></span>
+    <span id="scroll-arrows" class="d-md-none fs-7" style="position: absolute; top: 48%"
+      ><i class="fa-solid fa-angles-down"></i
+    ></span>
   </div>
   <div id="page-2" class="col-xl-5">
     <div id="problems" class="row gap-md-5 justify-content-evenly mx-auto text-center">
@@ -146,7 +135,7 @@
           </div>
         </div>
       </div>
-      <div [@fadeIn]="o.activatedRoute" id="appSelector" class="col">
+      <div [@fadeIn]="outlet.activatedRoute" id="appSelector" class="col">
         <div class="col-7 col-md-4 col-xl-5 d-flex justify-content-evenly mx-auto mb-4">
           <button id="nextApp" type="button" class="btn btn-sm" (click)="this.previousApp()" aria-label="Previous app">
             <i class="fa-solid fa-circle-chevron-left"></i>
@@ -156,7 +145,7 @@
             <i class="fa-solid fa-circle-chevron-right"></i>
           </button>
         </div>
-        <router-outlet #o="outlet" class="d-none"></router-outlet>
+        <router-outlet #outlet="outlet"></router-outlet>
       </div>
     </div>
   </div>

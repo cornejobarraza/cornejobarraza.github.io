@@ -51,6 +51,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return document.querySelector("#page-3") as HTMLElement;
   }
 
+  get arrows() {
+    return document.querySelector("#scroll-arrows") as HTMLElement;
+  }
+
   get paragraphs() {
     return document.querySelectorAll("#aboutText > p");
   }
@@ -71,6 +75,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
       this.renderer.removeStyle(this.paragraphs[2], "opacity");
     } else {
+      this.renderer.removeClass(this.arrows, "rotate");
       this.renderer.setStyle(this.paragraphs[2], "opacity", "0");
       this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
 
@@ -93,6 +98,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // Mobile paragraph swipe handler
   onSwipeUp(evt: any) {
     if (window.innerWidth < 576) {
+      this.renderer.addClass(this.arrows, "rotate");
       this.renderer.removeStyle(this.paragraphs[2], "opacity");
       this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
       this.renderer.addClass(this.paragraphs[0], "hidden-textUp");
@@ -101,6 +107,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSwipeDown(evt: any) {
     if (window.innerWidth < 576) {
+      this.renderer.removeClass(this.arrows, "rotate");
       this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
       this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
     }
