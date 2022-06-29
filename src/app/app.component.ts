@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     if (window.innerWidth < 576) {
       let theme = localStorage.getItem("keepLightMode");
 
-      if (theme === null) {
+      if (theme === null || theme === "") {
         var toastEl = document.querySelector(".toast");
         var myToast = new window.bootstrap.Toast(toastEl, { autohide: false });
 
