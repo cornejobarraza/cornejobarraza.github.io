@@ -1,4 +1,3 @@
-// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core";
 import { fromEvent } from "rxjs";
 
@@ -49,9 +48,6 @@ export class PositioningService {
   }
 
   setPosition() {
-    let vh = window.innerHeight * 0.01;
-    this.html.style.setProperty("--vh", `${vh}px`);
-
     this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
     this.renderer.removeClass(this.footer, "fixed-bottom");
 
@@ -72,13 +68,16 @@ export class PositioningService {
     });
 
     fromEvent(window, "resize").subscribe(() => {
-      let vh = window.innerHeight * 0.01;
-      this.html.style.setProperty("--vh", `${vh}px`);
-
       this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
 
       if (window.innerHeight === document.documentElement.scrollHeight) {
         this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
+      } else {
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
+      }
+
+      if (this.pixelsAway < 40) {
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       } else {
         this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
