@@ -11,7 +11,7 @@
         style="margin-top: 5px"
       />
       <div class="socials">
-        <h5 class="fw-bold mb-3 mb-md-2">David Cornejo</h5>
+        <h5 class="fw-bold mt-2 mb-3 mt-md-0 mb-md-2">David Cornejo</h5>
         <p class="mb-0 d-none d-md-block">Welcome to my page!</p>
         <p class="mb-3 d-none d-md-block">Check out my profiles</p>
         <a class="me-4" href="https://github.com/cornejobarraza" target="_blank" aria-label="My GitHub profile">
@@ -22,56 +22,57 @@
         </a>
       </div>
     </div>
-    <div class="col-12 text-center d-md-none" style="margin-top: 1.5rem; margin-bottom: 2rem">
+    <div class="col-12 text-center d-md-none" style="position: relative; margin-top: 2rem; margin-bottom: 1.5rem">
       <div class="card about">
         <div class="card-body">
-          <h6 class="card-text fw-bold">So what is this? <i class="fa-solid fa-circle-info"></i></h6>
+          <h6 class="card-text fw-bold">
+            So what is this?
+            <span id="scroll-arrows" class="d-inline-block"><i class="fa-solid fa-angles-down"></i></span>
+          </h6>
         </div>
       </div>
     </div>
     <div
       id="aboutText"
-      class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-lg-4 ps-xl-2 pe-xl-3 my-xl-3 overflow-hidden"
+      class="col-lg-8 text-center text-xl-start mt-md-4 mt-lg-0 px-md-4 ps-xl-2 pe-xl-4 my-xl-3 overflow-hidden"
       (swipeup)="onSwipeUp($event)"
       (swipedown)="onSwipeDown($event)"
     >
       <h4 class="fw-bold text-center text-xl-start d-none d-md-block">So what is this?</h4>
       <p>
-        Good question! Well, I've always been drawn to tech and I recently had the chance to study an associate's degree
-        on networking and security. <br class="d-md-none" />
+        Good question! Well, I've always been drawn to tech and computers, and I had the chance to study an associate's
+        degree on networking and security. <br class="d-md-none" />
         <span class="d-block mt-3 d-md-inline mt-md-0"
-          >I had always seen it as my dream career path, but fast forward a couple of years and I'm about to graduate
-          from a career that doesn't make me feel that excited anymore.
+          >I had always seen it as my dream career path, but fast forward a couple of years and I graduated from a
+          career that even though is very profitable, it doesn't make me feel as excited as it did before.
         </span>
         <span class="d-block my-3 d-md-none">
           During this time of questioning my vocation and wondering what the future might have in store for me, I
-          catched up with a friend I had lost contact with a long ago.
+          catched up with a friend I had lost contact with.
         </span>
       </p>
       <p class="d-none d-md-block">
         During this time of questioning my vocation and wondering what the future might have in store for me, I catched
-        up with a friend I had lost contact with a long ago. We definitely talked about a lot of stuff but at some point
-        he told me about his job as a developer, and for some reason that resonated with me.
+        up with a friend I had lost contact with. We definitely talked a lot but at some point he told me about his new
+        job as a web developer, and for some reason that resonated with me.
       </p>
       <p class="mb-0">
         <span class="mt-3 d-md-none">
-          We definitely talked about a lot of stuff but at some point he told me about his job as a developer, and for
-          some reason that resonated with me.<br class="d-md-none" />
+          We definitely talked a lot but at some point he told me about his new job as a web developer, and for some
+          reason that resonated with me.<br class="d-md-none" />
         </span>
         <span class="d-block mt-3 d-md-inline mt-md-0">
-          I have since started a journey to become a developer too, and this website is my way to show myself and others
-          what I've accomplished so far.<br class="d-md-none" />
+          I have since started a journey to become a web developer too, and this website is my way to show myself and
+          others what I've accomplished so far.<br class="d-md-none" />
           <span class="d-block mt-3 d-md-inline mt-dm-0">
-            The page will constantly change as I improve, but I'll make sure everything is well explained.
+            The page will constantly change as I get better at this, but I'll make sure everything on here is well
+            explained.
             <br class="d-md-none" />
-            <span class="fw-bold d-block mt-3 d-md-none">To check the next page, swipe to the left!</span>
+            <span class="fst-italic fw-bold d-block mt-3 d-md-none">Swipe to the left for the next page!</span>
           </span>
         </span>
       </p>
     </div>
-    <span id="scroll-arrows" class="d-md-none fs-7" style="position: absolute; top: 48%"
-      ><i class="fa-solid fa-angles-down"></i
-    ></span>
   </div>
   <div id="page-2" class="col-xl-5">
     <div id="problems" class="row gap-md-5 justify-content-evenly mx-auto text-center">
@@ -122,7 +123,7 @@
     </div>
   </div>
   <div id="page-3" class="col-xl-5">
-    <div id="apps" class="row gap-md-5 justify-content-center text-center mx-auto">
+    <div id="apps" class="row gap-md-5 gap-xl-0 justify-content-center text-center mx-auto">
       <div class="col-12 text-center">
         <div class="card about">
           <div class="card-body">
@@ -136,7 +137,7 @@
         </div>
       </div>
       <div [@fadeIn]="outlet.activatedRoute" id="appSelector" class="col">
-        <div class="col-7 col-md-4 col-xl-5 d-flex justify-content-evenly mx-auto mb-4">
+        <div class="col-7 col-md-4 col-lg-3 col-xl-6 d-flex justify-content-evenly mx-auto mb-4">
           <button id="nextApp" type="button" class="btn btn-sm" (click)="this.previousApp()" aria-label="Previous app">
             <i class="fa-solid fa-circle-chevron-left"></i>
           </button>

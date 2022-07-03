@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
         localStorage.setItem("currentPage", "2");
 
         this.renderer.removeClass(this.page2, "hidden-right");
-        this.renderer.addClass(this.page3, "hidden-right");
+        this.renderer.addClass(this.page3, "hidden-left");
 
         return;
       }

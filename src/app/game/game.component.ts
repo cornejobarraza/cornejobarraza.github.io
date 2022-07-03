@@ -13,69 +13,155 @@ import { AnimationEvent } from "@angular/animations";
 })
 export class GameComponent implements OnInit {
   squares: string[] = [];
+  lines: number[][] = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [8, 7, 6],
+    [5, 4, 3],
+    [2, 1, 0],
+    [0, 3, 6],
+    [6, 3, 0],
+    [1, 4, 7],
+    [7, 4, 1],
+    [2, 5, 8],
+    [8, 5, 2],
+    [0, 4, 8],
+    [8, 4, 0],
+    [2, 4, 6],
+    [6, 4, 2],
+  ];
+  position: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  savePosition!: number[];
   xIsNext!: boolean;
   winner: string | null = null;
   tie: boolean | null = null;
-  saveData!: string[];
 
   constructor(private renderer: Renderer2) {}
-
-  ngOnInit() {
-    this.savedGame();
-  }
-
-  newGame() {
-    localStorage.removeItem("currentGame");
-
-    this.squares = Array(9).fill(null);
-    this.winner = null;
-    this.xIsNext = true;
-    this.tie = null;
-  }
-
-  savedGame() {
-    let currentBoard: any = localStorage.getItem("currentGame");
-    let currentGame = JSON.parse(currentBoard);
-
-    if (currentBoard) {
-      this.squares = currentGame;
-      this.winner = this.calculateWinner();
-      this.tie = this.calculateTie();
-    } else {
-      this.newGame();
-    }
-  }
 
   get player() {
     return this.xIsNext ? "X" : "O";
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx] && !this.winner) {
-      this.squares.splice(idx, 1, this.player);
-      this.xIsNext = !this.xIsNext;
+  ngOnInit() {
+    this.newGame();
+  }
+
+  progress() {
+    this.savePosition = this.position;
+    localStorage.setItem("currentPositions", JSON.stringify(this.savePosition));
+  }
+
+  newGame() {
+    localStorage.removeItem("currentPositions");
+
+    this.squares = Array(9).fill(null);
+    this.position = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.xIsNext = Math.random() < 0.5;
+    this.winner = null;
+    this.tie = null;
+
+    if (this.player === "O") {
+      this.calculateMove();
     }
+  }
 
-    this.saveData = this.squares;
-    localStorage.setItem("currentGame", JSON.stringify(this.saveData));
+  makeMove(idx: number) {
+    if (!this.squares[idx] && this.player === "X") {
+      this.squares[idx] = this.player;
+      this.position = this.position.filter((position) => position !== idx);
+      this.xIsNext = !this.xIsNext;
 
-    this.winner = this.calculateWinner();
-    this.tie = this.calculateTie();
+      this.calculateStrike();
+      this.calculateBlock();
+      this.progress();
+
+      this.winner = this.calculateWinner();
+      this.tie = this.calculateTie();
+    }
+  }
+
+  calculateStrike() {
+    setTimeout(() => {
+      for (let i = 0; i < this.lines.length; i++) {
+        const [a, b, c] = this.lines[i];
+
+        if (!this.winner && !this.tie) {
+          if (this.squares[a] === "O" && this.squares[a] === this.squares[b] && !this.squares[c]) {
+            this.squares[c] = this.player;
+            this.position = this.position.filter((position) => position !== c);
+            this.xIsNext = !this.xIsNext;
+            this.progress();
+            break;
+          } else {
+            this.calculateMove();
+          }
+
+          if (this.squares[a] === "O" && this.squares[a] === this.squares[c] && !this.squares[b]) {
+            this.squares[b] = this.player;
+            this.position = this.position.filter((position) => position !== b);
+            this.xIsNext = !this.xIsNext;
+            this.progress();
+            break;
+          } else {
+            this.calculateMove();
+          }
+        }
+      }
+      this.winner = this.calculateWinner();
+      this.tie = this.calculateTie();
+    }, 750);
+  }
+
+  calculateBlock() {
+    setTimeout(() => {
+      for (let i = 0; i < this.lines.length; i++) {
+        const [a, b, c] = this.lines[i];
+
+        if (!this.winner && !this.tie) {
+          if (this.squares[a] && this.squares[a] === this.squares[b] && !this.squares[c]) {
+            this.squares[c] = this.player;
+            this.position = this.position.filter((position) => position !== c);
+            this.xIsNext = !this.xIsNext;
+            this.progress();
+            break;
+          }
+
+          if (this.squares[a] && this.squares[a] === this.squares[c] && !this.squares[b]) {
+            this.squares[b] = this.player;
+            this.position = this.position.filter((position) => position !== b);
+            this.xIsNext = !this.xIsNext;
+            this.progress();
+            break;
+          }
+        }
+      }
+      this.winner = this.calculateWinner();
+      this.tie = this.calculateTie();
+    }, 750);
+  }
+
+  calculateMove() {
+    setTimeout(() => {
+      if (this.player === "O" && !this.winner && !this.tie) {
+        let random = Math.floor(Math.random() * this.position.length);
+        let newIdx = this.position[random];
+
+        this.squares[newIdx] = this.player;
+        this.position = this.position.filter((position) => position !== newIdx);
+        this.xIsNext = !this.xIsNext;
+
+        this.progress();
+
+        this.winner = this.calculateWinner();
+        this.tie = this.calculateTie();
+      }
+    }, 750);
   }
 
   calculateWinner() {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+    for (let i = 0; i < this.lines.length; i++) {
+      const [a, b, c] = this.lines[i];
       if (this.squares[a] && this.squares[a] === this.squares[b] && this.squares[a] === this.squares[c]) {
         return this.squares[a];
       }
