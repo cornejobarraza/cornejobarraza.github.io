@@ -11,21 +11,21 @@
       ><i class="fa-solid fa-circle-question fs-6"></i
     ></a>
     <div id="description" class="d-none d-md-block">
-      <p class="mb-0">Game that plays against you and freezes the board once completed</p>
+      <p class="mb-0">Game that plays with you and freezes the board once completed</p>
       <span class="arrow"><wbr /></span>
     </div>
   </ng-template>
   <ng-template #result>
     <div *ngIf="winner; else tie">
       <div *ngIf="winner === 'X'; else lost">
-        <span class="badge rounded-pill game fw-bold" @fadeIn>You won the game!</span>
+        <span class="badge rounded-pill game fw-bold" @fadeIn>You won!</span>
       </div>
       <ng-template #lost>
-        <span class="badge rounded-pill game fw-bold" @fadeIn>Uh oh, you lost</span>
+        <span class="badge rounded-pill game fw-bold" @fadeIn>Uh-oh, you lost</span>
       </ng-template>
     </div>
     <ng-template #tie>
-      <span class="game" class="badge rounded-pill game fw-bold" @fadeIn>Game Over...</span>
+      <span class="game" class="badge rounded-pill game fw-bold" @fadeIn>Game Over</span>
     </ng-template>
   </ng-template>
   <div id="mainContent" class="mt-4 mx-auto">
@@ -49,6 +49,6 @@
     </div>
   </div>
   <div id="description2" class="d-md-none mx-auto">
-    <p class="mb-0">Game that plays against you and freezes the board once completed</p>
+    <p class="mb-0">Game that plays with you and freezes the board once completed</p>
   </div>
 </div>
