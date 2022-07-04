@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
     if (window.innerWidth < 576) {
       let currentPage = localStorage.getItem("currentPage");
 
-      if (currentPage === "1") {
+      if (currentPage === "1" || currentPage === null) {
         localStorage.setItem("currentPage", "2");
 
         this.renderer.removeClass(this.page2, "hidden-left");
