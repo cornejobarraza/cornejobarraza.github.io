@@ -64,13 +64,13 @@ export class GoodnightService {
       this.body.style.paddingRight = "0";
       this.lightSwitch.style.opacity = "0";
 
-      fromEvent(this.lightsOff, "click").subscribe(() => {
+      fromEvent(this.lightsOff, "click", { passive: true }).subscribe(() => {
         localStorage.setItem("keepLightMode", "no");
 
         this.lightSwitch.style.opacity = "1";
       });
 
-      fromEvent(this.lightsOn, "click").subscribe(() => {
+      fromEvent(this.lightsOn, "click", { passive: true }).subscribe(() => {
         localStorage.setItem("keepLightMode", "yes");
 
         this.lightSwitch.removeChild(this.icon);

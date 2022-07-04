@@ -59,7 +59,7 @@ export class PositioningService {
 
     let initialHeight = this.main.clientHeight;
 
-    fromEvent(window, "scroll").subscribe(() => {
+    fromEvent(window, "scroll", { passive: true }).subscribe(() => {
       if (this.pixelsAway < 40) {
         this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       } else {
@@ -67,7 +67,7 @@ export class PositioningService {
       }
     });
 
-    fromEvent(window, "resize").subscribe(() => {
+    fromEvent(window, "resize", { passive: true }).subscribe(() => {
       this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
 
       if (window.innerHeight === document.documentElement.scrollHeight) {
