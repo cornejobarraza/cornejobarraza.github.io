@@ -24,13 +24,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.currentApp();
-    localStorage.setItem("currentPage", "1");
 
     if (window.innerWidth < 576) {
-      this.renderer.addClass(this.page2, "hidden-left");
-      this.renderer.addClass(this.page3, "hidden-left");
-      this.renderer.setStyle(this.paragraphs[2], "opacity", "0");
-      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
+      let currentPage = localStorage.getItem("currentPage");
+
+      if (currentPage === "1" || currentPage === "") {
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.removeClass(this.page1, "hidden-right");
+        this.renderer.addClass(this.page2, "hidden-left");
+        this.renderer.removeClass(this.page2, "hidden-right");
+        this.renderer.addClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
+      }
+
+      if (currentPage === "2") {
+        this.renderer.removeClass(this.page2, "hidden-left");
+        this.renderer.removeClass(this.page2, "hidden-right");
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
+      }
+
+      if (currentPage === "3") {
+        this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.addClass(this.page2, "hidden-right");
+        this.renderer.removeClass(this.page2, "hidden-left");
+      }
     }
   }
 
@@ -51,14 +74,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return document.querySelector("#page-3") as HTMLElement;
   }
 
-  get arrows() {
-    return document.querySelector("#scroll-arrows") as HTMLElement;
-  }
-
-  get paragraphs() {
-    return document.querySelectorAll("#aboutText > p");
-  }
-
   // Change layout when resizing
   @HostListener("window:resize", ["$event"])
   onResize() {
@@ -71,45 +86,33 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.removeClass(this.page2, "hidden-right");
       this.renderer.removeClass(this.page3, "hidden-left");
       this.renderer.removeClass(this.page3, "hidden-right");
-      this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
-      this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
-      this.renderer.removeStyle(this.paragraphs[2], "opacity");
     } else {
-      this.renderer.removeClass(this.arrows, "rotate");
-      this.renderer.setStyle(this.paragraphs[2], "opacity", "0");
-      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
-
-      if (currentPage === "1") {
+      if (currentPage === "1" || currentPage === "") {
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.removeClass(this.page1, "hidden-right");
         this.renderer.addClass(this.page2, "hidden-left");
+        this.renderer.removeClass(this.page2, "hidden-right");
         this.renderer.addClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
       }
 
       if (currentPage === "2") {
+        this.renderer.removeClass(this.page2, "hidden-left");
+        this.renderer.removeClass(this.page2, "hidden-right");
         this.renderer.addClass(this.page1, "hidden-right");
-        this.renderer.addClass(this.page3, "hidden=left");
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
       }
+
       if (currentPage === "3") {
+        this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.removeClass(this.page3, "hidden-right");
         this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page1, "hidden-left");
         this.renderer.addClass(this.page2, "hidden-right");
+        this.renderer.removeClass(this.page2, "hidden-left");
       }
-    }
-  }
-
-  // Mobile paragraph swipe handler
-  onSwipeUp(evt: any) {
-    if (window.innerWidth < 576) {
-      this.renderer.addClass(this.arrows, "rotate");
-      this.renderer.removeStyle(this.paragraphs[2], "opacity");
-      this.renderer.removeClass(this.paragraphs[2], "hidden-textDown");
-      this.renderer.addClass(this.paragraphs[0], "hidden-textUp");
-    }
-  }
-
-  onSwipeDown(evt: any) {
-    if (window.innerWidth < 576) {
-      this.renderer.removeClass(this.arrows, "rotate");
-      this.renderer.addClass(this.paragraphs[2], "hidden-textDown");
-      this.renderer.removeClass(this.paragraphs[0], "hidden-textUp");
     }
   }
 

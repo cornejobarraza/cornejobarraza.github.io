@@ -1,7 +1,7 @@
 <div class="col text-center mx-auto">
   <div *ngIf="!winner && !tie; then game; else result"></div>
   <ng-template #game>
-    <span class="badge rounded-pill game fw-bold me-2 mt-xl-3">
+    <span class="badge rounded-pill game fw-bold me-2">
       Current Player:
       <span class="fw-light">
         {{ player }}
@@ -17,7 +17,12 @@
   </ng-template>
   <ng-template #result>
     <div *ngIf="winner; else tie">
-      <span class="badge rounded-pill game fw-bold" @fadeIn>Player {{ winner }} won the game!</span>
+      <div *ngIf="winner === 'X'; else lost">
+        <span class="badge rounded-pill game fw-bold" @fadeIn>You won the game!</span>
+      </div>
+      <ng-template #lost>
+        <span class="badge rounded-pill game fw-bold" @fadeIn>Uh oh, you lost</span>
+      </ng-template>
     </div>
     <ng-template #tie>
       <span class="game" class="badge rounded-pill game fw-bold" @fadeIn>Game Over...</span>

@@ -110,7 +110,7 @@ export class GameComponent implements OnInit {
       }
       this.winner = this.calculateWinner();
       this.tie = this.calculateTie();
-    }, 750);
+    }, 500);
   }
 
   calculateBlock() {
@@ -138,7 +138,7 @@ export class GameComponent implements OnInit {
       }
       this.winner = this.calculateWinner();
       this.tie = this.calculateTie();
-    }, 750);
+    }, 500);
   }
 
   calculateMove() {
@@ -156,7 +156,7 @@ export class GameComponent implements OnInit {
         this.winner = this.calculateWinner();
         this.tie = this.calculateTie();
       }
-    }, 750);
+    }, 500);
   }
 
   calculateWinner() {
