@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (window.innerWidth < 576) {
       let currentPage = localStorage.getItem("currentPage");
 
-      if (currentPage === "1" || currentPage === "") {
+      if (currentPage === "1" || currentPage === null) {
         this.renderer.removeClass(this.page1, "hidden-left");
         this.renderer.removeClass(this.page1, "hidden-right");
         this.renderer.addClass(this.page2, "hidden-left");
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.removeClass(this.page3, "hidden-left");
       this.renderer.removeClass(this.page3, "hidden-right");
     } else {
-      if (currentPage === "1" || currentPage === "") {
+      if (currentPage === "1" || currentPage === null) {
         this.renderer.removeClass(this.page1, "hidden-left");
         this.renderer.removeClass(this.page1, "hidden-right");
         this.renderer.addClass(this.page2, "hidden-left");
