@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
     return document.querySelector("#page-3") as HTMLElement;
   }
 
+  get page4() {
+    return document.querySelector("#page-4") as HTMLElement;
+  }
+
   // Toast notification for mobile
   mobileHowTo() {
     if (window.innerWidth < 576) {
@@ -73,12 +77,30 @@ export class AppComponent implements OnInit {
 
         return;
       }
+
+      if (currentPage === "3") {
+        localStorage.setItem("currentPage", "4");
+
+        this.renderer.removeClass(this.page4, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-right");
+
+        return;
+      }
     }
   }
 
   onSwipeRight(evt: any) {
     if (window.innerWidth < 576) {
       let currentPage = localStorage.getItem("currentPage");
+
+      if (currentPage === "4") {
+        localStorage.setItem("currentPage", "3");
+
+        this.renderer.removeClass(this.page3, "hidden-right");
+        this.renderer.addClass(this.page4, "hidden-left");
+
+        return;
+      }
 
       if (currentPage === "3") {
         localStorage.setItem("currentPage", "2");
