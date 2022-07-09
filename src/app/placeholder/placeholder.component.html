@@ -5,13 +5,12 @@
       <h6 class="m-0">{{ this.title }}</h6>
       <a
         id="aboutJson"
-        class="d-none d-md-block"
         href="https://jsonplaceholder.typicode.com/"
         target="_blank"
         aria-label="About JSON Placeholder card"
         ><i class="fa-solid fa-circle-question fs-6"></i
       ></a>
-      <div id="description" class="d-none d-md-block text-center">
+      <div id="description" class="text-center">
         <a class="text-light" href="https://jsonplaceholder.typicode.com/" target="_blank">
           {{ "{JSON}" }} Placeholder API <i class="fa-solid fa-server"></i>
         </a>
@@ -41,12 +40,5 @@
     <button id="nextJson" type="button" class="btn" (click)="getData(this.next)" aria-label="Next card">
       <i class="fa-solid fa-square-caret-right"></i>
     </button>
-  </div>
-  <div id="description2" class="d-md-none mx-auto text-center">
-    <a class="fw-bold text-light" href="https://jsonplaceholder.typicode.com/" target="_blank">
-      {{ "{JSON}" }} Placeholder API <i class="fa-solid fa-server"></i>
-    </a>
-    <p class="mt-1 mb-0">Set of cards that request fake data</p>
-    <p class="mb-0">using the AJAX model</p>
   </div>
 </div>
