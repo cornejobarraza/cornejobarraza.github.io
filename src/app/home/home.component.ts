@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.currentApp();
 
-    if (window.innerWidth < 576) {
+    if (window.innerWidth <= 576) {
       let currentPage = localStorage.getItem("currentPage");
 
       if (currentPage === "1" || currentPage === null) {
@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page3, "hidden-right");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "2") {
@@ -48,6 +50,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page3, "hidden-right");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "3") {
@@ -59,6 +63,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page2, "hidden-left");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "4") {
@@ -70,6 +76,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page2, "hidden-left");
         this.renderer.addClass(this.page3, "hidden-right");
         this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
+      }
+
+      if (currentPage === "5") {
+        this.renderer.removeClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.addClass(this.page2, "hidden-right");
+        this.renderer.removeClass(this.page2, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-right");
+        this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.addClass(this.page4, "hidden-right");
+        this.renderer.removeClass(this.page4, "hidden-left");
       }
     }
   }
@@ -95,12 +116,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return document.querySelector("#page-4") as HTMLElement;
   }
 
+  get page5() {
+    return document.querySelector("#page-5") as HTMLElement;
+  }
+
   // Change layout when resizing
   @HostListener("window:resize", ["$event"])
   onResize() {
     let currentPage = localStorage.getItem("currentPage");
 
-    if (window.innerWidth > 576) {
+    if (window.innerWidth >= 576) {
       this.renderer.removeClass(this.page1, "hidden-left");
       this.renderer.removeClass(this.page1, "hidden-right");
       this.renderer.removeClass(this.page2, "hidden-left");
@@ -109,6 +134,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.removeClass(this.page3, "hidden-right");
       this.renderer.removeClass(this.page4, "hidden-left");
       this.renderer.removeClass(this.page4, "hidden-right");
+      this.renderer.removeClass(this.page5, "hidden-left");
+      this.renderer.removeClass(this.page5, "hidden-right");
     } else {
       if (currentPage === "1" || currentPage === null) {
         this.renderer.removeClass(this.page1, "hidden-left");
@@ -119,6 +146,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page3, "hidden-right");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "2") {
@@ -130,6 +159,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page3, "hidden-right");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "3") {
@@ -141,6 +172,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page2, "hidden-left");
         this.renderer.addClass(this.page4, "hidden-left");
         this.renderer.removeClass(this.page4, "hidden-right");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
       }
 
       if (currentPage === "4") {
@@ -152,6 +185,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.renderer.removeClass(this.page2, "hidden-left");
         this.renderer.addClass(this.page3, "hidden-right");
         this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.addClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
+      }
+
+      if (currentPage === "5") {
+        this.renderer.removeClass(this.page5, "hidden-left");
+        this.renderer.removeClass(this.page5, "hidden-right");
+        this.renderer.addClass(this.page1, "hidden-right");
+        this.renderer.removeClass(this.page1, "hidden-left");
+        this.renderer.addClass(this.page2, "hidden-right");
+        this.renderer.removeClass(this.page2, "hidden-left");
+        this.renderer.addClass(this.page3, "hidden-right");
+        this.renderer.removeClass(this.page3, "hidden-left");
+        this.renderer.addClass(this.page4, "hidden-right");
+        this.renderer.removeClass(this.page4, "hidden-left");
       }
     }
   }
