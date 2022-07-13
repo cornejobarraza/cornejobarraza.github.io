@@ -20,35 +20,11 @@
     </div>
   </div>
 </div>
-<div class="toast-container position-absolute" style="z-index: 11; right: 0; padding: 0.75rem">
-  <div
-    class="toast"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-    style="width: 18rem; font-weight: bold; border: 1px solid black; background: var(--secondary) !important"
-  >
-    <div class="d-flex">
-      <div class="toast-body"><p class="mb-0">Swipe left or right to navigate</p></div>
-      <button
-        type="button"
-        class="btn-close m-auto me-2"
-        data-bs-dismiss="toast"
-        aria-label="Close"
-        style="box-shadow: none; font-size: 0.75rem"
-      ></button>
-    </div>
-  </div>
-</div>
 <header>
   <nav id="menu" class="navbar">
     <div class="container justify-content-center">
       <div class="col-auto text-center">
-        <a
-          class="navbar-brand text-light d-flex justify-content-center align-items-center"
-          href="/"
-          onclick="localStorage.setItem('currentPage', '1')"
-        >
+        <a class="navbar-brand text-light d-flex justify-content-center align-items-center" href="/">
           <i id="brand-check" class="fa-solid fa-circle-check fs-6"></i>
           <h6 class="fw-bold my-auto ps-2">Project portfolio</h6>
         </a>
@@ -56,7 +32,7 @@
     </div>
   </nav>
 </header>
-<main class="container" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
+<main class="container">
   <router-outlet></router-outlet>
 </main>
 <footer class="d-flex fixed-bottom py-2">
