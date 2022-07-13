@@ -103,7 +103,7 @@ export class GoodnightService {
     // Toggle between dark/light mode
     let prefersLight = this.prefersLight;
 
-    if (prefersLight === "yes" || prefersLight === "") {
+    if (prefersLight === "yes" || prefersLight === "" || prefersLight === null) {
       localStorage.setItem("keepLightMode", "no");
 
       this.lightSwitch.removeChild(this.icon);
