@@ -43,27 +43,26 @@ export class PositioningService {
     return this.html.scrollHeight - (window.scrollY + window.innerHeight);
   }
 
-  get toggles() {
-    return document.querySelector("#toggles") as HTMLElement;
+  get toggle() {
+    return document.querySelector("#lightToggle") as HTMLElement;
   }
 
   setPosition() {
     this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
-    this.renderer.removeClass(this.footer, "fixed-bottom");
 
     if (window.innerHeight === document.documentElement.scrollHeight) {
-      this.renderer.setStyle(this.toggles, "margin-bottom", "40px");
+      this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
     } else {
-      this.renderer.removeStyle(this.toggles, "margin-bottom");
+      this.renderer.removeStyle(this.toggle, "margin-bottom");
     }
 
     let initialHeight = this.main.clientHeight;
 
     fromEvent(window, "scroll", { passive: true }).subscribe(() => {
       if (this.pixelsAway < 40) {
-        this.renderer.setStyle(this.toggles, "margin-bottom", `${40 - this.pixelsAway}px`);
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       } else {
-        this.renderer.removeStyle(this.toggles, "margin-bottom");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
     });
 
@@ -71,19 +70,19 @@ export class PositioningService {
       this.renderer.setStyle(this.main, "min-height", this.customHeight + "px");
 
       if (window.innerHeight === document.documentElement.scrollHeight) {
-        this.renderer.setStyle(this.toggles, "margin-bottom", "40px");
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
       } else {
-        this.renderer.removeStyle(this.toggles, "margin-bottom");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
 
       if (this.pixelsAway < 40) {
-        this.renderer.setStyle(this.toggles, "margin-bottom", `${40 - this.pixelsAway}px`);
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       } else {
-        this.renderer.removeStyle(this.toggles, "margin-bottom");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
 
       if (this.pixelsAway < 1) {
-        this.renderer.setStyle(this.toggles, "margin-bottom", "40px");
+        this.renderer.setStyle(this.toggle, "margin-bottom", "40px");
       }
     });
 
@@ -91,11 +90,11 @@ export class PositioningService {
       const cr = entries[0].contentRect;
 
       if (cr.height !== initialHeight) {
-        this.renderer.removeStyle(this.toggles, "margin-bottom");
+        this.renderer.removeStyle(this.toggle, "margin-bottom");
       }
 
       if (this.pixelsAway < 40) {
-        this.renderer.setStyle(this.toggles, "margin-bottom", `${40 - this.pixelsAway}px`);
+        this.renderer.setStyle(this.toggle, "margin-bottom", `${40 - this.pixelsAway}px`);
       }
     });
 
