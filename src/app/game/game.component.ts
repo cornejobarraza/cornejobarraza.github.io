@@ -49,12 +49,9 @@ export class GameComponent implements OnInit {
 
   progress() {
     this.savePosition = this.position;
-    localStorage.setItem("currentPositions", JSON.stringify(this.savePosition));
   }
 
   newGame() {
-    localStorage.removeItem("currentPositions");
-
     this.squares = Array(9).fill(null);
     this.position = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.xIsNext = Math.random() < 0.5;
