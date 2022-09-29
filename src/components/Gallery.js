@@ -36,7 +36,7 @@ function Gallery() {
             </div>
             <div className="col-5" style={{ display: "grid", placeItems: "center", alignContent: "center" }}>
               <h6 className="mb-3">Dictionary based on a public API</h6>
-              <a href="react/dictionary" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
+              <a href="dictionary" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
                 Try it
               </a>
             </div>
@@ -56,7 +56,7 @@ function Gallery() {
             </div>
             <div className="col-5" style={{ display: "grid", placeItems: "center", alignContent: "center" }}>
               <h6 className="mb-3">Dynamic expenses chart</h6>
-              <a href="react/expenses" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
+              <a href="expenses" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
                 Check it
               </a>
             </div>
