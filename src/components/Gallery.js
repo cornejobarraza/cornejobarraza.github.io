@@ -15,7 +15,7 @@ function Gallery() {
               <img className="img-thumbnail" alt="Redux app screenshot" src="res/images/redux.webp" />
             </div>
             <div className="col-5" style={{ display: "grid", placeItems: "center", alignContent: "center" }}>
-              <h6 className="mb-3">CRUD application using Redux Toolkit and Firebase</h6>
+              <h6 className="mb-3">CRUD app using Redux Toolkit and Firebase</h6>
               <a href="redux" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
                 Test it
               </a>
@@ -35,7 +35,7 @@ function Gallery() {
               <img className="img-thumbnail" alt="Dictionary app screenshot" src="res/images/dictionary.webp" />
             </div>
             <div className="col-5" style={{ display: "grid", placeItems: "center", alignContent: "center" }}>
-              <h6 className="mb-3">English dictionary using a public API</h6>
+              <h6 className="mb-3">Dictionary based on a public API</h6>
               <a href="react/dictionary" className="btn btn-sm" target="_blank" aria-label="Redux dashboard">
                 Try it
               </a>
