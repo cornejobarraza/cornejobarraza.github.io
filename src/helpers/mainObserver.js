@@ -2,8 +2,9 @@ export { mainObserver };
 
 function mainObserver(toggle, element) {
   const ro = new ResizeObserver(() => {
-    // Checks if scrollbar is visible and removes full height so background isn't cropped
+    // Check if scrollbar is visible
     const hasScroll = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+    // Remove HTML full height to avoid background cropping during overlay shifts
     if (hasScroll) {
       document.documentElement.classList.remove("h-100");
       toggle.style.marginBottom = "";
