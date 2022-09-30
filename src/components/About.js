@@ -21,7 +21,7 @@ function About() {
             <i className="fa-brands fa-react"></i>
             <i className="fa-brands fa-github"></i>
           </span>
-          <p className="mb-2">React developer</p>
+          <p className="mb-2">Jr. React developer</p>
           <p className="m-0">
             <a
               href="https://linktr.ee/cornejobarraza"
