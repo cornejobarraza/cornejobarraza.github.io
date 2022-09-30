@@ -18,11 +18,10 @@ function About() {
             <i className="fa-brands fa-html5"></i>
             <i className="fa-brands fa-css3-alt"></i>
             <i className="fa-brands fa-square-js"></i>
-            <i className="fa-brands fa-angular"></i>
             <i className="fa-brands fa-react"></i>
             <i className="fa-brands fa-github"></i>
           </span>
-          <p className="mb-2">Front-end developer</p>
+          <p className="mb-2">React developer</p>
           <p className="m-0">
             <a
               href="https://linktr.ee/cornejobarraza"
@@ -63,8 +62,8 @@ function About() {
           I was definitely drawn and felt what he said resonated a lot with my interests, so once home I went online and
           started reading more about it.{" "}
           <span className="d-block mt-3 d-sm-inline mt-sm-0">
-            My journey to become a web developer started since then, and this website is a way to show myself and others
-            what I've accomplished so far.
+            My journey to become a web developer started since, and this website is a way to show myself and others what
+            I've accomplished so far.
           </span>
         </p>
       </div>
