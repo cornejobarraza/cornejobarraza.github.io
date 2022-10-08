@@ -60,6 +60,10 @@ body {
   color: var(--text);
 }
 
+.gap-6 {
+  gap: 4rem !important;
+}
+
 .fw-bold {
   font-weight: 600 !important;
 }
@@ -67,7 +71,7 @@ body {
 .btn {
   background: var(--headers);
   border: 0;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   color: var(--active);
   font-size: 0.8rem;
   transition: none;
@@ -190,10 +194,6 @@ i {
   .btn:active {
     opacity: 0.9;
   }
-
-  .btn:hover {
-    font-weight: 700;
-  }
 }
 
 .modal-dialog {
@@ -305,7 +305,7 @@ img.pfp {
 
 .about {
   background: var(--secondary);
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   padding: 0.75rem;
 }
