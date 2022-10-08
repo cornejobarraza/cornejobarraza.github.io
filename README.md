@@ -1,5 +1,7 @@
 # Web portfolio
 
-_This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
+Personal website where I showcase my front-end development projects, created with:
 
-This is a website where I showcase what I've learned about web development so far.
+- React 18.2
+- Bootstrap 5.2
+- Font Awesome 6
