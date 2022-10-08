@@ -71,7 +71,7 @@ function App() {
       <nav className="navbar">
         <Navbar />
       </nav>
-      <main className="row gap-5 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5" ref={mainRef}>
+      <main className="row gap-6 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5" ref={mainRef}>
         <About />
         <Gallery />
       </main>
