@@ -15,9 +15,9 @@
 
 :root {
   --light-bg-primary: #e2e8f0;
-  --dark-bg-primary: #001a2c;
-  --light-bg-secondary: #c0cddf;
-  --dark-bg-secondary: #002946;
+  --dark-bg-primary: #121212;
+  --light-bg-secondary: #b0c0d6;
+  --dark-bg-secondary: #3b3b3b;
   --light-txt-primary: #2e3338;
   --dark-txt-primary: #dcddde;
   --light-txt-secondary: black;
@@ -259,6 +259,7 @@ nav .container {
   width: 2.6rem;
   padding: 0;
   z-index: 1;
+  opacity: 0.9;
 }
 
 .lightToggle:focus {
