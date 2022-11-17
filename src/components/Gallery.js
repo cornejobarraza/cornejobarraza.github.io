@@ -5,9 +5,9 @@ function Gallery() {
     <div className="row gap-5 justify-content-center text-center mx-auto">
       <div className="col-xl-3 col-lg-5">
         <div className="row gap-5 justify-content-evenly mx-auto">
-          <div className="col-11 about">
+          <div className="col-10 about">
             <h6 className="m-0">
-              <i className="fa-solid fa-id-card"></i> Redux dashboard
+              <i className="fa-solid fa-id-card"></i> User dashboard
             </h6>
           </div>
           <div className="row justify-content-evenly gap-4">
@@ -36,7 +36,7 @@ function Gallery() {
       </div>
       <div className="col-xl-3 col-lg-5">
         <div className="row gap-5 justify-content-center mx-auto">
-          <div className="col-11 about">
+          <div className="col-10 about">
             <h6 className="m-0">
               <i className="fa-solid fa-spell-check"></i> English dictionary
             </h6>
@@ -67,7 +67,7 @@ function Gallery() {
       </div>
       <div className="col-xl-3 col-lg-5">
         <div className="row gap-5 justify-content-center mx-auto">
-          <div className="col-11 about">
+          <div className="col-10 about">
             <h6 className="m-0">
               <i className="fa-solid fa-chart-simple"></i> Expenses chart
             </h6>
