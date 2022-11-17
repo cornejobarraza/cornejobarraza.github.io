@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { About, Footer, Gallery, LightToggle, Modal, Navbar } from "components";
+import { About, Footer, Gallery, LightToggle, Modal } from "components";
 import { mainObserver, defaultTheme } from "helpers";
 import { usePixelsAway } from "hooks";
 
@@ -68,10 +68,7 @@ function App() {
   return (
     <div className="Portfolio">
       {showModal && <Modal modalRef={modalRef} lightsOn={handleLightsOn} lightsOff={handleLightsOff} />}
-      <nav className="navbar">
-        <Navbar />
-      </nav>
-      <main className="row gap-6 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5" ref={mainRef}>
+      <main className="row gap-5 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5" ref={mainRef}>
         <About />
         <Gallery />
       </main>
