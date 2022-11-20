@@ -20,7 +20,7 @@ function Gallery() {
                 Test it
               </a>
             </div>
-            <div className="col mt-4">
+            <div className="col mt-4 mb-1">
               <a
                 className="btn"
                 style={{ fontSize: "0.8rem" }}
@@ -51,7 +51,7 @@ function Gallery() {
                 Try it
               </a>
             </div>
-            <div className="col mt-4">
+            <div className="col mt-4 mb-1">
               <a
                 className="btn"
                 style={{ fontSize: "0.8rem" }}
@@ -82,7 +82,7 @@ function Gallery() {
                 Check it
               </a>
             </div>
-            <div className="col mt-4">
+            <div className="col mt-4 mb-1">
               <a
                 className="btn"
                 style={{ fontSize: "0.8rem" }}

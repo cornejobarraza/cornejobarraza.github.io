@@ -35,14 +35,14 @@ function About() {
           </p>
         </div>
       </div>
-      <div className="col-xl-6 col-lg-7 col-md-11 text-xl-justify mt-5 mt-lg-0">
+      <div className="col-xl-6 col-lg-7 col-md-11 text-xl-justify mt-5 mt-lg-0 px-4 px-xl-2">
         <h4 className="fw-bold">What is this?</h4>
         <p>
           Great question! So I've always been interested in computers and tech overall, in understanding how things work
-          and in learning about new stuff. <br className="d-sm-none" />
+          and learning new stuff. <br className="d-sm-none" />
           <span className="d-block mt-3 d-sm-inline mt-sm-0">
-            I had the opportunity to study an associate's degree on networks and security, a degree which I had always
-            seen as my dream career path.
+            I had the chance to study an associate's degree on networks and security, a degree which I had always seen
+            as my dream career path.
           </span>
           <span className="d-block my-3 d-sm-none">
             However as time went on, I realized some of my career goals had shifted and I started thinking about what I
