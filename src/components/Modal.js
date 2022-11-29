@@ -1,8 +1,22 @@
 export { Modal };
 
-function Modal({ modalRef, lightsOn, lightsOff }) {
+function Modal() {
+  const handleLightsOn = () => {
+    localStorage.setItem("keepLightMode", "yes");
+    document.querySelector(".lightToggle").style.opacity = "1";
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("toggledLight");
+    document.querySelector("#myModal").remove();
+  };
+
+  const handleLightsOff = () => {
+    localStorage.setItem("keepLightMode", "no");
+    document.querySelector(".lightToggle").style.opacity = "1";
+    document.querySelector("#myModal").remove();
+  };
+
   return (
-    <div className="modal fade" ref={modalRef}>
+    <div id="myModal" className="modal fade">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
@@ -14,20 +28,18 @@ function Modal({ modalRef, lightsOn, lightsOff }) {
           </div>
           <div className="modal-footer">
             <button
-              type="button"
               className="btn btn-sm"
               data-bs-dismiss="modal"
               aria-label="Enable light mode"
-              onClick={lightsOn}
+              onClick={handleLightsOn}
             >
               Not nice
             </button>
             <button
-              type="button"
               className="btn btn-sm"
               data-bs-dismiss="modal"
               aria-label="Keep dark mode"
-              onClick={lightsOff}
+              onClick={handleLightsOff}
             >
               Nice
             </button>
