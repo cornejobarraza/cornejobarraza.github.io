@@ -1,5 +1,4 @@
 export * from "./Modal";
 export * from "./Footer";
-export * from "./About";
-export * from "./Gallery";
+export * from "./Content";
 export * from "./LightToggle";

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { About, Footer, Gallery, LightToggle, Modal } from "components";
+import { Modal, Content, Footer, LightToggle } from "components";
 import { mainObserver, defaultTheme } from "utils";
 
 function App() {
@@ -13,13 +13,8 @@ function App() {
   return (
     <div className="Portfolio">
       {!themePreference && <Modal />}
-      <main className="row gap-5 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5">
-        <About />
-        <Gallery />
-      </main>
-      <footer className="d-flex mt-auto py-2">
-        <Footer />
-      </footer>
+      <Content />
+      <Footer />
       <LightToggle />
     </div>
   );
