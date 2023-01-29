@@ -14,10 +14,10 @@
 }
 
 :root {
-  --light-bg-primary: #e2e8f0;
-  --dark-bg-primary: #121212;
-  --light-bg-secondary: #c0cddf;
-  --dark-bg-secondary: #2c2c2c;
+  --light-bg-primary: #f5f7fa;
+  --dark-bg-primary: #1f2933;
+  --light-bg-secondary: #cbd2d9;
+  --dark-bg-secondary: #3e4c59;
   --light-txt-primary: #2e3338;
   --dark-txt-primary: #dcddde;
   --light-txt-secondary: black;
@@ -155,7 +155,7 @@ nav .container {
 
 .lightToggle {
   align-items: center;
-  background-color: #198739 !important;
+  background-color: black !important;
   border-radius: 50%;
   bottom: 1rem;
   display: flex;
@@ -174,12 +174,12 @@ nav .container {
 }
 
 .lightToggle:hover {
-  background-color: #198739 !important;
+  background-color: black !important;
 }
 
 @media (pointer: fine) {
   .lightToggle:hover {
-    background-color: #198739 !important;
+    background-color: black !important;
   }
 }
 

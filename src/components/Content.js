@@ -1,7 +1,7 @@
 export function Content() {
   return (
     <main className="row gap-5 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5">
-      <div className="row justify-content-center justify-content-lg-evenly justify-content-xl-center align-items-center text-center mx-auto">
+      <div className="row gap-5 justify-content-center justify-content-lg-evenly justify-content-xl-center align-items-center text-center mx-auto">
         <Profile />
         <Story />
       </div>
@@ -12,7 +12,7 @@ export function Content() {
 
 function Profile() {
   return (
-    <div className="col-lg-3 col-md-5 justify-content-center">
+    <div className="col-lg-2 col-md-5 justify-content-center">
       <img
         src="res/images/pfp.webp"
         className="img-thumbnail rounded-circle pfp mx-auto"
@@ -49,7 +49,7 @@ function Profile() {
 
 function Story() {
   return (
-    <div className="col-xl-6 col-lg-7 col-md-11 text-xl-justify mt-5 mt-lg-0 px-4 px-xl-2">
+    <div className="col-xl-6 col-lg-7 col-md-11 text-xl-justify px-4 px-xl-2">
       <h4 className="fw-bold">What is this?</h4>
       <p>
         Great question! So I've always been interested in computers and tech overall, in understanding how things work
