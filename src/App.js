@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Modal, Content, Footer, LightToggle } from "components";
+import { Modal, Content, LightToggle } from "components";
 import { mainObserver, defaultTheme } from "utils";
 
 function App() {
@@ -9,12 +9,12 @@ function App() {
   }, []);
 
   const themePreference = localStorage.getItem("keepLightMode");
+  const darkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   return (
     <div className="Portfolio">
-      {!themePreference && <Modal />}
+      {!themePreference && darkScheme && <Modal />}
       <Content />
-      <Footer />
       <LightToggle />
     </div>
   );

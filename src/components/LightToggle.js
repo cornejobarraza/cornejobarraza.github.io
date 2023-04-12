@@ -19,31 +19,40 @@ function LightToggle() {
     // Toggle between dark/light mode
     const keepLightMode = localStorage.getItem("keepLightMode");
 
+    // Element variables
+    const html = document.documentElement;
+    const toggleIcon = document.querySelector("#lightToggle").querySelector("i");
+
     if (keepLightMode === "yes" || keepLightMode === "" || keepLightMode === null) {
       localStorage.setItem("keepLightMode", "no");
 
-      document.documentElement.classList.remove("toggledLight");
-      document.documentElement.classList.add("toggledDark");
-      document.documentElement.classList.add("dark");
+      html.classList.remove("toggledLight");
+      html.classList.add("toggledDark");
+      html.classList.add("dark");
+      toggleIcon.classList.remove("fa-toggle-on");
+      toggleIcon.classList.add("fa-toggle-off");
     }
 
     if (keepLightMode === "no") {
       localStorage.setItem("keepLightMode", "yes");
 
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.remove("toggledDark");
-      document.documentElement.classList.add("toggledLight");
+      html.classList.remove("dark");
+      html.classList.remove("toggledDark");
+      html.classList.add("toggledLight");
+      toggleIcon.classList.remove("fa-toggle-off");
+      toggleIcon.classList.add("fa-toggle-on");
     }
   };
 
   return (
     <button
-      className="lightToggle btn btn-sm"
+      id="lightToggle"
+      className="btn btn-sm"
       aria-label="Dark/light mode toggle"
       onClick={handleTheme}
       ref={toggleRef}
     >
-      <i className="fa-solid fa-cloud-sun"></i>
+      <i className="fa-solid fa-toggle-off"></i>
     </button>
   );
 }

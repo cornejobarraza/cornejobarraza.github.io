@@ -37,10 +37,9 @@
     ></script>
     <script src="https://kit.fontawesome.com/9179da1dfb.js" crossorigin="anonymous"></script>
     <script>
-      let darkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      let prefersLight = localStorage.getItem("keepLightMode");
+      const prefersLight = localStorage.getItem("keepLightMode");
 
-      if (darkScheme === true || prefersLight === "no") {
+      if (prefersLight === "no") {
         document.documentElement.classList.add("dark");
       }
     </script>

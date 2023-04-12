@@ -153,7 +153,7 @@ nav .container {
   padding-right: var(--bs-gutter-x, 1.25rem);
 }
 
-.lightToggle {
+#lightToggle {
   align-items: center;
   background-color: black !important;
   border-radius: 50%;
@@ -168,17 +168,17 @@ nav .container {
   z-index: 1;
 }
 
-.lightToggle > i {
+#lightToggle > i {
   color: white !important;
   font-size: 1.1rem !important;
 }
 
-.lightToggle:hover {
+#lightToggle:hover {
   background-color: black !important;
 }
 
 @media (pointer: fine) {
-  .lightToggle:hover {
+  #lightToggle:hover {
     background-color: black !important;
   }
 }

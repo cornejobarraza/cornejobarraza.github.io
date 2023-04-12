@@ -1,9 +1,15 @@
+import { useEffect } from "react";
+
 export { Modal };
 
 function Modal() {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+
   const handleLightsOn = () => {
     localStorage.setItem("keepLightMode", "yes");
-    document.querySelector(".lightToggle").style.opacity = "1";
+    document.querySelector("#lightToggle").style.opacity = "1";
     document.documentElement.classList.remove("dark");
     document.documentElement.classList.add("toggledLight");
     document.querySelector("#myModal").remove();
@@ -11,7 +17,7 @@ function Modal() {
 
   const handleLightsOff = () => {
     localStorage.setItem("keepLightMode", "no");
-    document.querySelector(".lightToggle").style.opacity = "1";
+    document.querySelector("#lightToggle").style.opacity = "1";
     document.querySelector("#myModal").remove();
   };
 
