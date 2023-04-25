@@ -75,7 +75,7 @@ function Content() {
             icon="fa-address-card"
             name="User dashboard"
             alt="Redux app screenshot"
-            description="CRUD app using Redux Toolkit and Firebase"
+            description="CRUD app with Redux and Firebase"
             repo="redux"
           />
           <Project
@@ -89,7 +89,7 @@ function Content() {
             icon="fa-chart-simple"
             name="Expenses chart"
             alt="Expenses app screenshot"
-            description="Weekly expenses chart with dynamic data"
+            description="Weekly expenses chart"
             repo="expenses"
           />
         </div>
@@ -133,7 +133,7 @@ function Project({ icon, name, alt, description, repo }) {
               <i className="fa-solid fa-arrow-up-right-from-square" style={{ color: "var(--active)" }}></i>
             </a>
           </div>
-          <div className="col mt-4 mb-1">
+          <div className="col">
             <a
               className="btn"
               style={{ fontSize: "0.8rem" }}
