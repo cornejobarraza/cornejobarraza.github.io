@@ -14,15 +14,14 @@
 }
 
 :root {
-  --light-bg-primary: #f5f7fa;
-  --dark-bg-primary: #1f2933;
-  --light-bg-secondary: #cbd2d9;
-  --dark-bg-secondary: #3e4c59;
-  --light-txt-primary: #2e3338;
-  --dark-txt-primary: #dcddde;
+  --light-bg-primary: #f8f9fa;
+  --dark-bg-primary: #00141f;
+  --light-bg-secondary: #ced4da;
+  --dark-bg-secondary: #00293d;
+  --light-txt-primary: #00293d;
+  --dark-txt-primary: #ced4da;
   --light-txt-secondary: black;
   --dark-txt-secondary: white;
-  --my-i: var(--headers);
   --text: var(--light-txt-primary);
   --active: var(--dark-txt-secondary);
   --headers: var(--light-txt-secondary);
@@ -31,7 +30,6 @@
 }
 
 .dark {
-  --light-toggle: var(--light-bg-primary);
   --text: var(--dark-txt-primary);
   --active: var(--light-txt-secondary);
   --headers: var(--dark-txt-secondary);
@@ -88,10 +86,6 @@ h4,
 h5,
 h6 {
   color: var(--headers);
-}
-
-i {
-  color: var(--my-i);
 }
 
 ::-webkit-scrollbar-thumb:hover {
