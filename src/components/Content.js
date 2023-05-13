@@ -1,6 +1,33 @@
 export { Content };
 
 function Content() {
+  const projects = [
+    {
+      id: 1,
+      icon: "fa-address-card",
+      name: "User dashboard",
+      alt: "Redux app screenshot",
+      description: "CRUD app with Redux and Firebase",
+      repo: "redux",
+    },
+    {
+      id: 2,
+      icon: "fa-spell-check",
+      name: "English dictionary",
+      alt: "Dictionary app screenshot",
+      description: "Dictionary based on a public API",
+      repo: "dictionary",
+    },
+    {
+      id: 3,
+      icon: "fa-chart-simple",
+      name: "Expenses chart",
+      alt: "Expenses app screenshot",
+      description: "Weekly expenses chart",
+      repo: "expenses",
+    },
+  ];
+
   return (
     <>
       <main className="row gap-5 justify-content-evenly overflow-hidden mx-auto flex-shrink-0 my-5">
@@ -71,27 +98,9 @@ function Content() {
           </div>
         </div>
         <div className="row gap-5 justify-content-center text-center mx-auto">
-          <Project
-            icon="fa-address-card"
-            name="User dashboard"
-            alt="Redux app screenshot"
-            description="CRUD app with Redux and Firebase"
-            repo="redux"
-          />
-          <Project
-            icon="fa-spell-check"
-            name="English dictionary"
-            alt="Dictionary app screenshot"
-            description="Dictionary based on a public API"
-            repo="dictionary"
-          />
-          <Project
-            icon="fa-chart-simple"
-            name="Expenses chart"
-            alt="Expenses app screenshot"
-            description="Weekly expenses chart"
-            repo="expenses"
-          />
+          {projects.map((project) => (
+            <Project key={project.id} {...project} />
+          ))}
         </div>
       </main>
       <footer className="d-flex mt-auto py-2">
@@ -114,7 +123,7 @@ function Content() {
   );
 }
 
-function Project({ icon, name, alt, description, repo }) {
+function Project({ id, icon, name, alt, description, repo }) {
   return (
     <div className="col-xl-3 col-lg-5">
       <div className="row gap-5 justify-content-evenly mx-auto">
@@ -129,7 +138,7 @@ function Project({ icon, name, alt, description, repo }) {
           </div>
           <div className="col-5" style={{ display: "grid", placeItems: "center", alignContent: "center" }}>
             <h6 className="mb-3">{description}</h6>
-            <a href={repo} className="btn btn-sm" target="_blank" rel="noreferrer">
+            <a href={repo + (id === 1 ? "/login" : "")} className="btn btn-sm" target="_blank" rel="noreferrer">
               <i className="fa-solid fa-arrow-up-right-from-square" style={{ color: "var(--active)" }}></i>
             </a>
           </div>
