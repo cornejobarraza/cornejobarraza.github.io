@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { Modal, Content, LightToggle } from "components";
-import { mainObserver, defaultTheme } from "utils";
+import { Content, Footer, LightToggle, Modal } from "components";
+import { defaultTheme } from "utils";
 
 function App() {
   useEffect(() => {
     defaultTheme();
-    mainObserver();
   }, []);
 
   const themePreference = localStorage.getItem("keepLightMode");
@@ -15,6 +14,7 @@ function App() {
     <div className="Portfolio">
       {!themePreference && darkScheme && <Modal />}
       <Content />
+      <Footer />
       <LightToggle />
     </div>
   );

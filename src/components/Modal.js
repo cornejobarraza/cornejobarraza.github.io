@@ -30,7 +30,7 @@ function Modal() {
           </div>
           <div className="modal-body">
             <p>Dark mode was applied by default.</p>
-            <p className="mb-1">Click "Not nice" to turn light mode on 💡</p>
+            <p className="mb-0">Click "Not nice" to turn light mode on 💡</p>
           </div>
           <div className="modal-footer">
             <button
