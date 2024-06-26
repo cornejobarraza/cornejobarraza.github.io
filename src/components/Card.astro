@@ -1,20 +1,11 @@
 ---
 import { cn } from '@/utils'
 
-const {
-	as: Tag = 'div',
-	class: className,
-	heading,
-	subheading,
-	date,
-} = Astro.props
+const { as: Tag = 'div', class: className, heading, subheading, date } = Astro.props
 ---
 
 <Tag
-	class={cn(
-		className,
-		'relative rounded-2xl border border-border bg-primary-foreground px-5 py-3'
-	)}
+	class={cn(className, 'relative rounded-2xl border border-border bg-primary-foreground px-5 py-3')}
 >
 	<div class='flex flex-col gap-y-1.5'>
 		<div class='flex flex-col gap-y-0.5'>
