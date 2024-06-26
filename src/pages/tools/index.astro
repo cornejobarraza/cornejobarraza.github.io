@@ -5,57 +5,51 @@ import Button from '@/components/Button.astro'
 
 const DESIGN = [
 	{
-		name: 'Figma',
-		description: 'Design Tool',
-		href: 'https://www.figma.com/',
-		iconPath: 'figma',
-		iconBgColour: '#000001'
+		name: 'Abstract',
+		description: 'Design versioning',
+		href: 'https://www.abstract.com/',
+		iconPath: 'simple-icons:abstract'
 	}
 ]
 
 const PRODUCTIVITY = [
 	{
-		name: 'Arc',
-		description: 'Browser',
-		href: 'https://arc.net/',
-		iconPath: 'arc',
-		iconBgColour: '#414350'
+		name: 'Jira',
+		description: 'Project tracking',
+		href: 'https://www.atlassian.com/software/jira',
+		iconPath: 'simple-icons:jira'
+	},
+	{
+		name: 'Confluence',
+		description: 'Team workspace',
+		href: 'https://www.atlassian.com/software/confluence',
+		iconPath: 'simple-icons:confluence'
 	},
 	{
 		name: 'Notion',
-		description: 'Note Taking',
-		href: 'https://www.notion.so/product',
-		iconPath: 'notion',
-		iconBgColour: '#EFEFEE'
-	},
-	{
-		name: 'Obsidian',
-		description: 'Long-form Writing',
-		href: 'https://obsidian.md/',
-		iconPath: 'obsidian',
-		iconBgColour: '#7A3EE8'
+		description: 'Note taking',
+		href: 'https://www.notion.so/',
+		iconPath: 'simple-icons:notion'
 	}
 ]
 
 const DEVELOPMENT = [
 	{
-		name: 'VS Code',
+		name: 'Visual Studio Code',
 		description: 'IDE',
 		href: 'https://code.visualstudio.com/',
-		iconPath: 'vscode',
-		iconBgColour: '#2C2C32'
+		iconPath: 'simple-icons:visualstudiocode'
 	},
 	{
-		name: 'ChatGPT',
-		description: 'AI',
-		href: 'https://chat.openai.com/',
-		iconPath: 'chatgpt',
-		iconBgColour: '#06A67F'
+		name: 'Docker',
+		description: 'Virtualization',
+		href: 'https://www.docker.com/',
+		iconPath: 'simple-icons:docker'
 	}
 ]
 ---
 
-<PageLayout meta={{ title: 'Home' }}>
+<PageLayout meta={{ title: 'Tools' }}>
 	<div class='w-full'>
 		<Button title='Back' href='/' style='button'>
 			<svg

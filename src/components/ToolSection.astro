@@ -10,7 +10,7 @@ interface Props {
 		description: string
 		href: string
 		iconPath: string
-		iconBgColour: string
+		iconBgColour?: string
 	}[]
 }
 const { class: className, title, tools, ...props } = Astro.props
@@ -28,9 +28,9 @@ const { class: className, title, tools, ...props } = Astro.props
 		{
 			tools.map((tool) => (
 				<a
+					id={tool.name}
 					class='group relative hover:bg-transparent '
 					href={tool.href}
-					id={tool.name}
 					target='_blank'
 				>
 					<div class='relative flex flex-row items-center gap-x-4 px-2 py-0.5 transition-all'>
