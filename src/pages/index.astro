@@ -10,8 +10,8 @@ import { Image } from 'astro:assets'
 import me from '../assets/about-me.webp'
 
 const languages = ['Spanish', 'English (C2)', 'French (A2)']
-const frontend = ['React', 'React Native', 'TypeScript', 'Expo']
-const backend = ['CodeIgniter', 'PHP', 'MySQL', 'Firebase']
+const frontend = ['React', 'React Native', 'TypeScript', 'CodeIgniter']
+const backend = ['Apache', 'MySQL', 'PHP', 'Firebase']
 const others = ['Linux', 'Windows Server', 'Docker']
 ---
 
@@ -28,7 +28,7 @@ const others = ['Linux', 'Windows Server', 'Docker']
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>David Cornejo</h1>
 				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-					<Label title='React TypeScript / Expo Developer'>
+					<Label title='React / React Native Developer'>
 						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'
 							><path
 								fill='currentColor'
@@ -67,21 +67,20 @@ const others = ['Linux', 'Windows Server', 'Docker']
 
 		<Section title='About'>
 			<p class='text-muted-foreground'>
-				Software Developer committed to deploying high quality apps both in features and design
-				using the React and Expo frameworks
+				Software Developer committed to deploying high quality apps both in features and design using the React and React Native frameworks
 			</p>
 		</Section>
 
 		<Section title='Experience'>
 			<Card heading='ITO El Salvador' subheading='Frontend Developer' date='Nov 2022 - Present'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>Software Engineer outsourcing for a US based company</li>
+					<li>Outsourcing for a Telco company based in the United States</li>
 					<li>Mantaining a React micro-frontend and Next.js marketplace app</li>
 				</ul>
 			</Card>
 			<Card heading='Palisades Pups' subheading='Full Stack Developer' date='Dec 2022 - Present'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>Developing a location tracking app, management interface and website</li>
+					<li>Developing a pickup tracking app, management interface and business website</li>
 				</ul>
 			</Card>
 		</Section>
@@ -98,7 +97,7 @@ const others = ['Linux', 'Windows Server', 'Docker']
 			<div class='flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0'>
 				<ProjectCard
 					heading='Bark Bus'
-					subheading='Location tracking app'
+					subheading='Pickup tracking app'
 					imagePath='/src/assets/bark-bus.webp'
 					imageClass='bg-black'
 					altText='Bark Bus app icon'
@@ -118,8 +117,8 @@ const others = ['Linux', 'Windows Server', 'Docker']
 				/>
 				<ProjectCard
 					as='div'
-					heading='Coming soon...'
-					subheading='Your project here'
+					heading='Coming soon!'
+					subheading='Your project here ;)'
 					imagePath='/src/assets/coming-soon.webp'
 					altText='Retro computer graphic'
 					class='w-full sm:w-1/2'
