@@ -37,7 +37,6 @@ if (isLocalImage && !images[imagePath]) {
 		src={isLocalImage ? images[imagePath]() : imagePath}
 		alt={altText}
 		class={cn(imageClass, 'h-48 w-full rounded-2xl rounded-bl-none rounded-br-none object-contain')}
-		loading='eager'
 		inferSize={!isLocalImage}
 	/>
 	<div class='flex flex-col gap-y-0.5 px-5 py-4'>
