@@ -43,6 +43,7 @@
   const copyright = document.querySelector('#copyright');
 
   if (copyright) {
-    copyright.innerHTML = new Date().getFullYear();
+    const year = new Date().getFullYear();
+    copyright.innerHTML = year.toString();
   }
 </script>
