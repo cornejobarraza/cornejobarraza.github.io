@@ -18,11 +18,7 @@ const others = ['Linux', 'Docker']
 <PageLayout meta={{ title: 'Portfolio' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
-			<Image
-				src={me}
-				alt="David's profile picture"
-				class='h-28 w-auto rounded-full'
-			/>
+			<Image src={me} alt="David's profile picture" class='h-28 w-auto rounded-full' />
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>David Cornejo</h1>
@@ -66,8 +62,9 @@ const others = ['Linux', 'Docker']
 
 		<Section title='About'>
 			<p class='text-muted-foreground'>
-				I'm a software developer and frontend enthusiast. I create and maintain scalable apps using React and React Native
-				for powerful user experiences and build out infrastructure using technologies like Apache, MySQL and PHP
+				I'm a software developer and frontend enthusiast. I create and maintain scalable apps using
+				React and React Native for powerful user experiences and build out infrastructure using
+				technologies like Apache, MySQL and PHP
 			</p>
 		</Section>
 
@@ -92,7 +89,7 @@ const others = ['Linux', 'Docker']
 		<Section title='Education'>
 			<Card
 				heading='ITCA-FEPADE'
-				subheading="Associate Degree, Network and System Administration/Administrator"
+				subheading='Associate Degree, Network and System Administration/Administrator'
 				date='2020 - 2021'
 			/>
 		</Section>
@@ -103,7 +100,7 @@ const others = ['Linux', 'Docker']
 					heading='expo-libvlc-player'
 					subheading='LibVLC Player for Expo'
 					imagePath='https://images.videolan.org/images/VLC-IconSmall.png'
-					imageClass='bg-white p-8'
+					imageClass='bg-white p-8 md:p-10'
 					altText='VLC icon'
 					class='w-full sm:w-1/2'
 					href='https://github.com/cornejobarraza/expo-libvlc-player'
@@ -113,7 +110,7 @@ const others = ['Linux', 'Docker']
 					heading='Bark Bus'
 					subheading='Pickup tracking app'
 					imagePath='/src/assets/bark-bus.webp'
-					imageClass='bg-black'
+					imageClass='bg-black p-2'
 					altText='Bark Bus app icon'
 					class='w-full sm:w-1/2'
 					href='https://palisadespups.biz/bark-bus'
@@ -123,7 +120,7 @@ const others = ['Linux', 'Docker']
 					heading='Palisades Pups'
 					subheading='Business website'
 					imagePath='/src/assets/palisades-pups.webp'
-					imageClass='bg-[#1f1411] p-2'
+					imageClass='bg-[#1f1411]'
 					altText='Palisades Pups banner'
 					class='w-full sm:w-1/2'
 					href='https://palisadespups.biz/'
@@ -131,11 +128,11 @@ const others = ['Linux', 'Docker']
 				/>
 				<ProjectCard
 					as='div'
-					heading='Coming Soon'
-					subheading='Your project here'
-					imagePath='/src/assets/coming-soon.webp'
-					imageClass="bg-[#f7cce8] p-4"
-					altText='Retro computer graphic'
+					heading='Got an idea?'
+					subheading="Let's build it out"
+					imagePath='/src/assets/react-native.webp'
+					imageClass='bg-black !object-cover'
+					altText='React Native graphic'
 					class='w-full sm:w-1/2'
 				/>
 			</div>
