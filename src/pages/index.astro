@@ -16,9 +16,9 @@ const others = ['Linux', 'Docker']
 ---
 
 <PageLayout meta={{ title: 'Portfolio' }}>
-	<div class='flex w-full flex-col gap-y-10'>
+	<div class='mb-24 flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
-			<Image src={me} alt="David's profile picture" class='h-28 w-auto rounded-full' />
+			<Image src={me} alt="David's profile picture" class='h-32 w-auto rounded-full' />
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>David Cornejo</h1>
@@ -100,7 +100,7 @@ const others = ['Linux', 'Docker']
 					heading='expo-libvlc-player'
 					subheading='LibVLC Player for Expo'
 					imagePath='https://images.videolan.org/images/VLC-IconSmall.png'
-					imageClass='bg-white p-8 md:p-20 lg:p-10'
+					imageClass='bg-white p-8 md:p-[86px] lg:p-11'
 					altText='VLC icon'
 					class='w-full'
 					href='https://github.com/cornejobarraza/expo-libvlc-player'
@@ -110,7 +110,7 @@ const others = ['Linux', 'Docker']
 					heading='Bark Bus'
 					subheading='Pickup tracking app'
 					imagePath='/src/assets/bark-bus.webp'
-					imageClass='bg-black p-4 md:p-12 lg:p-4'
+					imageClass='bg-black p-4 md:p-16 lg:p-7'
 					altText='Bark Bus app icon'
 					class='w-full'
 					href='https://palisadespups.biz/bark-bus'
@@ -127,13 +127,13 @@ const others = ['Linux', 'Docker']
 					target='_blank'
 				/>
 				<ProjectCard
-					as='div'
-					heading='Got an idea?'
-					subheading="Let's build it out"
+					heading='Have an idea?'
+					subheading="Let's make it real"
 					imagePath='/src/assets/react-native.webp'
 					imageClass='bg-black !object-cover'
 					altText='React Native graphic'
 					class='w-full'
+					href="mailto:davidcornejo1@live.com?subject=I%20have%20an%20idea%2C%20let's%20make%20it%20real"
 				/>
 			</div>
 		</Section>
