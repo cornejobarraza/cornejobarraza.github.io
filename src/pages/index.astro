@@ -7,7 +7,7 @@ import Label from '../components/Label.astro'
 import SkillLayout from '../components/SkillLayout.astro'
 
 import { Image } from 'astro:assets'
-import me from '../assets/about-me.webp'
+import aboutMe from '../assets/about-me.webp'
 
 const languages = ['Spanish', 'English']
 const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
@@ -16,7 +16,7 @@ const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
 <PageLayout meta={{ title: 'Portfolio' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
-			<Image src={me} alt="David's profile picture" class='h-32 w-auto rounded-full' />
+			<Image src={aboutMe} alt="David's profile picture" class='h-32 w-auto rounded-full' />
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>David Cornejo</h1>
@@ -60,8 +60,8 @@ const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
 
 		<Section title='About'>
 			<p class='text-muted-foreground'>
-				Software developer and frontend enthusiast building scalable apps using
-				React and React Native to create meaningful user experiences
+				Software developer and frontend enthusiast building scalable apps using React and React
+				Native to create meaningful user experiences
 			</p>
 		</Section>
 
@@ -114,23 +114,13 @@ const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
 					target='_blank'
 				/>
 				<ProjectCard
-					heading='Palisades Pups'
-					subheading='Business website'
-					imagePath='/src/assets/palisades-pups.webp'
-					imageClass='bg-[#1f1411]'
-					altText='Palisades Pups banner'
-					class='w-full'
-					href='https://palisadespups.biz/'
-					target='_blank'
-				/>
-				<ProjectCard
 					heading='Have an idea?'
 					subheading="Let's make it real"
 					imagePath='/src/assets/react-native.webp'
 					imageClass='bg-black !object-cover'
 					altText='React Native graphic'
 					class='w-full'
-					href="mailto:davidcornejo1@live.com?subject=I%20have%20an%20idea%2C%20let's%20make%20it%20real"
+					href='mailto:davidcornejo1@live.com?subject=I%20have%20an%20idea%2C%20help%20me%20make%20it%20real'
 				/>
 			</div>
 		</Section>
@@ -146,5 +136,6 @@ const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
 		<Section title='Skills'>
 			<SkillLayout title='Languages' skills={languages} />
 			<SkillLayout title='Development' skills={development} />
+		</Section>
 	</div>
 </PageLayout>
