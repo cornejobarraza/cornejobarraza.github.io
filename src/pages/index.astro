@@ -9,10 +9,8 @@ import SkillLayout from '../components/SkillLayout.astro'
 import { Image } from 'astro:assets'
 import me from '../assets/about-me.webp'
 
-const languages = ['Spanish', 'English (C2)']
-const frontend = ['React', 'React Native', 'TypeScript']
-const backend = ['Apache', 'MySQL', 'PHP']
-const others = ['Linux', 'Docker']
+const languages = ['Spanish', 'English']
+const development = ['React', 'React Native', 'TypeScript', 'Kotlin', 'Swift']
 ---
 
 <PageLayout meta={{ title: 'Portfolio' }}>
@@ -62,9 +60,8 @@ const others = ['Linux', 'Docker']
 
 		<Section title='About'>
 			<p class='text-muted-foreground'>
-				I'm a software developer and frontend enthusiast. I create and maintain scalable apps using
-				React and React Native for powerful user experiences and build out infrastructure using
-				technologies like Apache, MySQL and PHP
+				Software developer and frontend enthusiast building scalable apps using
+				React and React Native for meaningful user experiences
 			</p>
 		</Section>
 
@@ -148,9 +145,6 @@ const others = ['Linux', 'Docker']
 
 		<Section title='Skills'>
 			<SkillLayout title='Languages' skills={languages} />
-			<SkillLayout title='Frontend' skills={frontend} />
-			<SkillLayout title='Backend' skills={backend} />
-			<SkillLayout title='Others' skills={others} />
-		</Section>
+			<SkillLayout title='Development' skills={development} />
 	</div>
 </PageLayout>
