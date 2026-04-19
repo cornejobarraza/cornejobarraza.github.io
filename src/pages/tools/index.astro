@@ -20,33 +20,19 @@ const DESIGN = [
 
 const PRODUCTIVITY = [
 	{
-		name: 'Jira',
-		description: 'Project tracking',
-		href: 'https://www.atlassian.com/software/jira',
-		iconPath: 'simple-icons:jira'
-	},
-	{
 		name: 'Confluence',
 		description: 'Team workspace',
 		href: 'https://www.atlassian.com/software/confluence',
 		iconPath: 'simple-icons:confluence'
 	},
+	{
+		name: 'Jira',
+		description: 'Project tracking',
+		href: 'https://www.atlassian.com/software/jira',
+		iconPath: 'simple-icons:jira'
+	},
 ]
 
-const DEVELOPMENT = [
-	{
-		name: 'Visual Studio Code',
-		description: 'IDE / Editor',
-		href: 'https://code.visualstudio.com/',
-		iconPath: 'simple-icons:visualstudiocode'
-	},
-	{
-		name: 'Docker',
-		description: 'Virtualization',
-		href: 'https://www.docker.com/',
-		iconPath: 'simple-icons:docker'
-	},
-]
 ---
 
 <PageLayout meta={{ title: 'Tools' }}>
@@ -75,7 +61,6 @@ const DEVELOPMENT = [
 
 			<ToolSection title='Design' tools={DESIGN} />
 			<ToolSection title='Productivity' tools={PRODUCTIVITY} />
-			<ToolSection title='Development' tools={DEVELOPMENT} />
 		</div>
 	</div>
 </PageLayout>
