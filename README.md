@@ -1,3 +1,3 @@
-### Built using Astro 🚀
+### Built with Astro 🚀
 
-Template credits go to [astro-theme-resume](https://github.com/srleom/astro-theme-resume)
+Template from [astro-theme-resume](https://github.com/srleom/astro-theme-resume)
